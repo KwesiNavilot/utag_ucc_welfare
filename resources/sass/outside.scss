@@ -1,0 +1,87 @@
+//variables
+@import "partials/variables";
+
+body {
+    background: $bd-background;
+    color: $tx-color;
+    font-family: $open-sans;
+    position: relative;
+}
+
+//section
+@import "partials/section";
+
+//header
+@import "partials/header";
+
+//forward
+@import "partials/forward";
+
+//claims
+@import "partials/claims";
+
+//forms
+@import "partials/forms";
+
+///Rounded Button
+.rounded-button {
+    margin-left: 25px;
+    background: #1977cc;
+    color: $white;
+    border-radius: 50px;
+    padding: 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.rounded-button:hover {
+    background: #166ab5;
+    color: $white;
+    text-decoration: none;
+}
+
+//contact
+#contact {
+    i {
+        font-size: 20px;
+        color: $blue;
+        float: left;
+        width: 44px;
+        height: 44px;
+        background: #e3f0fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    h4 {
+        padding: 0 0 0 60px;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #37423b;
+    }
+
+    & .address, & .email, & .phone {
+        p {
+            padding: 0 0 0 60px;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #657a6d;
+        }
+    }
+
+    & .address:hover i, & .email:hover i, & .phone:hover i {
+        background: $blue;
+        color: $white;
+    }
+}
+
+#footer {
+    background: #f1f7fd;
+}
+

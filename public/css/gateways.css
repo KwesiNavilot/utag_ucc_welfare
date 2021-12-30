@@ -1,0 +1,97 @@
+form .form-group {
+  padding-bottom: 8px;
+}
+form input {
+  height: 44px !important;
+}
+form .form-control {
+  box-shadow: none;
+  font-size: 15px;
+  border-radius: 0;
+}
+form .form-control:focus, form .form-control:focus-within {
+  border: 2px #2487ce solid;
+  outline: none;
+  box-shadow: none;
+}
+form textarea {
+  resize: none;
+}
+form button[type=submit], form input[type=submit],
+form .util-btn {
+  background: #1977cc;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 0.25rem;
+}
+form button[type=submit]:hover, form input[type=submit]:hover,
+form .util-btn:hover {
+  background: #2f365f;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.mx-8 {
+  margin-left: 8rem !important;
+  margin-right: 8rem !important;
+}
+
+.border-b-2 {
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.bg-indigo {
+  background-color: #2f365f;
+}
+
+.text-gray {
+  color: #334155;
+}
+
+.gateway-form {
+  margin: 10% 0 0;
+}
+
+.gateway-inner {
+  margin: 5% 0;
+}
+.gateway-inner .card {
+  border-radius: 0.5rem;
+}
+
+.check-container {
+  display: block;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.check-container input {
+  cursor: pointer;
+  height: inherit !important;
+}
+
+.logo {
+  padding: 15px 0;
+  background: transparent;
+}
+.logo h1 {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.logo h1 a {
+  color: #fff;
+  text-decoration: none;
+}

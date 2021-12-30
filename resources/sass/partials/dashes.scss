@@ -1,0 +1,42 @@
+.dash-lane {
+    .dash {
+        text-align: right;
+        padding: 0 15px 10px !important;
+        border-radius: 5px;
+        background: $white;
+        max-width: 23.5% !important;
+
+        .dash-figure {
+            font-weight: normal;
+            text-align: center;
+            font-size: 50px;
+            color: $indigo;
+        }
+
+        & hr {
+            margin: 0;
+            border-color: #F1EAE0;
+        }
+
+        .dash-header {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $indigo;
+        }
+
+        &:first-child {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+
+        &:nth-child(2), &:nth-child(3) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+    }
+}

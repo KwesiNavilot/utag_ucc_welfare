@@ -1,0 +1,14 @@
+#forward {
+    width: 100%;
+    height: 80vh;
+    background: url('/images/img.png') top center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    margin-top: 5%;
+
+    .make-claim {
+        margin: 1% 0;
+        padding: 10px 25px;
+    }
+}

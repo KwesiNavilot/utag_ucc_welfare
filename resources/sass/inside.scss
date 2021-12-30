@@ -1,0 +1,203 @@
+//sidebar
+@import "partials/sidebar";
+
+//claims
+@import "partials/claims";
+
+//forms
+@import "partials/forms";
+
+//dashes
+@import "partials/dashes";
+
+body {
+    background: $inside-bg;
+    font-family: $cerebri-sans;
+    font-size: 1rem;
+
+    .fs-20 {
+        font-size: 20px;
+    }
+}
+
+.top-nav {
+    //-webkit-box-shadow: 0 0 11px rgb(0 0 0 / 13%) !important;
+    //box-shadow: 0 0 11px rgb(0 0 0 / 13%);
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.marg::after {
+    content: "";
+    display: block;
+    clear: both;
+    margin-bottom: 4% !important;
+}
+
+.content {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-left: 18%;
+    top: 9%;
+    transition: margin-left .5s;
+
+    .icon-box {
+        box-shadow: none;
+    }
+
+    .icon-boxes a:link, .icon-boxes a:hover,
+    .icon-boxes a:active, .icon-boxes a:visited {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ///Rounded Button
+    .util-btn {
+        background: #1977cc;
+        font-size: 15px;
+        padding: 15px 35px;
+        color: $white;
+        transition: 0.4s;
+        border-radius: 0.25rem;
+        text-decoration: none;
+
+        &:hover {
+            background: #2f365f;
+        }
+    }
+
+    .shade {
+        border: 1px solid #e6e6e6;
+        -webkit-box-shadow: 0 0 2px rgb(0 0 0 / 10%);
+        box-shadow: 0 0 2px rgb(0 0 0 / 10%);
+        height: auto;
+        background-color: white;
+        padding: 20px;
+        display: inline-block;
+        border-radius: 0.5rem;
+    }
+
+    .page-header, .section-title,
+    .card-sub {
+        color: $inside-headers;
+    }
+
+    .text-3xl {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    .table-hover tbody {
+        a {
+            padding: 12px 23px !important;
+            color: inherit;
+        }
+
+        tr:hover {
+            background: $inside-bg;
+        }
+    }
+
+    footer {
+        clear: both;
+        background-color: transparent;
+        text-align: center;
+        border-top: 2px solid rgba(152, 166, 173, .2);
+        text-transform: capitalize;
+        padding: 0;
+
+        p {
+            margin: 0;
+            padding: 1% 0;
+            color: gray;
+        }
+    }
+
+    .form-check-input {
+        height: inherit !important;
+    }
+
+    .check-container {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: medium;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin-bottom: 1rem;
+
+        & input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+
+            &:checked ~ .checkmark {
+                background-color: $blue;
+
+                &:after {
+                    display: block;
+                }
+            }
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: $inside-bg;
+
+            &:after {
+                left: 9px;
+                top: 4px;
+                width: 7px;
+                height: 15px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+
+    #upload {
+        display: none;
+    }
+
+    .w-65 {
+        width: 65% !important;
+    }
+
+    .w-30 {
+        width: 30% !important;
+    }
+
+    .rqs-table {
+        & th:first-child {
+            width: 15%;
+        }
+
+        & th:nth-child(2) {
+            width: 25%;
+        }
+
+        & th:nth-child(3) {
+            width: 15%;
+        }
+
+        & th:last-child {
+            width: 25%;
+        }
+    }
+}

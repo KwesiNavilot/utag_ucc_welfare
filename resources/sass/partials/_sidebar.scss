@@ -1,0 +1,53 @@
+//variables
+@import "variables";
+
+.sidebar {
+    background-color: $indigo;
+    position: fixed;
+    display: block;
+    top: 0 !important;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-box-shadow: 0 1px 5px rgb(0 0 0 / 30%);
+    box-shadow: 0 1px 5px rgb(0 0 0 / 30%);
+    -webkit-transition: all 0.3s ease;
+    overflow: auto;
+
+    & .nav-link, .i-hidden-sidebar .navbar-nav .nav-link {
+        font-size: 18px;
+        padding: 12px 10px 12px 25px;
+        color: $white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    & .navbar-nav .nav-link:visited, & .navbar-nav .nav-link:link,
+    .i-hidden-sidebar .navbar-nav .nav-link:visited,
+    .i-hidden-sidebar .navbar-nav .nav-link:link {
+        color: $sb-text;
+        background: transparent;
+    }
+
+    & .nav-item:active {
+        outline: none;
+    }
+
+    & .navbar-nav .nav-link:hover,
+    .i-hidden-sidebar .navbar-nav .nav-link:hover {
+        color: #fff;
+    }
+
+    & .navbar-brand {
+        padding: 1%;
+    }
+
+    & .left-header {
+        padding: 11px;
+        background: $blue;
+    }
+}
+
+.sidebar {
+    max-width: 18% !important;
+    right: 80% !important;
+}

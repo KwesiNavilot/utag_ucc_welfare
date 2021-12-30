@@ -1,0 +1,74 @@
+//variables
+@import "partials/variables";
+
+//forms
+@import "partials/forms";
+
+.text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.mx-8 {
+    margin-left: 8rem !important;
+    margin-right: 8rem !important;
+}
+
+.border-b-2 {
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.bg-indigo {
+    background-color: $indigo;
+}
+
+.text-gray {
+    color: rgba(51,65,85,1);
+}
+
+.gateway-form {
+    margin: 10% 0 0;
+}
+
+.gateway-inner {
+    margin: 5% 0;
+
+    .card {
+        border-radius: 0.5rem;
+    }
+}
+
+.check-container {
+    display: block;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    & input {
+        cursor: pointer;
+        height: inherit !important;
+    }
+}
+
+.logo {
+    padding: 15px 0;
+    background: transparent;
+
+    h1 {
+        font-size: 32px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 1px;
+
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+    }
+}
