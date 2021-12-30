@@ -20,8 +20,10 @@ class CreateAdminsTable extends Migration
             $table->string('firstname', 30);
             $table->string('lastname', 30);
             $table->string('email')->unique();
+//            $table->set('position', ['President', 'Secretary', 'Treasurer', 'Organizer']);
+            $table->string('position', 50);
             $table->string('phonenumber', 10);
-            $table->set('isWebMaster', ['yes', 'no'])->default('no');
+            $table->set('role', ['webmaster', 'president', 'executive'])->default('executive');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -32,8 +34,9 @@ class CreateAdminsTable extends Migration
             'firstname' => 'Andrews',
             'lastname' => 'Ankomahene',
             'email' => 'andrewskwesiankomahene@gmail.com',
+            'position' => 'webmaster',
             'phonenumber' => '0541173963',
-            'isWebMaster' => 'yes',
+            'role' => 'webmaster',
             'password' => Hash::make('God1stnmum')
         ]);
     }

@@ -19,8 +19,9 @@ class AdminFactory extends Factory
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
             'email' => 'executive' . $this->faker->randomNumber(2) . "@ucc.edu.gh",
+            'position' => $this->faker->randomElement(['president', 'secretary', 'treasurer', 'organizer']),
             'phonenumber' => $this->faker->randomElement(['0541234567', '0551234567', '0201234567', '0501234567', '0271234567']),
-            'isWebMaster' => 'no',
+            'role' => $this->faker->randomElement(['president', 'executive']),
             'password' => Hash::make('1122334455')
         ];
     }

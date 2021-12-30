@@ -58,6 +58,11 @@
                     @enderror
                 </div>
 
+                <div class="form-group p-0">
+                    <label for="phonenumber" class="card-sub">Position</label>
+                    <p class="mb-0">{{ \Illuminate\Support\Str::ucfirst($exec->position) }}</p>
+                </div>
+
                 <div class="text-center">
                     <button type="submit">Update Details</button>
                 </div>

@@ -6,19 +6,21 @@
     <h2 class="page-header font-weight-bold mb-lg-4">
         {{ __('Request Information') }}
 
-        @if($request->status == "Pending")
-            <a href="{{ route('execs.requests.update', $request) }}"
-               class="util-btn float-right"
-               onclick="event.preventDefault(); document.getElementById('update-status').submit();">
-                Approve Request
-            </a>
+        @can('approve-request')
+            @if($request->status == "Pending")
+                <a href="{{ route('execs.requests.update', $request) }}"
+                   class="util-btn float-right"
+                   onclick="event.preventDefault(); document.getElementById('update-status').submit();">
+                    Approve Request
+                </a>
 
-            <form id="update-status" action="{{ route('execs.requests.update', $request) }}" method="POST"
-                  class="d-none">
-                @csrf
-                @method('PUT')
-            </form>
-        @endif
+                <form id="update-status" action="{{ route('execs.requests.update', $request) }}" method="POST"
+                      class="d-none">
+                    @csrf
+                    @method('PUT')
+                </form>
+            @endif
+        @endcan
     </h2>
 
     <section class="w-100 marg">
@@ -88,7 +90,7 @@
                 <li class="list-group-item">
                     <medium class="card-sub">Status of Request</medium>
                     <p class="mb-0 mt-1">
-                            {{ $request->status }}
+                        {{ $request->status }}
                         @if($request->status == "Approved")
                             (Approved on {{ \Carbon\Carbon::parse($request->updated_at)->format('jS F, Y') }})
                         @endif
