@@ -114,10 +114,28 @@
                     data-height="69%"
                 @endif>
 
-                <img src="{{ asset('/storage/' . $request->media) }}">
+                @if(\Illuminate\Support\Str::endsWith($request->media, 'pdf'))
+                    <div class="text-center">
+                        <strong>
+                            There are no uploaded images. Please check the PDF section
+                        </strong>
+                    </div>
+                @endif
+
+                @isset($request->media)
+                    <img src="{{ asset('/storage/' . $request->media) }}">
+                @endisset
             </div>
         </div>
     </section>
+
+    @if(\Illuminate\Support\Str::endsWith($request->media, 'pdf'))
+        <section class="clearfix marg">
+            <embed
+                src="{{ asset('/storage/' . $request->media) }}#view=Fit&zoom=scale&toolbar=1&navpanes=1&scrollbar=1&statusbar=1"
+                type="application/pdf" width="100%" height="600px"/>
+        </section>
+    @endif
 
     <section class="clearfix">
         <h4 class="card-sub">{{__('Member Details')}}</h4>

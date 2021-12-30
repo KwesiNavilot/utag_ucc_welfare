@@ -30,5 +30,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('approve-request', function (Admin $admin) {
             return $admin->role === 'president';
         });
+
+        //this gate authorizes the addition of executives. Only the president can add executives
+        Gate::define('add-executives', function (Admin $admin) {
+            return $admin->role === 'president';
+        });
     }
 }
