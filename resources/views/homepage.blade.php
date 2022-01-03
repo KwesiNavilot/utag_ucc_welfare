@@ -164,38 +164,71 @@
                 </div>
 
                 <div class="col-lg-8 mt-5 mt-lg-0">
-                    <form action="#" method="post" role="form" class="php-email-form">
-                        @csrf
-                        <div class="form-row">
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                <div class="validate"></div>
+                    @if(session('contacted'))
+                        <div class="contact-form text-center">
+                            <div class="content-header">
+                                <h4>We are glad you reached out to us!</h4>
                             </div>
 
-                            <div class="col-md-6 form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                                <div class="validate"></div>
+                            <div class="content-form">
+                                <p>
+                                    We'll peruse your message and get back to you as soon as possible.
+                                    <br>
+                                    Thank you &#128522;
+                                </p>
                             </div>
                         </div>
+                    @else
+                        <form action="{{ route('contact') }}" method="post" role="form">
+                            @csrf
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name"
+                                           class="form-control @error('name') is-invalid @enderror"
+                                           value="{{ old('name') }}" placeholder="Enter your name..." required>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                                   data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                            <div class="validate"></div>
-                        </div>
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
 
-                        <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                      data-msg="Please write something for us" placeholder="Message"></textarea>
-                            <div class="validate"></div>
-                        </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                           name="email"
+                                           placeholder="Enter your email..." value="{{ old('email') }}" required>
 
-                        <div class="text-center">
-                            <button type="submit" class="rounded-button">Send Message</button>
-                        </div>
-                    </form>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject"
+                                       value="{{ old('subject') }}" placeholder="Subject" required>
+
+                                @error('subject')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5"
+                                          placeholder="Enter your message..." style="margin-top: 0; margin-bottom: 0;"
+                                          required></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="rounded-button">Send Message</button>
+                            </div>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>

@@ -2,26 +2,25 @@
 
 namespace App\Notifications;
 
-use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NotifyMemberOfAdmission extends Notification implements ShouldQueue
+class ContactUsAcknowledgement extends Notification
 {
     use Queueable;
 
-    public $member;
+    private $data;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(User $member)
+    public function __construct($data)
     {
-        $this->member = $member;
+        $this->data = $data;
     }
 
     /**
@@ -39,16 +38,15 @@ class NotifyMemberOfAdmission extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return MailMessage
+     * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Admission')
-                    ->markdown('notifications.members.memberadmission', [
-                        'name' => $this->member->firstname . " " . $this->member->lastname,
-                        'activate' => route('login')
-                    ]);
+                ->subject('Thanks For Reaching Out!')
+                ->markdown('notifications.members.contactus', [
+                    'name' => $this->data['name']
+                ]);
     }
 
     /**

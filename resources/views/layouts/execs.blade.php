@@ -51,25 +51,7 @@
         @yield('content')
     </div>
 </section>
-
-{{-- Text Editor, only on request --}}
-{{--@if($trigger ?? '' == 'editor')--}}
-{{--    <script src="{{asset('ckeditor5/ckeditor.js')}}"></script>--}}
-{{--    <script>--}}
-{{--        var allEditors = document.querySelectorAll( '#editor' );--}}
-
-{{--        for (var i = 0; i < allEditors.length; i++) {--}}
-{{--            ClassicEditor.create(allEditors[i], {--}}
-{{--                toolbar: {items: ['heading', '|', 'bold', 'italic', 'bulletedList', 'numberedList', '|', "indent", "outdent", "|", 'insertTable', '|', 'undo', 'redo']},--}}
-{{--                table: {contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']}--}}
-{{--            }).then(editor => {--}}
-{{--                console.log(editor);--}}
-{{--            }).catch(error => {--}}
-{{--                console.error(error);--}}
-{{--            });--}}
-{{--        }--}}
-{{--    </script>--}}
-{{--@endif--}}
+</body>
 
 {{-- IziToast --}}
 <script>
@@ -92,16 +74,15 @@
     @case('success')
     iziToast.success({
         message: "{{ session('toast')['message'] }}"
-    })
+    });
     @break
 
     @case('warning')
     iziToast.warning({
         message: "{{ session('toast')['message'] }}"
-    })
+    });
     @break
     @endswitch
     @endif
 </script>
-</body>
 </html>

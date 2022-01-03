@@ -2,26 +2,25 @@
 
 namespace App\Notifications\Executives;
 
-use App\Models\BenefitRequest;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Auth;
 
-class NewBenefitRequest extends Notification
+class ContactUsNotification extends Notification
 {
     use Queueable;
 
-    private $request;
+    public $data;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(BenefitRequest $request)
+    public function __construct($data)
     {
-        $this->request = $request;
+        $this->data = $data;
     }
 
     /**
@@ -44,11 +43,12 @@ class NewBenefitRequest extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Benefit Requested!')
-                    ->markdown('notifications.executives.benefitrequest', [
-                        'member' => $this->request->user->firstname . " " . $this->request->user->lastname,
-                        'request_type' => $this->request->request_type,
-                        'view' => route('execs.requests.show', $this->request->request_id)
+                    ->subject('A Message Came Through The Contact Us Form')
+                    ->markdown('notifications.executives.contact-us', [
+                        'name' => $this->data['name'],
+                        'subject' => $this->data['subject'],
+                        'email' => $this->data['email'],
+                        'message' => $this->data['message']
                     ]);
     }
 

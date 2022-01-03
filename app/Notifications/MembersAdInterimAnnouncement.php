@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NotifyMemberOfRequestUpdate extends Notification implements ShouldQueue
+class MembersAdInterimAnnouncement extends Notification
 {
     use Queueable;
 
@@ -43,21 +43,12 @@ class NotifyMemberOfRequestUpdate extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        if ($this->request->request_type == 'Child Birth'){
-            $view = route('childbirth.show', $this->request->request_id);
-        } elseif ($this->request->request_type == 'Death of Spouse') {
-            $view = route('deathofspouse.show', $this->request->request_id);
-        } else {
-            $view = route('deathofparent.show', $this->request->request_id);
-        }
-
         return (new MailMessage)
-                    ->subject('Your Request Has Been Approved!')
-                    ->markdown('notifications.members.requestapproved', [
-                        'name' => $this->request->user->firstname . " " . $this->request->user->lastname,
-                        'request_type' => $this->request->request_type,
-                        'view' => $view
-                    ]);
+            ->subject('Interim Announcement!')
+            ->markdown('notifications.members.adinterimannouncement', [
+                'name' => $this->request->user->firstname . " " . $this->request->user->lastname,
+                'relative' => $this->relation($this->request->request_type, $this->request->relation)
+            ]);
     }
 
     /**
@@ -71,5 +62,16 @@ class NotifyMemberOfRequestUpdate extends Notification implements ShouldQueue
         return [
             //
         ];
+    }
+
+    public function relation($request_type, $relation)
+    {
+        if ($request_type == "Death of Parent" && $relation == "mother") {
+            return "mother";
+        } elseif ($request_type == "Death of Parent" && $relation == "father") {
+            return "father";
+        } elseif ($request_type == "Death of Spouse") {
+            return "spouse";
+        }
     }
 }

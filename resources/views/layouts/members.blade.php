@@ -71,6 +71,7 @@
 {{--    </script>--}}
 {{--@endif--}}
 
+</body>
 {{-- IziToast --}}
 <script>
     iziToast.settings({
@@ -103,5 +104,4 @@
     @endswitch
     @endif
 </script>
-</body>
 </html>

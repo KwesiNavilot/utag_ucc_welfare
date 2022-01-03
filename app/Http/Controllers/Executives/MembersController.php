@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
 use App\Models\Departments;
 use App\Models\User;
-use App\Notifications\NotifyMemberOfAdmission;
+use App\Notifications\MemberAdmissionNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -69,7 +69,7 @@ class MembersController extends Controller
             'password' => Hash::make($request->staff_id)
         ]);
 
-        $member->notify((new NotifyMemberOfAdmission($member))->delay(10));
+        $member->notify((new MemberAdmissionNotification($member))->delay(10));
 
         $toast = [
             'type' => 'success',

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
 use App\Models\Departments;
 use App\Models\User;
-use App\Notifications\NotifyMemberOfRequestUpdate;
+use App\Notifications\MemberRequestUpdateNotification;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -92,7 +92,7 @@ class RequestsController extends Controller
         $benefitRequest->status = "Approved";
         $benefitRequest->save();
 
-        $benefitRequest->user->notify((new NotifyMemberOfRequestUpdate($benefitRequest))->delay(10));
+        $benefitRequest->user->notify((new MemberRequestUpdateNotification($benefitRequest))->delay(10));
 
         $toast = [
             'type' => 'success',

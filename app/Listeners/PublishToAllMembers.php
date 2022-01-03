@@ -4,7 +4,7 @@ namespace App\Listeners;
 
 use App\Events\BenefitRequestEvent;
 use App\Models\User;
-use App\Notifications\PublishToMembersAdInterim;
+use App\Notifications\MembersAdInterimAnnouncement;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 
@@ -25,7 +25,7 @@ class PublishToAllMembers implements ShouldQueue
     {
         $this->request = $event->request;
 
-        Notification::send(User::all()->except($event->request->staff_id), new PublishToMembersAdInterim($this->request));
+        Notification::send(User::all()->except($event->request->staff_id), new MembersAdInterimAnnouncement($this->request));
     }
 
 //    /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuxController;
 use App\Http\Controllers\Executives\AccountController as ExecsAccountController;
 use App\Http\Controllers\Executives\DashboardController as ExecsDashboardController;
 use App\Http\Controllers\Executives\MembersController;
@@ -35,6 +36,8 @@ Route::middleware('guest:web')->group(function () {
     Route::get('/home', function () {
         return view('homepage');
     })->name('home');
+
+    Route::post('/contact', [AuxController::class, 'contactUs'])->name('contact');
 });
 
 //Routes for members
@@ -99,12 +102,12 @@ Route::prefix('/mailables')->group(function () {
     });
 
     Route::get('/adinterim', function () {
-        $mail = (new App\Notifications\PublishToMembersAdInterim("Andrews", 'mother'))->toMail('a@andy.com');
+        $mail = (new App\Notifications\MembersAdInterimAnnouncement("Andrews", 'mother'))->toMail('a@andy.com');
         return $mail->render();
     });
 
     Route::get('/exec-request', function () {
-        $mail = (new App\Notifications\Executives\NewBenefitRequest('Child Birth', '123567890'))->toMail('a@andy.com');
+        $mail = (new App\Notifications\Executives\NewBenefitRequestNotification('Child Birth', '123567890'))->toMail('a@andy.com');
         return $mail->render();
     });
 });
