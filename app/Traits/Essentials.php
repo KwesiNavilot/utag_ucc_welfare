@@ -97,4 +97,14 @@ trait Essentials
 //            dd($benefitRequest);
         }
     }
+
+//    dd([
+//    'path' => Storage::path($benefitRequest[0]->media),
+//    'url' => Storage::url($benefitRequest[0]->media),
+//    'asset_url' => asset('/storage/' . $benefitRequest[0]->media),
+//    'public_path' => public_path('storage/' . $benefitRequest[0]->media),
+//    'storage_path' => storage_path($benefitRequest[0]->media),
+//    'resource_path' => resource_path($benefitRequest[0]->media),
+//    'base_path' => base_path($benefitRequest[0]->media)
+//    ]);
 }

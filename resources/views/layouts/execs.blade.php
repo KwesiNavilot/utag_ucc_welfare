@@ -53,6 +53,21 @@
 </section>
 </body>
 
+@if($trigger ?? '' == 'editor')
+    <script src="{{asset('js/vendor/ckeditor.js')}}"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                toolbar: {items: ['heading', '|', 'bold', 'italic', 'bulletedList', 'numberedList', '|', "indent", "outdent", '|', 'undo', 'redo']},
+            }).then(editor => {
+            console.log(editor);
+        })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endif
+
 {{-- IziToast --}}
 <script>
     iziToast.settings({

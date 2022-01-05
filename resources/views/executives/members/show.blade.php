@@ -43,7 +43,7 @@
     <section class="clearfix">
         <h4 class="card-sub">{{__("Member's Requests")}}</h4>
 
-        <div class="w-100 bg-white shade p-0 table-responsive">
+        <div class="w-100 bg-white shade table-responsive">
 
             @empty($requests->all())
                 <div>

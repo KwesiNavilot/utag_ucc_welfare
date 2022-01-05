@@ -23,7 +23,7 @@ class CreateAdminsTable extends Migration
 //            $table->set('position', ['President', 'Secretary', 'Treasurer', 'Organizer']);
             $table->string('position', 50);
             $table->string('phonenumber', 10);
-            $table->set('role', ['webmaster', 'president', 'executive'])->default('executive');
+            $table->set('role', ['webmaster', 'president', 'secretary', 'executive'])->default('executive');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

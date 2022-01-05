@@ -1,10 +1,10 @@
-{{--@if(!empty($errors))--}}
-{{--    @foreach($errors->all() as $error)--}}
-{{--        <div class="alert alert-danger">--}}
-{{--            {{$error}}--}}
-{{--        </div>--}}
-{{--    @endforeach--}}
-{{--@endif--}}
+@if(!empty($errors))
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger">
+            {{$error}}
+        </div>
+    @endforeach
+@endif
 
 {{--@if(session('success'))--}}
 {{--    <div class="alert alert-dismissible alert-success">--}}
@@ -29,9 +29,9 @@
 
 {{--@php dd(session()) @endphp--}}
 
-@if(session('toast-message'))
-        <div class="alert alert-dismissible alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{session('toast-message')}}
-        </div>
-@endif
+{{--@if(session('toast-message'))--}}
+{{--        <div class="alert alert-dismissible alert-warning">--}}
+{{--            <button type="button" class="close" data-dismiss="alert">&times;</button>--}}
+{{--            {{session('toast-message')}}--}}
+{{--        </div>--}}
+{{--@endif--}}

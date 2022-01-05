@@ -3,19 +3,21 @@
 @section('title', 'Association Members | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold mb-lg-4">
         {{ __('Members') }}
 
-        <a href="{{ route('execs.members.create') }}" class="util-btn float-right">Add Member</a>
+        @can('add-members')
+            <a href="{{ route('execs.members.create') }}" class="util-btn float-right">Add Member</a>
+        @endcan
     </h2>
 
-{{--    <section class="mb-2 d-flex col">--}}
-{{--        <div class="search-filter">--}}
+    {{--    <section class="mb-2 d-flex col">--}}
+    {{--        <div class="search-filter">--}}
 
-{{--        </div>--}}
+    {{--        </div>--}}
 
-{{--        <a href="{{ route('execs.members.create') }}" class="util-btn float-right">Add Member</a>--}}
-{{--    </section>--}}
+    {{--        <a href="{{ route('execs.members.create') }}" class="util-btn float-right">Add Member</a>--}}
+    {{--    </section>--}}
 
     <section class="bg-white shade w-100 p-0">
         {{--                @dd($members)--}}
@@ -28,42 +30,42 @@
         @if(!empty($members->all()))
             <table class="table table-hover">
                 <thead>
-                    <tr>
-                        <th class="px-lg-4" scope="col">Name</th>
-                        <th class="px-lg-4" scope="col">Department</th>
-                        <th class="px-lg-4" scope="col" colspan="2">Phone Number</th>
-                    </tr>
+                <tr>
+                    <th class="px-lg-4" scope="col">Name</th>
+                    <th class="px-lg-4" scope="col">Department</th>
+                    <th class="px-lg-4" scope="col" colspan="2">Phone Number</th>
+                </tr>
                 </thead>
 
                 <tbody>
-                    @foreach($members as $key=>$member)
-                        <tr>
-                            <td class="p-0">
-                                <a href="{{ route('execs.members.show', $member->staff_id) }}"
-                                   class="d-flex text-decoration-none">
-                                    {{ $member->firstname . " " . $member->lastname }}
-                                </a>
-                            </td>
-                            <td class="p-0">
-                                <a href="{{ route('execs.members.show', $member->staff_id) }}"
-                                   class="d-flex text-decoration-none">
-                                    {{ $member->department }}
-                                </a>
-                            </td>
-                            <td class="p-0">
-                                <a href="{{ route('execs.members.show', $member->staff_id) }}"
-                                   class="d-flex text-decoration-none">
-                                    {{ $member->phonenumber }}
-                                </a>
-                            </td>
-                            <td class="p-0 align-middle">
-                                <a href="{{ route('execs.members.show', $member->staff_id) }}"
-                                   class="d-flex text-decoration-none">
-                                    <i class="icofont-rounded-right"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                @foreach($members as $key=>$member)
+                    <tr>
+                        <td class="p-0">
+                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                               class="d-flex text-decoration-none">
+                                {{ $member->firstname . " " . $member->lastname }}
+                            </a>
+                        </td>
+                        <td class="p-0">
+                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                               class="d-flex text-decoration-none">
+                                {{ $member->department }}
+                            </a>
+                        </td>
+                        <td class="p-0">
+                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                               class="d-flex text-decoration-none">
+                                {{ $member->phonenumber }}
+                            </a>
+                        </td>
+                        <td class="p-0 align-middle">
+                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                               class="d-flex text-decoration-none">
+                                <i class="icofont-rounded-right"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         @endif
