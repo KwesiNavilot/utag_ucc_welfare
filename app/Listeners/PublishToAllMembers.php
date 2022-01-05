@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Notification;
 
 class PublishToAllMembers implements ShouldQueue
 {
-    public $delay = 15;
+    public $delay = 60;
 
     public $tries = 5;
+
+    public $queue = 'bulk-members-email';
 
     public $request;
 
@@ -25,7 +27,9 @@ class PublishToAllMembers implements ShouldQueue
     {
         $this->request = $event->request;
 
-        Notification::send(User::all()->except($event->request->staff_id), new MembersAdInterimAnnouncement($this->request));
+        Notification::send(User::all()->except($event->request->staff_id),
+            (new MembersAdInterimAnnouncement($this->request))->delay(60)
+        );
     }
 
 //    /**

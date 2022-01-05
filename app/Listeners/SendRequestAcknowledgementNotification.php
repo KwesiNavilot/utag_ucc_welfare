@@ -12,6 +12,8 @@ class SendRequestAcknowledgementNotification implements ShouldQueue
 
     public $tries = 5;
 
+    public $queue = 'single-email';
+
     /**
      * @var mixed
      */

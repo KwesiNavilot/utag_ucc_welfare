@@ -119,6 +119,5 @@ class AccountController extends Controller
 
         //get them to login again
         return redirect('/login')->with('relog', 'Log in');
-
     }
 }

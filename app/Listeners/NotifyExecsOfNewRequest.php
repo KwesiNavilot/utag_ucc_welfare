@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Notification;
 
 class NotifyExecsOfNewRequest implements ShouldQueue
 {
-    public $delay = 10;
+    public $delay = 60;
 
     public $tries = 5;
+
+    public $queue = 'bulk-execs-email';
 
     /**
      * Handle the event.

@@ -63,4 +63,12 @@ class MemberAdmissionNotification extends Notification implements ShouldQueue
             //
         ];
     }
+
+    public function viaQueues()
+    {
+        return [
+            'mail' => 'single-email',
+//            'sms' => 'single-sms',
+        ];
+    }
 }

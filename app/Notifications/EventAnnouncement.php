@@ -24,8 +24,6 @@ class EventAnnouncement extends Notification
     {
         $this->announcement = $announcement;
         $this->request = $request;
-//        dd($this->request[0]->media);
-//        dd(storage_path('app/public/' . $this->request[0]->media));
     }
 
     /**
@@ -71,6 +69,14 @@ class EventAnnouncement extends Notification
     {
         return [
             //
+        ];
+    }
+
+    public function viaQueues()
+    {
+        return [
+            'mail' => 'bulk-members-email',
+//            'sms' => 'single-sms',
         ];
     }
 }

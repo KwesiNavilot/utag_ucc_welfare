@@ -72,4 +72,12 @@ class MemberRequestUpdateNotification extends Notification implements ShouldQueu
             //
         ];
     }
+
+    public function viaQueues()
+    {
+        return [
+            'mail' => 'single-email',
+//            'sms' => 'single-sms',
+        ];
+    }
 }

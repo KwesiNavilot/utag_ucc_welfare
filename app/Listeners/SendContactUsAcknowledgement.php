@@ -13,6 +13,8 @@ class SendContactUsAcknowledgement implements ShouldQueue
 
     public $tries = 5;
 
+    public $queue = 'single-email';
+
     /**
      * Handle the event.
      *
