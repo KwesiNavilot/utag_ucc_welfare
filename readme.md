@@ -32,5 +32,5 @@ All security vulnerabilities will be promptly addressed.
 
 ## Acknowledgement
 
-The current release of Cheyn is built using Laravel. Thus, the UTAG-UCC Welfare project team would like to thank the Laravel team, Taylor Otwell and all the
+The current release of the UTAG-UCC Welfare portal is built using Laravel. Thus, the UTAG-UCC Welfare project team would like to thank the Laravel team, Taylor Otwell and all the
 contributors to the Laravel project.
