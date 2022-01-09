@@ -25,6 +25,7 @@ class BenefitRequest extends Model
         'spouse_name',
         'relation',
         'publish',
+        'published',
         'media',
     ];
 

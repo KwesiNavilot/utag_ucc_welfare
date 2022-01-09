@@ -50,11 +50,12 @@ class PublishingController extends Controller
             'message' => ['required']
         ]);
 
-        $benefitRequest = BenefitRequest::with('user')
-                                          ->where('request_id', $request->request_id)
-                                          ->get();
+        //get the request and update it, noting that an announcement has been made
+        $benefitRequest = tap(BenefitRequest::findOrFail($request->request_id)->load('user'))->update([
+            'published' => 'yes'
+        ]);
 
-        //Broadcast the message to all members, except the request's owner.
+//        //Broadcast the message to all members, except the request's owner.
         Notification::send(
             User::all()->except($benefitRequest[0]->user->staff_id),
             (new EventAnnouncement($request, $benefitRequest))->delay(60)
@@ -65,7 +66,7 @@ class PublishingController extends Controller
             'message' => 'The announcement for the request has been sent'
         ];
 
-        return redirect('execs.requests.show', ['request', $benefitRequest])->with('toast', $toast);
+        return redirect()->route('execs.requests.show', ['request' => $benefitRequest])->with('toast', $toast);
     }
 
     /**

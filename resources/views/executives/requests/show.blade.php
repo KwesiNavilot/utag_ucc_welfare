@@ -20,8 +20,12 @@
                     @method('PUT')
                 </form>
             @endif
-        @elsecan('add-members')
-            <a href="{{ route('execs.publish.create', $request) }}" class="util-btn float-right">Create Broadcast</a>
+        @elsecan('create-broadcast')
+            @if($request->published == "no")
+                <a href="{{ route('execs.publish.create', $request) }}" class="util-btn float-right">
+                    Create Broadcast
+                </a>
+            @endif
         @endcan
     </h2>
 
