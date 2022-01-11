@@ -98,7 +98,7 @@
                             @php $link = url('/deathofspouse/' . $request->request_id) @endphp
                             @break
                             @default
-                            @php $link = url('/#') @endphp
+                            @php $link = url('#') @endphp
                             @break
                         @endswitch
 
