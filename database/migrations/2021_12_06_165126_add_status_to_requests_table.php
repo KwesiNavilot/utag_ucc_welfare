@@ -15,8 +15,8 @@ class AddStatusToRequestsTable extends Migration
     {
         Schema::table('requests', function (Blueprint $table) {
             $table->set('status', ['Pending', 'Under Review', 'Reviewed', 'Approved'])
-                    ->default('Pending')
-                    ->after('request_type');
+                ->default('Pending')
+                ->after('request_type');
         });
     }
 
@@ -27,8 +27,10 @@ class AddStatusToRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::table('requests', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        if (Schema::hasColumn('requests', 'status')) {
+            Schema::table('request', function (Blueprint $table) {
+                $table->dropColumn('status');
+            });
+        }
     }
 }

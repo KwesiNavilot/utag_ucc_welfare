@@ -55,10 +55,12 @@ class PublishingController extends Controller
             'published' => 'yes'
         ]);
 
+//        dd($benefitRequest);
+
 //        //Broadcast the message to all members, except the request's owner.
         Notification::send(
-            User::all()->except($benefitRequest[0]->user->staff_id),
-            (new EventAnnouncement($request, $benefitRequest))->delay(60)
+            User::all()->except($benefitRequest->user->staff_id),
+            (new EventAnnouncement($request->all(), $benefitRequest))->delay(60)
         );
 
         $toast = [

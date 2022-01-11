@@ -98,11 +98,13 @@ class AccountController extends Controller
 //        dd($request->all());
 
         $this->validate($request, [
+            'date_of_birth' => ['required', 'date'],
             'password' => ['required', 'alpha_num', 'min:8', 'confirmed']
         ]);
 
         //get the user, update their password and ignition status
         $member = Auth::user();
+        $member->date_of_birth = $request->date_of_birth;
         $member->password = Hash::make($request->password);
         $member->ignited = 'yes';
         $member->save();

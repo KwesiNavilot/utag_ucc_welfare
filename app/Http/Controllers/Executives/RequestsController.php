@@ -7,10 +7,13 @@ use App\Models\BenefitRequest;
 use App\Models\Departments;
 use App\Models\User;
 use App\Notifications\MemberRequestUpdateNotification;
+use App\Traits\Essentials;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
 {
+    use Essentials;
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +25,6 @@ class RequestsController extends Controller
                                     ->get(['request_id', 'staff_id', 'request_type', 'status', 'created_at'])
                                     ->paginate(25);
 
-//        dd($requests);
-
         return view('executives.requests.index', ['requests' => $requests]);
     }
 
@@ -34,7 +35,7 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        //
+        return view('executives.requests.demise', ['departments' => Departments::all()]);
     }
 
     /**
@@ -45,7 +46,32 @@ class RequestsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->all());
+
+        $this->validate($request, [
+            'staff_id' => ['required', 'string', 'size:8'],
+            'funeral_date' => ['required', 'date'],
+            'poster' => ['sometimes', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
+        ]);
+
+        $benefitRequest = BenefitRequest::create([
+            'request_id' => $this->generateRequestId(),
+            'staff_id' => $request->staff_id,
+            'request_type' => 'Death of Member',
+            'funeral_date' => $request->funeral_date,
+            'media' => $request->poster
+        ]);
+
+        if ($request->hasFile('poster')) {
+            $this->updateMedia($benefitRequest);
+        }
+
+        $toast = [
+            'type' => 'success',
+            'message' => 'You have successfully marked the demise of a member'
+        ];
+
+        return redirect()->route('execs.requests.index')->with('toast', $toast);
     }
 
     /**
@@ -59,8 +85,6 @@ class RequestsController extends Controller
     {
         $request = $request->load('user');
         $department = Departments::where('short', $request->user->department)->get(['name']);
-
-//        dd($request);
 
         return view('executives.requests.show', [
             'request' => $request,

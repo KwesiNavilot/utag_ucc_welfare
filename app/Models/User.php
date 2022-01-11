@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Departments::class, 'short', 'department');
     }
+
+    public function scopeRetiree($query)
+    {
+        return $query->where("ROUND(DATEDIFF(now(), date_of_birth) / 365) >= 60");
+    }
 }

@@ -6,6 +6,8 @@
 {{--    @dd($requests->all())--}}
     <h2 class="page-header font-weight-bold mb-lg-4">
         {{ __('Requests') }}
+
+        <a href="{{ route('execs.requests.create') }}" class="util-btn float-right">Add Demise of Member</a>
     </h2>
 
     {{--    <section class="mb-2 d-flex col">--}}

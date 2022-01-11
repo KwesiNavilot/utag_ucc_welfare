@@ -97,6 +97,9 @@
                             @case('Death of Spouse')
                             @php $link = url('/deathofspouse/' . $request->request_id) @endphp
                             @break
+                            @default
+                            @php $link = url('/#') @endphp
+                            @break
                         @endswitch
 
                         <th class="p-0" scope="row">

@@ -21,12 +21,15 @@
                                     @case('members.index')
                                         @php $tips = "Add, edit and view members of the association"; @endphp
                                         @break
-{{--                                    @case('orders')--}}
-{{--                                        @php $tips = "Manage all your product orders"; @endphp--}}
+{{--                                    @case('retiralanddemise')--}}
+{{--                                        @php $tips = "Add, edit and view retirees"; @endphp--}}
 {{--                                        @break--}}
 {{--                                    @case('reports')--}}
 {{--                                        @php $tips = "Generate reports and track your progress"; @endphp--}}
 {{--                                        @break--}}
+                                    @default
+                                        @php $tips = "Default action"; @endphp
+                                        @break
                                 @endswitch
 
                                 <li class='nav-item'>

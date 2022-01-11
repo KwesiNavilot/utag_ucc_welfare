@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Storage;
 
-class EventAnnouncement extends Notification
+class EventAnnouncement extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -24,6 +24,9 @@ class EventAnnouncement extends Notification
     {
         $this->announcement = $announcement;
         $this->request = $request;
+
+//        dd($announcement);
+//        dd($this->request->media);
     }
 
     /**
@@ -45,16 +48,16 @@ class EventAnnouncement extends Notification
      */
     public function toMail($notifiable)
     {
-        if ($this->announcement->attach === 'yes') {
+        if ($this->announcement['attach'] === 'yes') {
             return (new MailMessage)
-                ->subject($this->announcement->title)
-                ->markdown('notifications.members.eventannouncement', ['message' => $this->announcement->message])
-                ->attach(storage_path('app/public/' . $this->request[0]->media));
+                ->subject($this->announcement['title'])
+                ->markdown('notifications.members.eventannouncement', ['message' => $this->announcement['message']])
+                ->attach(storage_path('app/public/' . $this->request->media));
         } else {
             return (new MailMessage)
-                ->subject($this->announcement->title)
+                ->subject($this->announcement['title'])
                 ->markdown('notifications.members.eventannouncement', [
-                    'message' => $this->announcement->message
+                    'message' => $this->announcement['message']
                 ]);
         }
     }

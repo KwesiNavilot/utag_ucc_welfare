@@ -76,6 +76,19 @@
                     @enderror
                 </div>
 
+                <div class="form-group">
+                    <label for="date_of_birth">Date of Birth: {{ \Carbon\Carbon::parse($member->date_of_birth)->format('jS F, Y') }}</label>
+{{--                    <input type="date" class="form-control @error('date_of_birth') is-invalid @enderror"--}}
+{{--                           name="date_of_birth" value="{{ $member->date_of_birth }}"--}}
+{{--                           placeholder="Enter your date of birth..." required>--}}
+
+{{--                    @error('date_of_birth')--}}
+{{--                    <span class="invalid-feedback" role="alert">--}}
+{{--                                    <strong>{{ $message }}</strong>--}}
+{{--                                </span>--}}
+{{--                    @enderror--}}
+                </div>
+
                 <div class="text-center">
                     <button type="submit">Update Details</button>
                 </div>

@@ -27,11 +27,25 @@
                     <h1 class="text-center text-gray font-weight-bold text-3xl">Change Your Password To Continue!</h1>
                     <div class="mx-8 mt-2 w-24 border-b-2"></div>
 
-                    <form method="POST" action="{{ route('members.ignite') }}" accept-charset="UTF-8" class="gateway-form" style="margin: 6% 0 0;">
+                    <form method="POST" action="{{ route('members.ignite') }}" accept-charset="UTF-8"
+                          class="gateway-form" style="margin: 6% 0 0;">
                         @csrf
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
+
+                        <div class="form-group">
+                            <label for="date_of_birth">Date of Birth</label>
+                            <input type="date" class="form-control @error('date_of_birth') is-invalid @enderror"
+                                   name="date_of_birth" value="{{ old('date_of_birth') }}"
+                                   placeholder="Enter your date of birth..." required>
+
+                            @error('date_of_birth')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
                         <div class="form-row">
                             <div class="col-md-12 form-group">
@@ -47,7 +61,8 @@
 
                                 @if(!$errors->has('password') && !$errors->has('password_confirmation'))
                                     <span role="alert">
-                                        <small class="col-lg-12 p-0">{{ __("Passwords must be at least 8 characters long with a combination of letters and numbers")}}</small>
+                                        <small
+                                            class="col-lg-12 p-0">{{ __("Passwords must be at least 8 characters long with a combination of letters and numbers")}}</small>
                                     </span>
                                 @endif
                             </div>
@@ -56,7 +71,8 @@
                         <div class="form-row">
                             <div class="col-md-12 form-group  mb-0 ">
                                 <input class="form-control @error('password_confirmation') is-invalid @enderror"
-                                       placeholder="{{ __('Confirm New Password') }}" required id="password_confirmation"
+                                       placeholder="{{ __('Confirm New Password') }}" required
+                                       id="password_confirmation"
                                        name="password_confirmation" type="password">
 
                                 @error('password_confirmation')
@@ -72,22 +88,22 @@
                             <input type="submit" class="rounded-button" value="{{ __('Update Password') }}">
                         </div>
 
-{{--                        <div class="terms-and-conditions form-row mt-4 px-2">--}}
-{{--                            <div class="col-lg-12 p-0 text-center">--}}
-{{--                            <span class="">--}}
-{{--                                <label class="tc-check">--}}
-{{--                                    <a href="{{ route('logout') }}" id="logout">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
+                        {{--                        <div class="terms-and-conditions form-row mt-4 px-2">--}}
+                        {{--                            <div class="col-lg-12 p-0 text-center">--}}
+                        {{--                            <span class="">--}}
+                        {{--                                <label class="tc-check">--}}
+                        {{--                                    <a href="{{ route('logout') }}" id="logout">--}}
+                        {{--                                        {{ __('Logout') }}--}}
+                        {{--                                    </a>--}}
 
-{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                                        @csrf--}}
-{{--                                        @method("POST")--}}
-{{--                                    </form>--}}
-{{--                                </label>--}}
-{{--                            </span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+                        {{--                                        @csrf--}}
+                        {{--                                        @method("POST")--}}
+                        {{--                                    </form>--}}
+                        {{--                                </label>--}}
+                        {{--                            </span>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </form>
                 </div>
             </div>

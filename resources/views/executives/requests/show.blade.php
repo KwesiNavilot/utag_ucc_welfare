@@ -116,8 +116,10 @@
                  data-height="46%">
                 @elseif($request->request_type == "Death of Spouse")
                     data-height="57%">
+                @elseif($request->request_type == "Death of Parent")
+                    data-height="69%">
                 @else
-                    data-height="69%"
+                    data-height="46%"
                 @endif>
 
                 @if(\Illuminate\Support\Str::endsWith($request->media, 'pdf'))
