@@ -24,20 +24,29 @@
 
                 <div class="card p-5 mt-lg-3">
                     <h1 class="text-center text-gray font-weight-bold text-3xl">
-                        @if(session('relog') != null)
-                            Please Log In Again
+                        @if(session('status') != null)
+                            Check Your Email!
                         @else
                             Get Password Reset Link
                         @endif
                     </h1>
-                    <div class="mx-8 mt-2 w-24 border-b-2"></div>
 
+                    <div class="mx-8 mt-2 w-24 border-b-2"></div>
                     <form method="POST" action="{{ route('password.request') }}" accept-charset="UTF-8"
                           class="gateway-form">
                         @csrf
 
                         @if (session('status'))
-                            
+                            <div class="text-center font-medium text-sm text-green-600">
+                                <p>
+                                    {{ __('We\'ve sent a password reset link to your provided email address. Please check your inbox
+                                        and follow the instructions to finish resetting your account.')}}
+                                </p>
+
+                                <p>
+                                    {{ __("If you don't see the email, check other places it might be, link your junk, spam, social or other folders.")}}
+                                </p>
+                            </div>
                         @else
                             <div class="form-row">
                                 <div class="col-md-12 form-group">

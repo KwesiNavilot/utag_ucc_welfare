@@ -81,29 +81,11 @@
                                         </span>
                                 @enderror
                             </div>
-
                         </div>
 
                         <div class="text-center mt-lg-4">
                             <input type="submit" class="rounded-button" value="{{ __('Update Password') }}">
                         </div>
-
-                        {{--                        <div class="terms-and-conditions form-row mt-4 px-2">--}}
-                        {{--                            <div class="col-lg-12 p-0 text-center">--}}
-                        {{--                            <span class="">--}}
-                        {{--                                <label class="tc-check">--}}
-                        {{--                                    <a href="{{ route('logout') }}" id="logout">--}}
-                        {{--                                        {{ __('Logout') }}--}}
-                        {{--                                    </a>--}}
-
-                        {{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-                        {{--                                        @csrf--}}
-                        {{--                                        @method("POST")--}}
-                        {{--                                    </form>--}}
-                        {{--                                </label>--}}
-                        {{--                            </span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
                     </form>
                 </div>
             </div>
