@@ -78,7 +78,7 @@
                             <div class="col-md-6 p-0 text-right">
                             <span class="">
                                 <label class="tc-check">
-                                    <a href="#" target="_self">Forgotten Your Password?</a>
+                                    <a href="{{ route('execs.password.forgot') }}" target="_self">Forgotten Your Password?</a>
                                 </label>
                             </span>
                             </div>

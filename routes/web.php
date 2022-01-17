@@ -4,6 +4,7 @@ use App\Http\Controllers\AuxController;
 use App\Http\Controllers\Executives\AccountController as ExecsAccountController;
 use App\Http\Controllers\Executives\DashboardController as ExecsDashboardController;
 use App\Http\Controllers\Executives\MembersController;
+use App\Http\Controllers\Executives\PasswordResetController;
 use App\Http\Controllers\Executives\PublishingController;
 use App\Http\Controllers\Executives\RequestsController;
 use App\Http\Controllers\Members\BenefitRequestController;
@@ -71,6 +72,12 @@ Route::prefix('/execs')->name('execs.')->middleware([RevalidateBackHistory::clas
         })->where(['url' => '/|login|index|home'])->name('home');
 
         Route::post('/login', [ExecsAccountController::class, 'login'])->name('login');
+
+        //password reset routes
+        Route::get('/forgot-password', [PasswordResetController::class, 'showForgotPasswordView'])->name('password.forgot');
+        Route::post('/forgot-password', [PasswordResetController::class, 'sendPasswordResetLink'])->name('password.request');
+        Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetPasswordView'])->name('password.reset');
+        Route::post('/reset-password', [PasswordResetController::class, 'resetPassword'])->name('password.update');
     });
 
     Route::middleware('auth:execs')->group(function (){
