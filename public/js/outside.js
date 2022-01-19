@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Smooth scroll for the navigation menu and links with .scrollto classes
-    $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
+    $(document).on('click', '.nav-menu a', '.scrollto', function(e) {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
             if (target.length) {
@@ -23,8 +23,6 @@ $(document).ready(function () {
 
                 if ($('body').hasClass('mobile-nav-active')) {
                     $('body').removeClass('mobile-nav-active');
-                    $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-                    $('.mobile-nav-overly').fadeOut();
                 }
 
                 return false;
@@ -67,41 +65,6 @@ $(document).ready(function () {
         });
     });
 
-    // Mobile Navigation
-    if ($('.nav-menu').length) {
-        var $mobile_nav = $('.nav-menu').clone().prop({
-            class: 'mobile-nav d-lg-none'
-        });
-        $('body').append($mobile_nav);
-        $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
-        $('body').append('<div class="mobile-nav-overly"></div>');
-
-        $(document).on('click', '.mobile-nav-toggle', function(e) {
-            $('body').toggleClass('mobile-nav-active');
-            $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-            $('.mobile-nav-overly').toggle();
-        });
-
-        $(document).on('click', '.mobile-nav .drop-down > a', function(e) {
-            e.preventDefault();
-            $(this).next().slideToggle(300);
-            $(this).parent().toggleClass('active');
-        });
-
-        $(document).click(function(e) {
-            var container = $(".mobile-nav, .mobile-nav-toggle");
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                if ($('body').hasClass('mobile-nav-active')) {
-                    $('body').removeClass('mobile-nav-active');
-                    $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-                    $('.mobile-nav-overly').fadeOut();
-                }
-            }
-        });
-    } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
-        $(".mobile-nav, .mobile-nav-toggle").hide();
-    }
-
     // Back to top button
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
@@ -117,4 +80,50 @@ $(document).ready(function () {
         }, 1500, 'easeInOutExpo');
         return false;
     });
+
+
+    //Mobile navigation anew
+    $('#sidebar-toggle').click(
+        function() {
+            // alert('Yes!');
+            $('.hidden-nav').css("max-width", "100%");
+            $('#sidebar-toggle').removeClass('hide-hidden-nav');
+            $('#sidebar-toggle').addClass('show-hidden-nav');
+
+        }
+    );
+
+    $('#hide-nav, #about-h, #contact-h, #claims-h').click(
+        function() {
+            //alert('No!');
+            $('.hidden-nav').css("max-width", "0%");
+            $('#hide-nav').removeClass('show-hidden-nav');
+            $('#hide-nav').addClass('hide-hidden-nav');
+        }
+    );
+
+    $('#i-sidebar-toggle').click(
+        function() {
+            //alert(screen.width);
+
+            if(screen.width > 560) {
+                $('.i-hidden-nav').css("max-width", "45%");
+                $('#i-sidebar-toggle').removeClass('hide-hidden-nav');
+                $('#i-sidebar-toggle').addClass('show-hidden-nav');
+            } else {
+                $('.i-hidden-nav').css("max-width", "360px");
+                $('#i-sidebar-toggle').removeClass('hide-hidden-nav');
+                $('#i-sidebar-toggle').addClass('show-hidden-nav');
+            }
+
+        }
+    );
+
+    $('#i-hide-nav').click(
+        function() {
+            $('.i-hidden-nav').css("max-width", "0%");
+            $('#i-hide-nav').removeClass('show-hidden-nav');
+            $('#i-hide-nav').addClass('hide-hidden-nav');
+        }
+    );
 });

@@ -1,0 +1,235 @@
+/* The side navigation menu */
+.hidden-nav {
+  background-color: #2f365f;
+  position: fixed;
+  display: block;
+  top: 0 !important;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.3s ease;
+  overflow: auto;
+}
+.hidden-nav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 40px;
+  margin-left: 50px;
+}
+.hidden-nav .closebtn:hover, .hidden-nav .closebtn:active {
+  text-decoration: none;
+}
+.hidden-nav .navbar-nav {
+  width: 100%;
+}
+.hidden-nav .navbar-nav .nav-link:visited, .hidden-nav .navbar-nav .nav-link:link {
+  color: #71789e;
+  background: transparent;
+}
+.hidden-nav .navbar-nav .nav-link:hover {
+  color: #fff;
+  background-color: #242849;
+  border-radius: 2px;
+}
+.hidden-nav .navbar-nav .nav-link:focus, .hidden-nav .navbar-nav .nav-link:active {
+  background-color: #242849;
+  color: #fff;
+  border-radius: 2px;
+}
+.hidden-nav .nav-link {
+  font-size: 20px;
+  padding: 12px 10px;
+  color: #71789e;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.hidden-nav .o-text-center {
+  text-align: center !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .hidden-nav {
+    max-width: 0;
+    top: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    z-index: 1035;
+    right: 0;
+    display: block;
+  }
+
+  .fixed-top .nav-menu, .fixed-top .rounded-button {
+    display: none;
+  }
+
+  .i-hidden-nav {
+    max-width: 0;
+    left: 0;
+    top: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    height: 100%;
+    background: #0e0c28;
+    z-index: 9999 !important;
+    bottom: 0;
+    position: fixed;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .phone, .email, .footer {
+    margin-top: 10% !important;
+  }
+
+  #forward {
+    text-align: center;
+  }
+  #forward h1 {
+    font-size: 2rem;
+  }
+  #forward h2 {
+    font-size: 1.3rem;
+  }
+
+  .section-title p {
+    font-size: 25px !important;
+  }
+
+  #contact h4 {
+    font-size: 18px;
+  }
+  #contact i {
+    width: 35px;
+    height: 35px;
+  }
+
+  .rounded-button {
+    margin: 0;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .navbar-toggle-icon {
+    width: 1.2rem;
+    height: 1.25rem;
+  }
+
+  .hidden-nav {
+    max-width: 0;
+    top: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    z-index: 1035;
+    right: 80%;
+    left: 0;
+  }
+
+  .i-hidden-nav {
+    max-width: 0;
+    left: 0;
+    top: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    height: 100%;
+    background: #0e0c28;
+    z-index: 9999 !important;
+    bottom: 0;
+    position: fixed;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .fixed-top .nav-menu, .fixed-top .rounded-button {
+    display: none;
+  }
+
+  .phone, .email, .footer {
+    margin-top: 10% !important;
+  }
+
+  #forward {
+    text-align: center;
+  }
+  #forward h1 {
+    font-size: 2rem;
+  }
+  #forward h2 {
+    font-size: 1.3rem;
+  }
+
+  .section-title p {
+    font-size: 25px !important;
+  }
+
+  #contact h4 {
+    font-size: 18px;
+  }
+  #contact i {
+    width: 35px;
+    height: 35px;
+  }
+
+  .rounded-button {
+    margin: 0;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #forward {
+    text-align: left;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .hidden-nav, #sidebar-toggle,
+.i-hidden-nav, .user-opts-b {
+    display: none !important;
+  }
+
+  .section-title p {
+    font-size: 36px !important;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .fixed-top .nav-menu, .fixed-top .rounded-button {
+    display: block;
+  }
+
+  .rounded-button {
+    margin-left: 25px;
+  }
+
+  #contact h4 {
+    font-size: 22px;
+  }
+  #contact i {
+    width: 44px;
+    height: 44px;
+  }
+
+  #forward h1 {
+    font-size: 2.25rem;
+  }
+  #forward h2 {
+    font-size: 1.8rem;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */

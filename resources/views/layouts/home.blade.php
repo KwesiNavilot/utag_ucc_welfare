@@ -14,9 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/icofont/icofont.min.css')}}">
     <link href="{{ asset('css/outside.css') }}" rel="stylesheet">
-
-{{--    <link rel="stylesheet" href="{{asset('css/boxicons/css/boxicons.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('css/outside.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('css/shredder.css')}}">
 </head>
 
 <body data-spy="scroll" data-target="navigation">

@@ -155,7 +155,6 @@ form .util-btn:hover {
 }
 
 .rounded-button {
-  margin-left: 25px;
   background: #1977cc;
   color: #fff;
   border-radius: 50px;
@@ -176,8 +175,6 @@ form .util-btn:hover {
   font-size: 20px;
   color: #1977cc;
   float: left;
-  width: 44px;
-  height: 44px;
   background: #e3f0fa;
   display: flex;
   justify-content: center;
@@ -187,7 +184,6 @@ form .util-btn:hover {
 }
 #contact h4 {
   padding: 0 0 0 60px;
-  font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
   color: #37423b;

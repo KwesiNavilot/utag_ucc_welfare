@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/outside.scss', 'public/css')
     .sass('resources/sass/gateways.scss', 'public/css')
-    .sass('resources/sass/inside.scss', 'public/css');
+    .sass('resources/sass/inside.scss', 'public/css')
+    .sass('resources/sass/shredder.scss', 'public/css');

@@ -280,14 +280,14 @@ body .fs-20 {
   width: 30% !important;
 }
 .content .rqs-table th:first-child {
-  width: 13%;
+  width: 15%;
 }
 .content .rqs-table th:nth-child(2) {
-  width: 22%;
+  width: 25%;
 }
 .content .rqs-table th:nth-child(3) {
-  width: 10%;
+  width: 15%;
 }
 .content .rqs-table th:last-child {
-  width: 27%;
+  width: 25%;
 }
