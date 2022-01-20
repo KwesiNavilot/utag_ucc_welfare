@@ -10,6 +10,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gateways.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shredder.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-indigo">
@@ -24,15 +25,18 @@
                 </div>
 
                 <div class="card p-5 mt-lg-3">
-                    <h1 class="text-center text-gray font-weight-bold text-3xl">Change Your Password To Continue!</h1>
+                    <h1 class="text-center text-gray font-weight-bold text-3xl">
+                        Change Your Password To Continue!
+                    </h1>
+
                     <div class="mx-8 mt-2 w-24 border-b-2"></div>
 
                     <form method="POST" action="{{ route('members.ignite') }}" accept-charset="UTF-8"
                           class="gateway-form" style="margin: 6% 0 0;">
                         @csrf
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+{{--                        @foreach ($errors->all() as $error)--}}
+{{--                            <li>{{ $error }}</li>--}}
+{{--                        @endforeach--}}
 
                         <div class="form-group">
                             <label for="date_of_birth">Date of Birth</label>

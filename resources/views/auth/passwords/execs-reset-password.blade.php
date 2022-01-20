@@ -9,6 +9,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gateways.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shredder.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-indigo">

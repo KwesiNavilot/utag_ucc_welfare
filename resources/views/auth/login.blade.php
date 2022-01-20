@@ -9,6 +9,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gateways.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shredder.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-indigo">
@@ -30,6 +31,7 @@
                             Welcome Back!
                         @endif
                     </h1>
+
                     <div class="mx-8 mt-2 w-24 border-b-2"></div>
 
                     <form method="POST" action="{{ route('login') }}" accept-charset="UTF-8" class="gateway-form">
@@ -66,7 +68,7 @@
                         </div>
 
                         <div class="terms-and-conditions form-row mt-4 mb-4 px-2">
-                            <div class="col-md-6 p-0">
+                            <div class="col-md-6 col-sm-12 p-0 text-center text-lg-left text-sm-center">
                                 <label class="check-container">
                                     <input type="checkbox" id="remember"
                                            name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -75,7 +77,7 @@
                                 </label>
                             </div>
 
-                            <div class="col-md-6 p-0 text-right">
+                            <div class="col-md-6 col-sm-12 p-0 text-center text-lg-right text-sm-center">
                             <span class="">
                                 <label class="tc-check">
                                     <a href="{{ route('password.request') }}" target="_self">Forgotten Your Password?</a>

@@ -9,6 +9,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gateways.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shredder.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-indigo">
@@ -27,6 +28,7 @@
                     <h1 class="text-center text-gray font-weight-bold text-3xl">
                         Reset Your Password
                     </h1>
+
                     <div class="mx-8 mt-2 w-24 border-b-2"></div>
 
                     <form method="POST" action="{{ route('password.update') }}" accept-charset="UTF-8" class="gateway-form">
@@ -70,7 +72,7 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="col-md-12 form-group  mb-0 ">
+                            <div class="col-md-12 form-group">
                                 <input class="form-control @error('password_confirmation') is-invalid @enderror"
                                        placeholder="{{ __('Confirm New Password') }}" required
                                        id="password_confirmation"
@@ -82,7 +84,6 @@
                                         </span>
                                 @enderror
                             </div>
-
                         </div>
 
                         <div class="text-center">

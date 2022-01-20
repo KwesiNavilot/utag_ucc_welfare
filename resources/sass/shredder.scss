@@ -121,6 +121,14 @@
     .rounded-button {
         margin: 0;
     }
+
+    .gateway-inner {
+        margin: 10%;
+    }
+
+    .check-container {
+        text-align: center;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -184,11 +192,23 @@
     .rounded-button {
         margin: 0;
     }
+
+    .check-container {
+        text-align: center;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     #forward {
+        text-align: left;
+    }
+
+    .gateway-inner {
+        margin: 5% 0;
+    }
+
+    .check-container {
         text-align: left;
     }
 }
@@ -237,6 +257,10 @@
         & h2 {
             font-size: 1.8rem;
         }
+    }
+
+    .check-container {
+        text-align: left;
     }
 }
 

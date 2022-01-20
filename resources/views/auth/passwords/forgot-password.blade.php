@@ -9,6 +9,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gateways.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shredder.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-indigo">
@@ -32,6 +33,7 @@
                     </h1>
 
                     <div class="mx-8 mt-2 w-24 border-b-2"></div>
+
                     <form method="POST" action="{{ route('password.request') }}" accept-charset="UTF-8"
                           class="gateway-form">
                         @csrf
