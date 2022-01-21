@@ -66,7 +66,6 @@
     </section>
 
     <section class="bg-white shade w-100 p-0">
-        {{--        @dd($requests)--}}
         @empty($requests->all())
             <div class="p-3">
                 <p class="m-0 text-center">You haven't made any benefit requests yet.</p>

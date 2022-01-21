@@ -81,24 +81,24 @@
     position: fixed;
 
     .inside-hidden-sidebar {
-    .navbar-nav {
-        .nav-link {
-            font-size: 18px;
-            padding: 12px 10px 12px 25px;
-            color: $white;
-            transition: all 0.3s ease-in-out;
-        }
+        .navbar-nav {
+            .nav-link {
+                font-size: 18px;
+                padding: 12px 10px 12px 25px;
+                color: $white;
+                transition: all 0.3s ease-in-out;
+            }
 
-        .nav-link:visited, .nav-link:link {
-            color: $sb-text;
-            background: transparent;
-        }
+            .nav-link:visited, .nav-link:link {
+                color: $sb-text;
+                background: transparent;
+            }
 
-        .nav-link:hover {
-            color: #fff;
+            .nav-link:hover {
+                color: #fff;
+            }
         }
     }
-}
 }
 
 
@@ -209,6 +209,15 @@
         width: 100% !important;
         clear: both;
     }
+
+
+    .card-sub-o-mt {
+        margin-top: 15%;
+    }
+
+    .card-sub-mt {
+        margin-top: 5%;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -306,6 +315,14 @@
         width: 100% !important;
         clear: both;
     }
+
+    .card-sub-o-mt {
+        margin-top: 15%;
+    }
+
+    .card-sub-mt {
+        margin-top: 5%;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -358,6 +375,10 @@
     .w-65, .w-30 {
         width: 100% !important;
         clear: both;
+    }
+
+    .card-sub-o-mt, .card-sub-mt {
+        margin-top: 0;
     }
 }
 
@@ -426,6 +447,10 @@
 
     .container-fluid {
         max-width: 100%;
+    }
+
+    .card-sub-o-mt, .card-sub-mt {
+        margin-top: 0;
     }
 }
 

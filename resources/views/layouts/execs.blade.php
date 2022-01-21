@@ -3,7 +3,7 @@
     $tips = '';
 
     //THis array creates the sidebar links
-    $navs = array("dashboard" => "Dashboard", "requests.index" => "Benefit Requests", "members.index" => "Members");
+    $navs = array("dashboard" => "Dashboard", "requests.index" => "Requests", "members.index" => "Members");
 
     if(isset($toast)) {
         $title = $toast['title'];
@@ -21,8 +21,6 @@
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{ asset('css/vendor/izitoast.min.css') }}">
-    {{--    <link rel="stylesheet" href="{{ asset('css/fontawesome/fontawesome.min.css') }}">--}}
-    {{--    <link rel="stylesheet" href="{{asset('css/boxicons/css/boxicons.min.css')}}">--}}
     <link rel="stylesheet" href="{{asset('css/icofont/icofont.min.css')}}">
 
     @if($trigger ?? '' == 'fotorama')
@@ -30,6 +28,7 @@
     @endif
 
     <link rel="stylesheet" href="{{asset('css/inside.css')}}">
+    <link rel="stylesheet" href="{{asset('css/shredder.css')}}">
 
     {{-- Javascript --}}
     <script src="{{ asset('js/app.js') }}"></script>
@@ -46,7 +45,7 @@
 @include('includes.execs.sidebar', ['navs' => $navs])
 
 <section class="content marg">
-    <div class="w-100 p-lg-5 m-lg-0">
+    <div class="container marg p-lg-5 w-100 p-lg-5 m-lg-0">
         @include('includes.messages')
         @yield('content')
     </div>

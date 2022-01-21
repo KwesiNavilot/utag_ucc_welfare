@@ -29,10 +29,10 @@
         @endcan
     </h2>
 
-    <section class="w-100 marg">
+    <section class="w-100 marg card-sub-o-mt">
         <h4 class="card-sub">{{__('Request Details')}}</h4>
 
-        <div class="bg-white shade w-75 float-lg-left w-65">
+        <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-65">
             <ul class="list-group list-group-flush">
                 @isset($request->child_name)
                     <li class="list-group-item">
@@ -138,14 +138,14 @@
     </section>
 
     @if(\Illuminate\Support\Str::endsWith($request->media, 'pdf'))
-        <section class="clearfix marg">
+        <section class="clearfix card-sub-mt marg">
             <embed
                 src="{{ asset('/storage/' . $request->media) }}#view=Fit&zoom=scale&toolbar=1&navpanes=1&scrollbar=1&statusbar=1"
                 type="application/pdf" width="100%" height="600px"/>
         </section>
     @endif
 
-    <section class="clearfix">
+    <section class="clearfix card-sub-mt">
         <h4 class="card-sub">{{__('Member Details')}}</h4>
 
         <div class="w-100 bg-white shade">

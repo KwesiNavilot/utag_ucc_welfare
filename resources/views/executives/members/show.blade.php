@@ -3,7 +3,6 @@
 @section('title', 'Member Information | UTAG-UCC Welfare')
 
 @section('content')
-    {{--    @dd($member)--}}
     <h2 class="page-header font-weight-bold mb-lg-4">
         {{ __('Member Information') }}
     </h2>
@@ -40,10 +39,10 @@
         </ul>
     </section>
 
-    <section class="clearfix">
+    <section class="clearfix card-sub-mt">
         <h4 class="card-sub">{{__("Member's Requests")}}</h4>
 
-        <div class="w-100 bg-white shade table-responsive">
+        <div class="w-100 bg-white shade">
 
             @empty($requests->all())
                 <div>
@@ -52,12 +51,12 @@
             @endempty
 
             @if(!empty($requests->all()))
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive-sm table-responsive-md">
                     <thead>
                     <tr>
                         <th class="px-lg-4" scope="col">#</th>
-                        <th class="px-lg-4" scope="col">Benefit Type</th>
-                        <th class="px-lg-4" scope="col">Request Date</th>
+                        <th class="px-lg-4 text-truncate" scope="col">Benefit Type</th>
+                        <th class="px-lg-4 text-truncate" scope="col">Request Date</th>
                         <th class="px-lg-4" scope="col" colspan="2">Status</th>
                     </tr>
                     </thead>
@@ -70,12 +69,12 @@
                                     {{ $key+1 }}
                                 </a>
                             </th>
-                            <td class="p-0">
+                            <td class="p-0 text-truncate">
                                 <a href="{{ route('execs.requests.show', $request) }}" class="d-flex text-decoration-none">
                                     {{ $request->request_type }}
                                 </a>
                             </td>
-                            <td class="p-0">
+                            <td class="p-0 text-truncate">
                                 <a href="{{ route('execs.requests.show', $request) }}" class="d-flex text-decoration-none">
                                     {{ $request->created_at->format('jS F, Y') }}
                                 </a>
