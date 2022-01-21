@@ -76,11 +76,11 @@ form .util-btn:hover {
   height: inherit !important;
 }
 
-.logo {
+.logo, .logo-text {
   padding: 15px 0;
   background: transparent;
 }
-.logo h1 {
+.logo h1, .logo-text h1 {
   font-size: 32px;
   margin: 0;
   padding: 0;
@@ -88,7 +88,7 @@ form .util-btn:hover {
   font-weight: 700;
   letter-spacing: 1px;
 }
-.logo h1 a {
+.logo h1 a, .logo-text h1 a {
   color: #fff;
   text-decoration: none;
 }

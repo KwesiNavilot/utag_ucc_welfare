@@ -12,8 +12,8 @@
         @endif
     </h2>
 
-    <section class="w-100 marg">
-        <div class="bg-white shade float-lg-left w-65">
+    <section class="w-100">
+        <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-65">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <medium class="card-sub">Name of Spouse</medium>
@@ -42,7 +42,7 @@
             </ul>
         </div>
 
-        <div class="bg-white shade float-lg-right w-30">
+        <div class="bg-white shade w-25 float-lg-right w-30">
             <div class="fotorama"
                  data-allowfullscreen="true"
                  data-click="false"

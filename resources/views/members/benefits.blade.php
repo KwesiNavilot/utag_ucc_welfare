@@ -9,7 +9,7 @@
 
     <section id="claims" class="section mb-lg-4">
         <div class="row icon-boxes">
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-4 col-lg-4 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('childbirth.create') }}">
                     <div class="icon-box">
                         <div class="icon">
@@ -27,7 +27,7 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-4 col-lg-4 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('deathofspouse.create') }}">
                     <div class="icon-box">
                         <div class="icon">
@@ -45,7 +45,7 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-4 col-lg-4 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('deathofparent.create') }}">
                     <div class="icon-box">
                         <div class="icon">
@@ -74,12 +74,12 @@
         @endempty
 
         @if(!empty($requests->all()))
-            <table class="table table-hover">
+            <table class="table table-hover table-responsive-sm">
                 <thead>
                 <tr>
                     <th class="px-lg-4" scope="col">#</th>
-                    <th class="px-lg-4" scope="col">Benefit Type</th>
-                    <th class="px-lg-4" scope="col">Request Date</th>
+                    <th class="px-lg-4 text-truncate" scope="col">Benefit Type</th>
+                    <th class="px-lg-4 text-truncate" scope="col">Request Date</th>
                     <th class="px-lg-4" scope="col" colspan="2">Status</th>
                 </tr>
                 </thead>
@@ -107,12 +107,12 @@
                                 {{ $key+1 }}
                             </a>
                         </th>
-                        <td class="p-0">
+                        <td class="p-0 text-truncate">
                             <a href="{{ $link }}" class="d-flex text-decoration-none">
                                 {{ $request->request_type }}
                             </a>
                         </td>
-                        <td class="p-0">
+                        <td class="p-0 text-truncate">
                             <a href="{{ $link }}" class="d-flex text-decoration-none">
                                 {{ $request->created_at->format('jS F, Y') }}
                             </a>

@@ -1,6 +1,8 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-        <h1 class="logo mr-auto"><a href="{{ route('home') }}">UTAG Welfare</a></h1>
+        <h1 class="logo mr-auto">
+            <a href="{{ route('home') }}">UTAG Welfare</a>
+        </h1>
 
         <nav id="navigation" class="nav-menu d-lg-block list-unstyled">
             <ul class="list-unstyled d-flex m-lg-0">

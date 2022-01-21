@@ -14,7 +14,7 @@
     -webkit-transition: all 0.3s ease;
     overflow: auto;
 
-    & .nav-link, .i-hidden-sidebar .navbar-nav .nav-link {
+    & .nav-link, .inside-hidden-sidebar .navbar-nav .nav-link {
         font-size: 18px;
         padding: 12px 10px 12px 25px;
         color: $white;
@@ -22,8 +22,8 @@
     }
 
     & .navbar-nav .nav-link:visited, & .navbar-nav .nav-link:link,
-    .i-hidden-sidebar .navbar-nav .nav-link:visited,
-    .i-hidden-sidebar .navbar-nav .nav-link:link {
+    .inside-hidden-sidebar .navbar-nav .nav-link:visited,
+    .inside-hidden-sidebar .navbar-nav .nav-link:link {
         color: $sb-text;
         background: transparent;
     }
@@ -33,7 +33,7 @@
     }
 
     & .navbar-nav .nav-link:hover,
-    .i-hidden-sidebar .navbar-nav .nav-link:hover {
+    .inside-hidden-sidebar .navbar-nav .nav-link:hover {
         color: #fff;
     }
 

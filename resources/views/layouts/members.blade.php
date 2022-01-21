@@ -3,7 +3,7 @@
     $tips = '';
 
     //THis array creates the sidebar links
-    $navs = array("dashboard" => "Dashboard", "requests" => "Benefit Requests");
+    $navs = array("dashboard" => "Dashboard", "requests" => "Requests");
 
     if(isset($toast)) {
         $title = $toast['title'];
@@ -21,8 +21,6 @@
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{ asset('css/vendor/izitoast.min.css') }}">
-    {{--    <link rel="stylesheet" href="{{ asset('css/fontawesome/fontawesome.min.css') }}">--}}
-    {{--    <link rel="stylesheet" href="{{asset('css/boxicons/css/boxicons.min.css')}}">--}}
     <link rel="stylesheet" href="{{asset('css/icofont/icofont.min.css')}}">
 
     @if($trigger ?? '' == 'fotorama')
@@ -30,6 +28,7 @@
     @endif
 
     <link rel="stylesheet" href="{{asset('css/inside.css')}}">
+    <link rel="stylesheet" href="{{asset('css/shredder.css')}}">
 
     {{-- Javascript --}}
     <script src="{{ asset('js/app.js') }}"></script>

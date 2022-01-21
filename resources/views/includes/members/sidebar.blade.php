@@ -18,15 +18,6 @@
                                     @case('requests')
                                         @php $tips = "Request and track the progress of benefits"; @endphp
                                         @break
-{{--                                    @case('products')--}}
-{{--                                        @php $tips = "Add, edit and delete store products"; @endphp--}}
-{{--                                        @break--}}
-{{--                                    @case('orders')--}}
-{{--                                        @php $tips = "Manage all your product orders"; @endphp--}}
-{{--                                        @break--}}
-{{--                                    @case('reports')--}}
-{{--                                        @php $tips = "Generate reports and track your progress"; @endphp--}}
-{{--                                        @break--}}
                                 @endswitch
 
                                 <li class='nav-item'>

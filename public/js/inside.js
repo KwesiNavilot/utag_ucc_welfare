@@ -29,4 +29,29 @@ $(document).ready(function () {
         event.preventDefault();
         $("#logout-form").submit();
     })
+
+    $('#inside-sidebar-toggle').click(
+        function () {
+            //alert(screen.width);
+
+            if (screen.width > 560) {
+                $('.inside-hidden-nav').css("max-width", "40%");
+                $('#inside-sidebar-toggle').removeClass('hide-hidden-nav');
+                $('#inside-sidebar-toggle').addClass('show-hidden-nav');
+            } else {
+                $('.inside-hidden-nav').css("max-width", "100%");
+                $('#inside-sidebar-toggle').removeClass('hide-hidden-nav');
+                $('#inside-sidebar-toggle').addClass('show-hidden-nav');
+            }
+
+        }
+    );
+
+    $('#inside-hide-nav').click(
+        function () {
+            $('.inside-hidden-nav').css("max-width", "0%");
+            $('#inside-hide-nav').removeClass('show-hidden-nav');
+            $('#inside-hide-nav').addClass('hide-hidden-nav');
+        }
+    );
 });

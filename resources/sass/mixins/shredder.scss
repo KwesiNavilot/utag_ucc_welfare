@@ -12,17 +12,12 @@
     z-index: 1035;
 }
 
-@mixin hide-inside-nav {
-    max-width: 0;
-    left: 0;
-    top: 0;
+@mixin mobile-header-a {
+    color: $blue;
+    text-decoration: none;
     padding: 0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    height: 100%;
-    background: #0e0c28;
-    z-index: 9999 !important;
-    bottom: 0;
-    position: fixed;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: transparent;
 }

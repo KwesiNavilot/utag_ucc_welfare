@@ -12,8 +12,8 @@
         @endif
     </h2>
 
-    <section class="w-100 marg">
-        <div class="bg-white shade w-75 float-lg-left w-65">
+    <section class="w-100">
+        <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-65">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <medium class="card-sub">Name of Parent</medium>
