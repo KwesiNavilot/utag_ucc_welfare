@@ -1,7 +1,7 @@
 ## UTAG-UCC Welfare
 
 The UTAG-UCC Welfare platform is a project commissioned by UTAG-UCC with a goal to digitize its activities.
-The system provides a convenient and go-to point for all members to request and track and their membership benefits,
+The system provides a convenient and go-to point for all members to request and track their membership benefits,
 while affording the executives the ease of working on the request.
 
 The system features:

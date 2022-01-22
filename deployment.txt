@@ -1,0 +1,22 @@
+heroku config:set APP_NAME="UTAG-UCC Welfare" --app=utag-ucc-welfare
+heroku config:set APP_KEY=base64:kMjzrCW0SIWWLzuDLVfDseeTzpHJVbGVg5jgWqCc2YI= --app=utag-ucc-welfare
+heroku config:set APP_DEBUG=false --app=utag-ucc-welfare
+heroku config:set APP_ENV=production --app=utag-ucc-welfare
+heroku addons:create cleardb:ignite --app=utag-ucc-welfare
+heroku config --app=utag-ucc-welfare | grep CLEARDB_DATABASE_URL
+heroku config:set DATABASE_URL='mysql://bd3dc4e61c8d2c:c4af0859@us-cdbr-east-05.cleardb.net/heroku_04330e6c596028c?reconnect=true' --app=utag-ucc-welfare
+heroku config:set CLEARDB_DATABASE_URL='mysql://bd3dc4e61c8d2c:c4af0859@us-cdbr-east-05.cleardb.net/heroku_04330e6c596028c?reconnect=true' --app=utag-ucc-welfare
+heroku config:set APP_USE_HTTPS=true --app=utag-ucc-welfare
+heroku config:set MAIL_ENCRYPTION=tls --app=utag-ucc-welfare
+heroku config:set MAIL_HOST=in-v3.mailjet.com --app=utag-ucc-welfare
+heroku config:set MAILJET_APIKEY=0c0c2fe82dcc5ad35aca04a1dc0db5de --app=utag-ucc-welfare
+heroku config:set MAILJET_APISECRET=84b17cb5a71dd42bdbbef5b3fe24077e --app=utag-ucc-welfare
+heroku config:set MAIL_MAILER=smtp --app=utag-ucc-welfare
+heroku config:set MAIL_PASSWORD=84b17cb5a71dd42bdbbef5b3fe24077e --app=utag-ucc-welfare
+heroku config:set MAIL_PORT=587 --app=utag-ucc-welfare
+heroku config:set MAIL_USERNAME=0c0c2fe82dcc5ad35aca04a1dc0db5de --app=utag-ucc-welfare
+heroku config:set MAIL_FROM_ADDRESS=teamserviceskeep@gmail.com --app=utag-ucc-welfare
+heroku config:set QUEUE_CONNECTION=database --app=utag-ucc-welfare
+
+add Procfile
+add .htaccess
