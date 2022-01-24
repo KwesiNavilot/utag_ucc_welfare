@@ -19,7 +19,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
                     <h3>The welfare program helps members live their best life.</h3>
                     <p class="font-italic">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
