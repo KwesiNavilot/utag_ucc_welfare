@@ -37,7 +37,7 @@ return [
         'database' => [
             'driver' => 'database',
             'table' => 'jobs',
-            'queue' => 'default',
+            'queue' => ['default', 'single-email', 'bulk-members-email', 'bulk-execs-email', 'single-sms', 'bulk-members-sms', 'bulk-execs-sms'],
             'retry_after' => 90,
             'after_commit' => false,
         ],

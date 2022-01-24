@@ -44,7 +44,7 @@ class MemberAdmissionNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Admission')
+                    ->subject('Admission Into UTAG-UCC')
                     ->markdown('notifications.members.memberadmission', [
                         'name' => $this->member->firstname . " " . $this->member->lastname,
                         'activate' => route('login')
