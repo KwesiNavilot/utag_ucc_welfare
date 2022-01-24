@@ -46,7 +46,6 @@
 
 <section class="content marg">
     <div class="container marg p-lg-5 w-100 p-lg-5 m-lg-0">
-        @include('includes.messages')
         @yield('content')
     </div>
 </section>
