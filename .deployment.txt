@@ -22,3 +22,4 @@ add Procfile
 add .htaccess
 
 heroku run php artisan migrate -a=utag-ucc-welfare
+heroku run nohup php artisan queue:work --daemon & -a=utag-ucc-welfare

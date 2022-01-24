@@ -36,9 +36,9 @@ class AuthServiceProvider extends ServiceProvider
             return $admin->role === 'president';
         });
 
-        //this gate authorizes the addition of executives. Only the president and secretary can add executives
+        //this gate authorizes the addition of members. Only the president and secretary can add executives
         Gate::define('add-members', function (Admin $admin) {
-            return $admin->role === 'president' || $admin->role === 'secretary';
+            return $admin->role === 'president' || $admin->role === 'secretary' || $admin->role === 'webmaster';
         });
 
         //this gate authorizes the creation of broadcasts when members want their requests to be published
