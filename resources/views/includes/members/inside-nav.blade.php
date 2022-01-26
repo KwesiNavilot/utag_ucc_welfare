@@ -57,7 +57,8 @@
         <div class="col col-lg-12 col-md-12 col-sm-12 p-4 upper-belt">
             <div class="row upper-list-group">
                 <div class="button-close col-md-12 col-sm-12 p-0">
-                    <a href="javascript:void(0)" id="inside-hide-nav" class="close closebtn float-md-right float-sm-right">&times;</a>
+                    <a href="javascript:void(0)" id="inside-hide-nav"
+                       class="close closebtn float-md-right float-sm-right">&times;</a>
                 </div>
 
                 <div class="clearfix col-md-12 col-sm-12 name-opts p-0">
@@ -73,6 +74,10 @@
                             document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </p>
         </div>
 
