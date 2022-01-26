@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
-    public function __construct()
-    {
-       $this->middleware('auth');
-    }
-
     //Show account page
     public function index()
     {
