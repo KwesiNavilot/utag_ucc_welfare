@@ -47,7 +47,7 @@ class MemberAdmissionNotification extends Notification implements ShouldQueue
                     ->subject('Admission Into UTAG-UCC')
                     ->markdown('notifications.members.memberadmission', [
                         'name' => $this->member->firstname . " " . $this->member->lastname,
-                        'activate' => route('login')
+                        'activate' => url(route('login'))
                     ]);
     }
 

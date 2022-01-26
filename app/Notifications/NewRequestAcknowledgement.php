@@ -49,7 +49,7 @@ class NewRequestAcknowledgement extends Notification
                 ->markdown('notifications.members.benefitrequest', [
                     'name' => $this->request->user->firstname . " " . $this->request->user->lastname,
                     'request_type' => $this->request->request_type,
-                    'resetlink' => route('password.request')
+                    'resetlink' => url(route('password.request'))
                 ]);
     }
 
