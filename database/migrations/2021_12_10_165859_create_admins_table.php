@@ -30,14 +30,34 @@ class CreateAdminsTable extends Migration
         });
 
         DB::table('admins')->insert([
-            'admin_id' => 'AIDXXXXXXX',
-            'firstname' => 'Andrews',
-            'lastname' => 'Ankomahene',
-            'email' => 'andrewskwesiankomahene@gmail.com',
-            'position' => 'webmaster',
-            'phonenumber' => '0541173963',
-            'role' => 'webmaster',
-            'password' => Hash::make('God1stnmum')
+            [
+                'admin_id' => 'AIDXXXXXXX',
+                'firstname' => 'Andrews',
+                'lastname' => 'Ankomahene',
+                'email' => 'andrewskwesiankomahene@gmail.com',
+                'position' => 'webmaster',
+                'phonenumber' => '0541173963',
+                'role' => 'webmaster',
+                'password' => Hash::make('God1stnmum')
+            ], [
+                'admin_id' => 'AIDXXXXXXY',
+                'firstname' => 'Andrews',
+                'lastname' => 'Ankomahene',
+                'email' => 'andrews.ankomahene@gmail.com',
+                'position' => 'president',
+                'phonenumber' => '0541173963',
+                'role' => 'president',
+                'password' => Hash::make('God1stnmum')
+            ], [
+                'admin_id' => 'AIDXXXXXXZ',
+                'firstname' => 'Andrews',
+                'lastname' => 'Ankomahene',
+                'email' => 'martinandy349@gmail.com',
+                'position' => 'secretary',
+                'phonenumber' => '0541173963',
+                'role' => 'secretary',
+                'password' => Hash::make('God1stnmum')
+            ]
         ]);
     }
 
