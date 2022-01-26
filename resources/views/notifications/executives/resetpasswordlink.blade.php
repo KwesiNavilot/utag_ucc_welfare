@@ -17,6 +17,6 @@ Regards,<br>
 <p class="subcopy">
 If you’re having trouble clicking the "Reset Password" button, copy and paste the URL below into your web browser: <span class="break-all"><a href="{{ $link }}">{{ $link }}</a><span>
 <br><br>
-You received this email because you are an executive of UTAG-UCC on the <a href="http://welfare.utag-ucc.com">UTAG-UCC Welfare</a> portal.
+You received this email because you are an executive of UTAG-UCC on the <a href="{{ route('home') }}">UTAG-UCC Welfare</a> portal.
 </p>
 @endcomponent

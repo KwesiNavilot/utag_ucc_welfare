@@ -32,12 +32,13 @@ class PublishToAllMembers implements ShouldQueue
         );
     }
 
-//    /**
-//     * @param BenefitRequestEvent $event
-//     * @return bool
-//     */
-//    public function shouldQueue(BenefitRequestEvent $event)
-//    {
-//        return $event->request->publish == 'yes';
-//    }
+    /**
+     * Do not send a broadcast if it is a Child Birth request
+     * @param BenefitRequestEvent $event
+     * @return bool
+     */
+    public function shouldQueue(BenefitRequestEvent $event)
+    {
+        return $event->request->request_type !== 'Child Birth';
+    }
 }
