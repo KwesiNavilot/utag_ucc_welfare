@@ -5,6 +5,8 @@
 @section('content')
 {{--    <h1 class="page-header font-weight-bold mb-3">{{ $greeting }}, {{ Auth::guard('execs')->user()->firstname }}</h1>--}}
 
+{{ config('app.url') }}
+{{ url('') }}
     <div class='dash-lane marg d-flex'>
         <div class='shade dash col-lg-3 col-md-5'>
             <span class='dash-figure'>{{ $pending_requests }}</span>
