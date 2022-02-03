@@ -30,8 +30,17 @@ class DeathOfParentController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        if($request->user()->cannot('requestForDeathOfParentBenefit', BenefitRequest::class)){
+            $toast = [
+                'type' => 'warning',
+                'message' => "You can't request for more than 2 Death of Parent benefits"
+            ];
+
+            return redirect()->back()->with('toast', $toast);
+        }
+
         return view('members.deathofparent.create');
     }
 

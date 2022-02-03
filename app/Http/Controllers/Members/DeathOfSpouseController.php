@@ -29,8 +29,17 @@ class DeathOfSpouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        if($request->user()->cannot('requestForDeathOfSpouseBenefit', BenefitRequest::class)){
+            $toast = [
+                'type' => 'warning',
+                'message' => "You can't request for more than 1 Spousal benefits"
+            ];
+
+            return redirect()->back()->with('toast', $toast);
+        }
+
         return view('members.deathofspouse.create');
     }
 
