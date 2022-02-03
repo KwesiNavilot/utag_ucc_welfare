@@ -21,7 +21,8 @@
                         </h4>
 
                         <p class="description">
-                            Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            We rejoice with you as you welcome your child. Click here to apply for a child birth benefit
+                            <strong>Max: 2</strong>
                         </p>
                     </div>
                 </a>
@@ -39,7 +40,8 @@
                         </h4>
 
                         <p class="description">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                            We sincerely mourn your loss. Click here to apply for a death of spouse benefit.
+                            <strong>Max: 1</strong>
                         </p>
                     </div>
                 </a>
@@ -57,7 +59,8 @@
                         </h4>
 
                         <p class="description">
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                            We are deeply sorry for your loss. Click here to apply for a death of parent benefit.
+                            <strong>Max: 2</strong>
                         </p>
                     </div>
                 </a>

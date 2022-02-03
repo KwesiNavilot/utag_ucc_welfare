@@ -71,7 +71,7 @@
                         </h4>
 
                         <p class="description">
-                            Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi
+                            Through this benefit, we help our members welcome new members into their family.
                         </p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                         </h4>
 
                         <p class="description">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                            With this benefit, we express our sincerest condolences to our members when they loss their spouse.
                         </p>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                         </h4>
 
                         <p class="description">
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                            We use this benefit to sympathize with our members when they lose a parent.
                         </p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         </h4>
 
                         <p class="description">
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                            We don't wish for it but we use this benefit to comfort the families of our deceased members
                         </p>
                     </div>
                 </div>
