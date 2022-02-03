@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
 
         //this gate authorizes request approvals. Only the president can approve requests
         Gate::define('approve-request', function (Admin $admin) {
-            return $admin->role === 'president';
+            return $admin->role === 'president' || $admin->role === 'executive' || $admin->role === 'secretary';
         });
 
         //this gate authorizes the addition of executives. Only the president can add executives
@@ -44,7 +44,7 @@ class AuthServiceProvider extends ServiceProvider
         //this gate authorizes the creation of broadcasts when members want their requests to be published
         //Only the secretary can add create broadcasts
         Gate::define('create-broadcast', function (Admin $admin) {
-            return $admin->role === 'secretary';
+            return $admin->role === 'secretary' || $admin->role === 'webmaster';
         });
     }
 }

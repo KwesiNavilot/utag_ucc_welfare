@@ -27,7 +27,13 @@ class PublishToAllMembers implements ShouldQueue
     {
         $this->request = $event->request;
 
-        Notification::send(User::all()->except($event->request->staff_id),
+        //send the broadcast message to all members except the benefit requester
+//        Notification::send(User::all()->except($event->request->staff_id),
+//            (new MembersAdInterimAnnouncement($this->request))->delay(60)
+//        );
+
+        //send the broadcast message to all members including the benefit requester
+        Notification::send(User::all(),
             (new MembersAdInterimAnnouncement($this->request))->delay(60)
         );
     }
