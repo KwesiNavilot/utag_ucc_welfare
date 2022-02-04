@@ -146,8 +146,8 @@
                         <i class="icofont-envelope"></i>
                         <h4>Email</h4>
                         <p>
-                            <a href="mailto:support@welfare.utag-ucc.com">
-                                support@welfare.utag-ucc.com
+                            <a href="mailto:utag@ucc.edu.gh">
+                                utag@ucc.edu.gh
                             </a>
                         </p>
                     </div>
