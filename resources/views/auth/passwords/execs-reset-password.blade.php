@@ -19,9 +19,10 @@
         <div class="justify-content-center row">
             <div class="gateway-inner p-0">
                 <div class="logo">
-                    <h1 class="mr-auto text-center">
-                        <a href="{{ route('home') }}">UTAG-UCC Welfare</a>
-                    </h1>
+                    <a href="{{ route('home') }}" class="d-flex w-auto justify-content-center">
+                        <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
+                        <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                    </a>
                 </div>
 
                 <div class="card p-5 mt-lg-3">

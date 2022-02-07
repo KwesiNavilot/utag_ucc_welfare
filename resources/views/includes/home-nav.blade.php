@@ -1,8 +1,11 @@
 <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-        <h1 class="logo mr-auto">
-            <a href="{{ route('home') }}">UTAG Welfare</a>
-        </h1>
+    <div class="container d-flex align-items-center p-0">
+        <div class="col-lg-1 logo mr-auto">
+            <a href="{{ route('home') }}" class="d-flex w-auto">
+                <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
+                <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+            </a>
+        </div>
 
         <nav id="navigation" class="nav-menu d-lg-block list-unstyled">
             <ul class="list-unstyled d-flex m-lg-0">
