@@ -1,9 +1,15 @@
             <section class="sidebar" duty="sidebar">
-                <div class="left-header p-lg-3 text-center bg-info">
+                <div class="left-header p-lg-1 text-center bg-info">
                     @guest
-                        <a class="navbar-brand p-0 text-white" href="{{ route('execs.home') }}">{{ __('UTAG-UCC Welfare') }}</a>
+                        <a class="navbar-brand text-white" href="{{ route('execs.home') }}">
+                            <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
+                            <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                        </a>
                     @else
-                        <a class="navbar-brand p-0 text-white" href="{{ route('execs.dashboard') }}">{{ __('UTAG-UCC Welfare') }}</a>
+                        <a class="navbar-brand p-0 text-white" href="{{ route('execs.dashboard') }}">
+                            <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
+                            <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                        </a>
                     @endguest
                 </div>
 

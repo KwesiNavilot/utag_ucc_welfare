@@ -3,10 +3,15 @@
         <div class="left-header">
             <div class="mobile-header logo">
                 @guest
-                    <a class="navbar-brand" href="/">{{ __('UTAG-UCC Welfare') }}</a>
+                    <a class="navbar-brand" href="{{ route('execs.dashboard') }}">
+                        <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
+                        <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                    </a>
                 @else
-                    <a class="navbar-brand"
-                       href="{{ route('execs.dashboard') }}">{{ __('UTAG-UCC Welfare') }}</a>
+                    <a class="navbar-brand" href="{{ route('execs.dashboard') }}">
+                        <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
+                        <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                    </a>
                 @endguest
             </div>
         </div>
