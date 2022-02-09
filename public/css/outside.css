@@ -51,10 +51,6 @@ body {
 #header .logo a {
   text-decoration: none;
 }
-#header .logo a img {
-  width: 50%;
-  height: auto;
-}
 #header .nav-menu {
   margin: 0;
   padding: 0;
