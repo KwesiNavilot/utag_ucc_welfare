@@ -22,7 +22,7 @@
 
                         <p class="description">
                             We rejoice with you as you welcome your child. Click here to apply for a child birth benefit
-                            <strong>Max: 2</strong>
+{{--                            <strong>Max: 2</strong>--}}
                         </p>
                     </div>
                 </a>
