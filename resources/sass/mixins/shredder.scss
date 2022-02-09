@@ -13,11 +13,7 @@
 }
 
 @mixin mobile-header-a {
-    color: $blue;
     text-decoration: none;
     padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 1px;
     background: transparent;
 }

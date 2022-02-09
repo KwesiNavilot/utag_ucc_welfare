@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/inside.css": "/css/inside.css",
     "/css/gateways.css": "/css/gateways.css",
     "/css/outside.css": "/css/outside.css",
-    "/css/shredder.css": "/css/shredder.css"
+    "/css/shredder.css": "/css/shredder.css",
+    "/css/inside.css": "/css/inside.css"
 }

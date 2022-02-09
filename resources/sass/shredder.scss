@@ -175,12 +175,20 @@
     .mobile-header {
         .navbar-brand, a {
             @include mobile-header-a;
-            font-size: x-large;
+
+            img {
+                width: 13%;
+                height: auto;
+            }
         }
     }
 
     .top-nav {
         padding: 10px;
+
+        .container-sm {
+            flex-wrap: nowrap;
+        }
     }
 
     .content {
@@ -294,7 +302,11 @@
     .mobile-header {
         .navbar-brand, a {
             @include mobile-header-a;
-            font-size: larger;
+
+            img {
+                width: 8%;
+                height: auto;
+            }
         }
     }
 
@@ -355,7 +367,11 @@
     .mobile-header {
         .navbar-brand, a {
             @include mobile-header-a;
-            font-size: x-large;
+
+            img {
+                width: 6%;
+                height: auto;
+            }
         }
     }
 

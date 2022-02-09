@@ -148,18 +148,20 @@
   }
 
   .mobile-header .navbar-brand, .mobile-header a {
-    color: #1977cc;
     text-decoration: none;
     padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 1px;
     background: transparent;
-    font-size: x-large;
+  }
+  .mobile-header .navbar-brand img, .mobile-header a img {
+    width: 13%;
+    height: auto;
   }
 
   .top-nav {
     padding: 10px;
+  }
+  .top-nav .container-sm {
+    flex-wrap: nowrap;
   }
 
   .content {
@@ -264,14 +266,13 @@
   }
 
   .mobile-header .navbar-brand, .mobile-header a {
-    color: #1977cc;
     text-decoration: none;
     padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 1px;
     background: transparent;
-    font-size: larger;
+  }
+  .mobile-header .navbar-brand img, .mobile-header a img {
+    width: 8%;
+    height: auto;
   }
 
   .content {
@@ -326,14 +327,13 @@
   }
 
   .mobile-header .navbar-brand, .mobile-header a {
-    color: #1977cc;
     text-decoration: none;
     padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 1px;
     background: transparent;
-    font-size: x-large;
+  }
+  .mobile-header .navbar-brand img, .mobile-header a img {
+    width: 6%;
+    height: auto;
   }
 
   .content {

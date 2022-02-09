@@ -36,6 +36,14 @@
   padding: 11px;
   background: #1977cc;
 }
+.sidebar .left-header a {
+  text-decoration: none;
+  margin: 0;
+}
+.sidebar .left-header a img {
+  width: 20%;
+  height: auto;
+}
 
 .sidebar {
   max-width: 18% !important;
