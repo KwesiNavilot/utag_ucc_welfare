@@ -4,13 +4,11 @@
             <div class="mobile-header logo">
                 @guest
                     <a class="navbar-brand" href="/">
-                        <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
-                        <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                     </a>
                 @else
                     <a class="navbar-brand" href="{{ route('members.dashboard') }}">
-                        <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
-                        <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                     </a>
                 @endguest
             </div>

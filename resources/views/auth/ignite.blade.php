@@ -20,8 +20,7 @@
             <div class="col-lg-6 gateway-inner p-0">
                 <div class="logo">
                     <a href="{{ route('home') }}" class="d-flex w-auto justify-content-center">
-                        <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
-                        <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                     </a>
                 </div>
 

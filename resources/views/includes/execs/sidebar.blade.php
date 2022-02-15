@@ -2,13 +2,11 @@
                 <div class="left-header p-lg-1 text-center bg-info">
                     @guest
                         <a class="navbar-brand text-white" href="{{ route('execs.home') }}">
-                            <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
-                            <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                            <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                         </a>
                     @else
                         <a class="navbar-brand p-0 text-white" href="{{ route('execs.dashboard') }}">
-                            <img src="{{ asset('/images/ucc_logo.png') }}" alt="UCC Logo">
-                            <img src="{{ asset('/images/utag-logo.png') }}" alt="UTAG Logo">
+                            <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                         </a>
                     @endguest
                 </div>
