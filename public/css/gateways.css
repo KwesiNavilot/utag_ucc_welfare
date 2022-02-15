@@ -84,6 +84,6 @@ form .util-btn:hover {
   text-decoration: none;
 }
 .logo a img, .logo-text a img {
-  width: 15%;
+  width: 50%;
   height: auto;
 }
