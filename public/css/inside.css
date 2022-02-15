@@ -115,7 +115,6 @@ form .util-btn:hover {
   padding: 0 15px 10px !important;
   border-radius: 5px;
   background: #fff;
-  max-width: 23.5% !important;
 }
 .dash-lane .dash .dash-figure {
   font-weight: normal;
@@ -131,18 +130,6 @@ form .util-btn:hover {
   text-transform: uppercase;
   font-weight: bold;
   color: #2f365f;
-}
-.dash-lane .dash:first-child {
-  margin-left: 0;
-  margin-right: 10px;
-}
-.dash-lane .dash:nth-child(2), .dash-lane .dash:nth-child(3) {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.dash-lane .dash:last-child {
-  margin-left: 10px;
-  margin-right: 0;
 }
 
 body {
