@@ -21,7 +21,7 @@
                 </form>
             @endif
         @elsecan('create-broadcast')
-            @if($request->published == "no")
+            @if($request->request_type != "Child Birth" && $request->published == "no")
                 <a href="{{ route('execs.publish.create', $request) }}" class="util-btn float-right">
                     Create Broadcast
                 </a>
@@ -146,7 +146,7 @@
     @endif
 
     <section class="clearfix card-sub-mt">
-        <h4 class="card-sub">{{__('Member Details')}}</h4>
+        <h4 class="card-sub">{{__("Member's Details")}}</h4>
 
         <div class="w-100 bg-white shade">
             <ul class="list-group list-group-flush">

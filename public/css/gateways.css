@@ -7,7 +7,7 @@ form input {
 form .form-control {
   box-shadow: none;
   font-size: 15px;
-  border-radius: 0;
+  border-radius: 0.4rem;
 }
 form .form-control:focus, form .form-control:focus-within {
   border: 2px #2487ce solid;
