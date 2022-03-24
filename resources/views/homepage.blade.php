@@ -87,7 +87,7 @@
                         </h4>
 
                         <p class="description">
-                            With this benefit, we express our sincerest condolences to our members when they loss their spouse.
+                            With this benefit, we express our sincerest condolences to our members when they lose their spouse.
                         </p>
                     </div>
                 </div>
