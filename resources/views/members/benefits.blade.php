@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="{{ route('deathofparent.create') }}">
+                <a href="{{ route('retirement.create') }}">
                     <div class="icon-box">
                         <div class="icon">
                             <i class="ri-command-line"></i>

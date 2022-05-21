@@ -22,7 +22,8 @@ class RetirementController extends Controller
      */
     public function index()
     {
-        return redirect()->route('retirement.create');
+//        return redirect()->route('retirement.create');
+        return view('members.retirement.create');
     }
 
     /**
@@ -32,16 +33,16 @@ class RetirementController extends Controller
      */
     public function create(Request $request)
     {
-        if($request->user()->cannot('requestForDeathOfParentBenefit', BenefitRequest::class)){
-            $toast = [
-                'type' => 'warning',
-                'message' => "You can't request for more than 2 Death of Parent benefits"
-            ];
+//        if($request->user()->cannot('requestForDeathOfParentBenefit', BenefitRequest::class)){
+//            $toast = [
+//                'type' => 'warning',
+//                'message' => "You can't request for more than 2 Death of Parent benefits"
+//            ];
+//
+//            return redirect()->route('members.requests')->with('toast', $toast);
+//        }
 
-            return redirect()->route('members.requests')->with('toast', $toast);
-        }
-
-        return view('members.deathofparent.create');
+        return view('members.retirement.create');
     }
 
     /**
@@ -52,24 +53,18 @@ class RetirementController extends Controller
      */
     public function store(Request $request)
     {
-        //        dd($request);
+//        dd($request);
         $this->validate($request, [
-            'funeral_date' => ['required', 'date'],
-            'parent_name' => ['required', 'string', 'min:2', 'max:50'],
-            'relation' => ['required', 'string'],
-            'publish' => ['required', 'string'],
-            'poster' => ['required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
+            'retirement_date' => ['required', 'date'],
+            'publish' => ['required', 'string']
         ]);
 
         $benefitRequest = BenefitRequest::create([
             'request_id' => $this->generateRequestId(),
             'staff_id' => Auth::id(),
-            'request_type' => 'Death of Parent',
-            'funeral_date' => $request->funeral_date,
-            'parent_name' => $request->parent_name,
-            'relation' => $request->relation,
-            'publish' => $request->publish,
-            'media' => $request->poster->store('deathofparents', 'public')
+            'request_type' => 'Retirement',
+            'retirement_date' => $request->retirement_date,
+            'publish' => $request->publish
         ]);
 
         $benefitRequest = $benefitRequest->load('user');
@@ -78,7 +73,7 @@ class RetirementController extends Controller
 
         $toast = [
             'type' => 'success',
-            'message' => 'You have successfully requested for benefit'
+            'message' => 'You have successfully requested for the benefit'
         ];
 
         return redirect()->route('members.requests')->with('toast', $toast);

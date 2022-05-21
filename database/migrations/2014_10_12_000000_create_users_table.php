@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phonenumber', 10);
             $table->string('department');
+            $table->date('date_of_birth')->nullable();
             $table->string('position')->nullable();
             $table->date('date_joined');
             $table->set('ignited', ['yes', 'no'])->default('no');
