@@ -44,7 +44,7 @@
                         </td>
                         <td class="p-0">
                             <a href="{{ route('execs.requests.show', $request) }}"
-                               class="d-flex text-decoration-none">
+                               class="d-flex text-decoration-none badge badge-pill @if($request->status == "Approved")badge-success @else badge-danger @endif">
                                 {{ $request->status }}
                             </a>
                         </td>

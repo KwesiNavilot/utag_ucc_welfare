@@ -364,6 +364,10 @@
     .mt-xs {
         margin-top: 0 !important;
     }
+
+    .mt-sm {
+        margin-top: 5% !important;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -453,8 +457,12 @@
         }
     }
 
-    .mt-xs {
+    .mt-xs, .mt-sm {
         margin-top: 0 !important;
+    }
+
+    .mt-md {
+        margin-top: 5% !important;
     }
 }
 

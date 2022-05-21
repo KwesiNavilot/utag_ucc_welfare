@@ -13,6 +13,7 @@ use App\Http\Controllers\Members\DeathOfSpouseController;
 use App\Http\Controllers\Members\AccountController;
 use App\Http\Controllers\Members\ChildBirthController;
 use App\Http\Controllers\Members\DashboardController;
+use App\Http\Controllers\Members\RetirementController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\Ignition;
 use App\Http\Middleware\RevalidateBackHistory;
@@ -60,6 +61,8 @@ Route::middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::
     Route::resource('deathofspouse', DeathOfSpouseController::class);
 
     Route::resource('deathofparent', DeathOfParentController::class);
+
+    Route::resource('retirement', RetirementController::class);
 });
 
 

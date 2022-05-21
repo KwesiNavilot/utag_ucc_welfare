@@ -163,6 +163,7 @@ body .fs-20 {
 }
 .content .icon-box {
   box-shadow: none;
+  padding: 35px 30px;
 }
 .content .icon-boxes a:link, .content .icon-boxes a:hover,
 .content .icon-boxes a:active, .content .icon-boxes a:visited {
@@ -204,6 +205,21 @@ body .fs-20 {
 }
 .content .table-hover tbody tr:hover {
   background: #f1f5f9;
+}
+.content .table-hover tbody .badge {
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  text-align: center;
+  white-space: nowrap;
+  color: white;
+  padding: 3% 10% !important;
+  margin: 3%;
+}
+.content .table-hover tbody .badge-success:focus, .content .table-hover tbody .badge-success:active, .content .table-hover tbody .badge-success:focus-visible,
+.content .table-hover tbody .badge-danger:focus, .content .table-hover tbody .badge-danger:active, .content .table-hover tbody .badge-danger:focus-visible {
+  box-shadow: none;
+  outline: none;
 }
 .content footer {
   clear: both;

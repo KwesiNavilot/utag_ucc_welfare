@@ -12,19 +12,19 @@
                 <span class='dash-header'>Pending Requests</span>
             </div>
 
-            <div class='shade dash col-lg-3 col-md-5 mt-sm-5 mt-xs'>
+            <div class='shade dash col-lg-3 col-md-5 mt-sm mt-xs'>
                 <span class='dash-figure'>{{ $approved_requests }}</span>
                 <hr>
                 <span class='dash-header'>Approved Requests</span>
             </div>
 
-            <div class='shade dash col-lg-3 col-md-5 mt-md-5 mt-xs'>
+            <div class='shade dash col-lg-3 col-md-5 mt-md mt-sm mt-xs'>
                 <span class='dash-figure'>{{ $total_requests }}</span>
                 <hr>
                 <span class='dash-header'>Total Requests</span>
             </div>
 
-            <div class='shade dash col-lg-3 col-md-5 mt-md-5 mt-xs'>
+            <div class='shade dash col-lg-3 col-md-5 mt-md mt-sm mt-xs'>
                 <span class='dash-figure'>{{ $members }}</span>
                 <hr>
                 <span class='dash-header'>Total Members</span>

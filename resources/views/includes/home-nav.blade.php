@@ -23,10 +23,14 @@
                 <li class="position-relative">
                     <a href="#contact">Contact Us</a>
                 </li>
+
+                <li class="position-relative">
+                    <a href="{{ route('login') }}">Login</a>
+                </li>
             </ul>
         </nav><!-- .nav-menu -->
 
-        <a href="{{ route('login') }}" class="rounded-button">Login</a>
+        <a href="{{ route('login') }}" class="rounded-button">Register</a>
 
         <button id="sidebar-toggle" class="hide-hidden-nav navbar-toggler navbar-light bg-light" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,6 +64,10 @@
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
             @endif
+
+            <li class="nav-item">
+                <a id="contact-h" class="nav-link" href="{{ route('login') }}">Register</a>
+            </li>
         </ul>
     </nav>
 </div>

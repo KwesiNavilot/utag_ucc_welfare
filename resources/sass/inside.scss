@@ -44,6 +44,7 @@ body {
 
     .icon-box {
         box-shadow: none;
+        padding: 35px 30px;
     }
 
     .icon-boxes a:link, .icon-boxes a:hover,
@@ -96,6 +97,23 @@ body {
 
         tr:hover {
             background: $inside-bg;
+        }
+
+        .badge {
+            font-size: inherit;
+            font-weight: 500;
+            line-height: inherit;
+            text-align: center;
+            white-space: nowrap;
+            color: white;
+            padding: 3% 10% !important;
+            margin: 3%;
+        }
+
+        .badge-success:focus, .badge-success:active, .badge-success:focus-visible,
+        .badge-danger:focus, .badge-danger:active, .badge-danger:focus-visible{
+            box-shadow: none;
+            outline: none;
         }
     }
 
