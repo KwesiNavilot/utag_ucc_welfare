@@ -22,7 +22,7 @@ class RetirementController extends Controller
      */
     public function index()
     {
-        return view('members.deathofparent.create');
+        return redirect()->route('retirement.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class RetirementController extends Controller
                 'message' => "You can't request for more than 2 Death of Parent benefits"
             ];
 
-            return redirect()->back()->with('toast', $toast);
+            return redirect()->route('members.requests')->with('toast', $toast);
         }
 
         return view('members.deathofparent.create');

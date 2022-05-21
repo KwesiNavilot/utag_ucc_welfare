@@ -21,7 +21,8 @@ class DeathOfSpouseController extends Controller
      */
     public function index()
     {
-        return view('members.deathofspouse.create');
+        return redirect()->route('deathofspouse.create');
+//        return view('members.deathofspouse.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class DeathOfSpouseController extends Controller
                 'message' => "You can't request for more than 1 Spousal benefits"
             ];
 
-            return redirect()->back()->with('toast', $toast);
+            return redirect()->route('members.requests')->with('toast', $toast);
         }
 
         return view('members.deathofspouse.create');

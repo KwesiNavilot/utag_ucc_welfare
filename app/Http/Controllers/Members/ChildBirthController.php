@@ -23,6 +23,7 @@ class ChildBirthController extends Controller
     public function index()
     {
         return view('members.childbirth.create');
+//        return redirect()->route('members.childbirth.create');
     }
 
     /**
