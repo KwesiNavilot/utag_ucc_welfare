@@ -27,7 +27,7 @@ class CreateRequestsTable extends Migration
             $table->date('retirement_date')->nullable();
             $table->set('publish', ['yes', 'no'])->default('no')->nullable();
             $table->set('published', ['yes', 'no'])->default('no');
-            $table->string('media');
+            $table->string('media')->default("retirements");
             $table->timestamps();
         });
     }

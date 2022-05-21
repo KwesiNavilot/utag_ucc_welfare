@@ -89,7 +89,7 @@ class RetirementController extends Controller
     {
 //        dd($request_id);
         $request = BenefitRequest::findOrFail($request_id);
-        return view('members.deathofparent.show')->with('request', $request);
+        return view('members.retirement.show')->with('request', $request);
     }
 
     /**
@@ -100,9 +100,9 @@ class RetirementController extends Controller
      */
     public function edit($request_id)
     {
-//        dd($benefitRequest);
         $request = BenefitRequest::findOrFail($request_id);
-        return view('members.deathofparent.edit')->with('request', $request);
+//        dd($request);
+        return view('members.retirement.edit')->with('request', $request);
     }
 
     /**
@@ -116,31 +116,23 @@ class RetirementController extends Controller
     {
 //        dd($request);
         $this->validate($request, [
-            'funeral_date' => ['required', 'date'],
-            'parent_name' => ['required', 'string', 'min:2', 'max:50'],
-            'relation' => ['required', 'string', Rule::in(['mother', 'father'])],
-            'publish' => ['required', 'string'],
-            'uploadNewImage' => ['required', 'string'],
-            'poster' => ['sometimes', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
+            'retirement_date' => ['required', 'date']
         ]);
 
         $benefitRequest = tap(BenefitRequest::findOrFail($request_id))->update([
-            'funeral_date' => $request->funeral_date,
-            'parent_name' => $request->parent_name,
-            'relation' => $request->relation,
-            'publish' => $request->publish
+            'retirement_date' => $request->retiment_date
         ]);
 
-        if ($request->hasFile('poster')) {
-            $this->updateMedia($benefitRequest);
-        }
+//        if ($request->hasFile('poster')) {
+//            $this->updateMedia($benefitRequest);
+//        }
 
         $toast = [
             'type' => 'success',
             'message' => 'You have successfully updated the benefit request'
         ];
 
-        return redirect()->route('deathofparent.show', $request_id)->with('toast', $toast);
+        return redirect()->route('retirement.show', $request_id)->with('toast', $toast);
     }
 
     /**
