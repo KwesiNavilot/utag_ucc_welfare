@@ -33,14 +33,14 @@ class RetirementController extends Controller
      */
     public function create(Request $request)
     {
-//        if($request->user()->cannot('requestForDeathOfParentBenefit', BenefitRequest::class)){
-//            $toast = [
-//                'type' => 'warning',
-//                'message' => "You can't request for more than 2 Death of Parent benefits"
-//            ];
-//
-//            return redirect()->route('members.requests')->with('toast', $toast);
-//        }
+        if($request->user()->cannot('requestForRetirementBenefit', BenefitRequest::class)){
+            $toast = [
+                'type' => 'warning',
+                'message' => "You can't request for any more Retirement benefits"
+            ];
+
+            return redirect()->route('members.requests')->with('toast', $toast);
+        }
 
         return view('members.retirement.create');
     }

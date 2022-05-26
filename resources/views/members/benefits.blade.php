@@ -79,7 +79,7 @@
 
                         <p class="description">
                             We celebrate your good work done. Click here to apply for retirement benefit.
-                            <strong>Max: 2</strong>
+                            <strong>Max: 1</strong>
                         </p>
                     </div>
                 </a>
@@ -106,7 +106,7 @@
                 </thead>
 
                 <tbody>
-                @foreach($requests as $key=>$request)
+                @foreach($requests as $key => $request)
                     <tr>
                         @switch($request->request_type)
                             @case('Child Birth')

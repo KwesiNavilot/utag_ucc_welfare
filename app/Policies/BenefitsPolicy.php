@@ -52,4 +52,19 @@ class BenefitsPolicy
             : Response::deny();     //if the person has 2 or more, then deny them
 
     }
+
+    //This method checks if the user can request for a retirement benefit
+    public function requestForRetirementBenefit(User $user): Response
+    {
+        //get the count of the user's retirement benefits
+        $retirementRequests = $user->benefits()->where('request_type', "Retirement")->get()->count();
+
+//        dd($retirementRequests);
+
+        //check if the member's retirement are 2 or less
+        return $retirementRequests < 1
+            ? Response::allow()             //if they are less than 1, then allow them
+            : Response::deny();     //if the person has 1 or more, then deny them
+
+    }
 }
