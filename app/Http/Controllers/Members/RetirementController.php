@@ -101,7 +101,7 @@ class RetirementController extends Controller
     public function edit($request_id)
     {
         $request = BenefitRequest::findOrFail($request_id);
-//        dd($request);
+        dd($request);
         return view('members.retirement.edit')->with('request', $request);
     }
 

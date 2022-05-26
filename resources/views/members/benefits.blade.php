@@ -78,7 +78,8 @@
                         </h4>
 
                         <p class="description">
-                            After your good work done, . Click here to apply for a retirement benefit.
+                            We celebrate your good work done. Click here to apply for retirement benefit.
+                            <strong>Max: 2</strong>
                         </p>
                     </div>
                 </a>
