@@ -12,17 +12,13 @@
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('childbirth.create') }}">
                     <div class="icon-box">
-                        <div class="icon">
-                            <i class="ri-stack-line"></i>
-                        </div>
-
                         <h4 class="title text-center">
                             <span>Birth of Child</span>
                         </h4>
 
                         <p class="description">
-                            We rejoice with you as you welcome your child. Click here to apply for a child birth benefit
-{{--                            <strong>Max: 2</strong>--}}
+                            You need the <strong>BIRTH CERTIFICATE OF THE CHILD</strong> (picture/PDF) to apply for this benefit.
+{{--                            We rejoice with you as you welcome your child. Click here to apply for a child birth benefit--}}
                         </p>
                     </div>
                 </a>
@@ -31,16 +27,13 @@
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('deathofspouse.create') }}">
                     <div class="icon-box">
-                        <div class="icon">
-                            <i class="ri-palette-line"></i>
-                        </div>
-
                         <h4 class="title text-center">
                             <span>Death of Spouse</span>
                         </h4>
 
                         <p class="description">
-                            We sincerely mourn your loss. Click here to apply for a death of spouse benefit.
+                            You need the <strong>OBITUARY OF THE DECEASED</strong> (picture/PDF) to apply for this benefit.
+{{--                            We sincerely mourn your loss. Click here to apply for a death of spouse benefit.--}}
                             <strong>Max: 1</strong>
                         </p>
                     </div>
@@ -50,16 +43,13 @@
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('deathofparent.create') }}">
                     <div class="icon-box">
-                        <div class="icon">
-                            <i class="ri-command-line"></i>
-                        </div>
-
                         <h4 class="title text-center">
                             <span>Death of Parent</span>
                         </h4>
 
                         <p class="description">
-                            We are deeply sorry for your loss. Click here to apply for a death of parent benefit.
+                            You need the <strong>OBITUARY OF THE DECEASED</strong> (picture/PDF) to apply for this benefit.
+{{--                            We are deeply sorry for your loss. Click here to apply for a death of parent benefit.--}}
                             <strong>Max: 2</strong>
                         </p>
                     </div>
@@ -69,10 +59,6 @@
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
                 <a href="{{ route('retirement.create') }}">
                     <div class="icon-box">
-                        <div class="icon">
-                            <i class="ri-command-line"></i>
-                        </div>
-
                         <h4 class="title text-center">
                             <span>Retirement</span>
                         </h4>
