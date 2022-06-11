@@ -17,15 +17,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->string('staff_id')->primary();
-            $table->set('title', ['Mr.', 'Mrs.', 'Dr.', 'Prof.', 'Ing.'])->default('Mr.');
+            $table->set('title', ['Mr.', 'Mrs.', 'Dr.', 'Prof.', 'Ing.'])->default('Mr.')->nullable();
             $table->string('firstname', 30);
             $table->string('lastname', 30);
             $table->string('email')->unique();
-            $table->string('phonenumber', 10);
-            $table->string('department');
+            $table->string('phonenumber', 10)->nullable();
+            $table->string('department')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('position')->nullable();
-            $table->date('date_joined');
+            $table->date('date_joined')->nullable();
             $table->set('ignited', ['yes', 'no'])->default('no');
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
         });
 
         DB::table('users')->insert([
-            'staff_id' => '00000001',
+            'staff_id' => '0001',
             'firstname' => 'Andy',
             'lastname' => 'Martin',
             'email' => 'martinandy349@gmail.com',

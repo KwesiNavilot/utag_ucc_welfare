@@ -43,11 +43,12 @@ Route::middleware('guest:web')->group(function () {
     Route::post('/contact', [AuxController::class, 'contactUs'])->name('contact');
 });
 
+
 //Routes for members
 Route::get('/ignite', [AccountController::class, 'startIgnition'])->name('members.startignition');
 Route::post('/ignite', [AccountController::class, 'ignite'])->name('members.ignite');
 
-Route::middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
+Route::middleware([RevalidateBackHistory::class, Authenticate::class])->group(function(){
     Route::get('/account', [AccountController::class, 'index'])->name('members.account');
     Route::post('/account', [AccountController::class, 'updateDetails'])->name('members.updatedetails');
     Route::put('/account', [AccountController::class, 'updatePassword'])->name('members.updatepassword');
@@ -92,7 +93,7 @@ Route::prefix('/execs')->name('execs.')->middleware([RevalidateBackHistory::clas
 
         Route::resource('members', MembersController::class);
 
-//        Route::resource('publish', PublishingController::class);
+        //Route::resource('publish', PublishingController::class);
         Route::get('/publish/{request}/create', [PublishingController::class, 'create'])->name('publish.create');
         Route::post('/publish/store', [PublishingController::class, 'store'])->name('publish.store');
 
@@ -101,6 +102,7 @@ Route::prefix('/execs')->name('execs.')->middleware([RevalidateBackHistory::clas
         Route::put('/account', [ExecsAccountController::class, 'updatePassword'])->name('updatepassword');
     });
 });
+
 
 //Route to view mailables
 Route::prefix('/mailables')->group(function () {

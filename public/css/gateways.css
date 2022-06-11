@@ -54,7 +54,7 @@ form .util-btn:hover {
 }
 
 .gateway-form {
-  margin: 10% 0 0;
+  margin: 5% 0 0;
 }
 
 .gateway-inner .card {
@@ -84,6 +84,6 @@ form .util-btn:hover {
   text-decoration: none;
 }
 .logo a img, .logo-text a img {
-  width: 50%;
+  width: 40%;
   height: auto;
 }

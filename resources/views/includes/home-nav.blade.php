@@ -28,9 +28,9 @@
                     <a href="{{ route('login') }}">Login</a>
                 </li>
             </ul>
-        </nav><!-- .nav-menu -->
+        </nav>
 
-        <a href="{{ route('login') }}" class="rounded-button">Register</a>
+        <a href="{{ route('register') }}" class="rounded-button">Register</a>
 
         <button id="sidebar-toggle" class="hide-hidden-nav navbar-toggler navbar-light bg-light" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,14 +59,12 @@
                 <a id="contact-h" class="nav-link" href="#contact">Contact Us</a>
             </li>
 
-            @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-            @endif
+            <li class="nav-item">
+                <a id="contact-h" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
 
             <li class="nav-item">
-                <a id="contact-h" class="nav-link" href="{{ route('login') }}">Register</a>
+                <a id="contact-h" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         </ul>
     </nav>
