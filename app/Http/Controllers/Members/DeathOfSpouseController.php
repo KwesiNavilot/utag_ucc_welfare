@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Members;
 use App\Events\BenefitRequestEvent;
 use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
-use App\Models\DeathOfSpouse;
+use App\Models\Spouse;
 use App\Traits\Essentials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,7 +87,7 @@ class DeathOfSpouseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DeathOfSpouse  $deathOfSpouse
+     * @param  \App\Models\Spouse  $deathOfSpouse
      * @return \Illuminate\Http\Response
      */
     public function show($request_id)
@@ -99,7 +99,7 @@ class DeathOfSpouseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DeathOfSpouse  $deathOfSpouse
+     * @param  \App\Models\Spouse  $deathOfSpouse
      * @return \Illuminate\Http\Response
      */
     public function edit($request_id)
@@ -112,7 +112,7 @@ class DeathOfSpouseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DeathOfSpouse  $deathOfSpouse
+     * @param  \App\Models\Spouse  $deathOfSpouse
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $request_id)
@@ -148,7 +148,7 @@ class DeathOfSpouseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DeathOfSpouse  $deathOfSpouse
+     * @param  \App\Models\Spouse  $deathOfSpouse
      * @return \Illuminate\Http\Response
      */
     public function destroy($request_id)

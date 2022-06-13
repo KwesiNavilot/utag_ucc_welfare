@@ -30,7 +30,7 @@ class BenefitRequest extends Model
     ];
 
     public function user() {
-        return $this->belongsTo(User::class, 'staff_id', 'staff_id');
+        return $this->belongsTo(User::class, 'member_id', 'member_id');
     }
 
     public function scopeApproved($query)
