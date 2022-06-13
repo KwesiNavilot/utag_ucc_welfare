@@ -16,7 +16,10 @@ class AccountController extends Controller
     //Show account page
     public function index()
     {
-        return view('members.account')->with('member', Auth::user());
+        return view('members.particulars.profile')->with([
+            'member' => Auth::user(),       //get the user's details
+            'department' => Departments::where('short', Auth::user()->department)->get(['name'])    //get their department
+        ]);
     }
 
     //We use the store method to update vendor's details

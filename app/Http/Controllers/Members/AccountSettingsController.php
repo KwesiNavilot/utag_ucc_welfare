@@ -43,7 +43,7 @@ class AccountSettingsController extends Controller
             'message' => 'Your password has been changed successfully'
         ];
 
-        return redirect('/account')->with('toast', $toast);
+        return redirect()->route('members.settings')->with('toast', $toast);
     }
 
 }

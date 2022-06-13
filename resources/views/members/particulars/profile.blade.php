@@ -1,92 +1,102 @@
-<?php
+@extends('layouts.members')
 
-<div data-purpose="account_details">
-        <h4 class="card-sub">{{__('Details')}}</h4>
+@section('title', 'My Profile | UTAG-UCC Welfare')
 
-<div class="shade col-lg-12">
-    <form action="{{route('members.updatedetails')}}" method="POST">
-        @csrf
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="firstname">First Name</label>
-                <input type="text" class="form-control @error('firstname') is-invalid @enderror"
-                       name="firstname"
-                       value="{{ old('firstname') ?? $member->firstname }}" placeholder="First Name" required>
+@section('content')
+    <h2 class="page-header font-weight-bold mb-lg-5">
+        {{ __('Personal Information') }}
 
-                @error('firstname')
-                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                @enderror
-            </div>
+        <a href="{{ route('profile.edit', Auth::user()) }}"
+           class="util-btn float-right">Edit</a>
+    </h2>
 
-            <div class="form-group col-md-6">
-                <label for="lastname">Last Name</label>
-                <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname"
-                       value="{{ old('lastname') ?? $member->lastname }}" placeholder="Last Name" required>
-                @error('lastname')
-                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                @enderror
-            </div>
+    <section class="w-100 marg">
+        <h4 class="card-sub">{{__('Basic Info')}}</h4>
+
+        <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-100">
+            <ul class="list-group list-group-flush">
+                <div class="d-flex">
+                    <li class="list-group-item border-left-0 border-right-0 border-top-0 col-lg-6 list-group-item">
+                        <medium class="card-sub">Staff ID</medium>
+                        <p class="mb-0 mt-1">{{$member->staff_id}}</p>
+                    </li>
+
+                    <li class="list-group-item border-left-0 border-right-0 border-top-0 col-lg-6 list-group-item">
+                        <medium class="card-sub">Title</medium>
+                        <p class="mb-0 mt-1">{{$member->title}}</p>
+                    </li>
+                </div>
+
+                <li class="list-group-item">
+                    <medium class="card-sub">Name</medium>
+                    <p class="mb-0 mt-1">{{$member->firstname . " " . $member->lastname}}</p>
+                </li>
+
+                <div class="d-flex">
+                    <li class="list-group-item border-0 col-lg-6 list-group-item">
+                        <medium class="card-sub">Date of Birth</medium>
+                        <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($member->date_of_birth)->format('jS F, Y') }}</p>
+                    </li>
+
+                    <li class="list-group-item border-0 col-lg-6 list-group-item">
+                        <medium class="card-sub">Date of Joining Association</medium>
+                        <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($member->date_joined)->format('jS F, Y') }}</p>
+                    </li>
+                </div>
+            </ul>
         </div>
+    </section>
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
-                   value="{{$member->email}}" placeholder="Example: kwekumanu@gmail.com" required>
-            @error('email')
-            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-            @enderror
+    <section class="w-100 marg">
+        <h4 class="card-sub">{{__('Contact Info')}}</h4>
+
+        <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-100">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <medium class="card-sub">Email</medium>
+                    <p class="mb-0 mt-1">{{$member->email}}</p>
+                </li>
+
+                <li class="list-group-item">
+                    <medium class="card-sub">Primary Phone Number</medium>
+                    <p class="mb-0 mt-1">{{ $member->phonenumber }}</p>
+                </li>
+
+                <li class="list-group-item">
+                    <medium class="card-sub">Alternate Phone Number</medium>
+                    <p class="mb-0 mt-1">
+                        @isset($member->alt_phonenumber)
+                            {{ $member->alt_phonenumber }}
+                        @else
+                            None Provided
+                        @endif
+                    </p>
+                </li>
+            </ul>
         </div>
+    </section>
 
-        <div class="form-group">
-            <label for="phonenumber">Phone Number</label>
-            <input type="text" class="form-control @error('phonenumber') is-invalid @enderror" name="phonenumber"
-                   value="{{$member->phonenumber}}" placeholder="Example: kwekumanu@gmail.com" required>
-            @error('phonenumber')
-            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-            @enderror
+    <section class="w-100">
+        <h4 class="card-sub">{{__('Department Info')}}</h4>
+
+        <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-100">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <medium class="card-sub">Department</medium>
+                    <p class="mb-0 mt-1">{{$department[0]['name']}}</p>
+                </li>
+
+                <li class="list-group-item">
+                    <medium class="card-sub">Position</medium>
+                    <p class="mb-0 mt-1">
+                        @isset($member->dept_position)
+                            {{ $member->dept_position }}
+                        @else
+                            None Provided
+                        @endif
+                    </p>
+                </li>
+            </ul>
         </div>
-
-        <div class="form-group">
-            <label for="department">Department</label>
-            <select class="form-control @error('department') is-invalid @enderror" name="department">
-                @foreach($departments as $department)
-                    <option value="{{ $department->short }}" @if($member->department == $department->short)selected @endif>
-                        {{ $department->name }}
-                    </option>
-                @endforeach
-            </select>
-
-            @error('department')
-            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="date_of_birth">Date of Birth: {{ \Carbon\Carbon::parse($member->date_of_birth)->format('jS F, Y') }}</label>
-            {{--                    <input type="date" class="form-control @error('date_of_birth') is-invalid @enderror"--}}
-            {{--                           name="date_of_birth" value="{{ $member->date_of_birth }}"--}}
-            {{--                           placeholder="Enter your date of birth..." required>--}}
-
-            {{--                    @error('date_of_birth')--}}
-            {{--                    <span class="invalid-feedback" role="alert">--}}
-            {{--                                    <strong>{{ $message }}</strong>--}}
-            {{--                                </span>--}}
-            {{--                    @enderror--}}
-        </div>
-
-        <div class="text-center">
-            <button type="submit">Update Details</button>
-        </div>
-    </form>
-</div>
-</div>
+    </section>
+@endsection

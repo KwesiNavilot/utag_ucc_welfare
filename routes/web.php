@@ -49,11 +49,13 @@ Route::middleware('guest:web')->group(function () {
 Route::get('/ignite', [AccountController::class, 'startIgnition'])->name('members.startignition');
 Route::post('/ignite', [AccountController::class, 'igniteProfile'])->name('members.ignite');
 
-Route::middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
+//All routes can be named using 'members.' and the namespaces is Members
+Route::name('execs.')->middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
     Route::get('/settings', [AccountSettingsController::class, 'index'])->name('members.settings');
     Route::post('/settings', [AccountSettingsController::class, 'updatePassword'])->name('members.updatepassword');
 
-    //Route::post('/account', [AccountController::class, 'updateDetails'])->name('members.updatedetails');
+    Route::get('/profile/', [AccountController::class, 'index'])->name('members.profile');
+    Route::get('/profile/edit', [AccountController::class, 'edit'])->name('members.profile');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('members.dashboard');
 
