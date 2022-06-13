@@ -1,7 +1,7 @@
 form .form-group {
   padding-bottom: 8px;
 }
-form input {
+form input, form select {
   height: 44px !important;
 }
 form .form-control {
@@ -77,7 +77,7 @@ form .util-btn:hover {
 }
 
 .logo, .logo-text {
-  padding: 15px 0;
+  padding: 0;
   background: transparent;
 }
 .logo a, .logo-text a {

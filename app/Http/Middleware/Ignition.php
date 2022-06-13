@@ -16,7 +16,7 @@ class Ignition
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->ignited == "no") {
+        if (Auth::user()->ignited_profile == "no") {
             return redirect()->route('members.startignition');
         } else {
             return $next($request);

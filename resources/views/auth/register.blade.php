@@ -19,11 +19,11 @@
             <div class="w-65 gateway-inner p-0">
                 <div class="logo">
                     <a href="{{ route('home') }}" class="d-flex w-auto justify-content-center">
-                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
+                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo" style="width: 35%;">
                     </a>
                 </div>
 
-                <div class="card p-5">
+                <div class="card p-5 mt-lg-3">
                     <h1 class="text-center text-gray font-weight-bold text-3xl">
                         Create An Account
                     </h1>
@@ -60,19 +60,7 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="col-md-6 form-group">
-                                <input class="form-control @error('staff_id') is-invalid @enderror"
-                                       placeholder="{{ __('Staff ID') }}" required autofocus name="staff_id"
-                                       type="text" value="{{ old('staff_id') }}">
-
-                                @error('staff_id')
-                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-12 form-group">
                                 <input class="form-control @error('email') is-invalid @enderror"
                                        placeholder="{{ __('Email') }}" required autofocus name="email"
                                        type="email" value="{{ old('email') }}">
@@ -83,7 +71,6 @@
                                         </span>
                                 @enderror
                             </div>
-
                         </div>
 
                         <div class="form-row">
@@ -117,25 +104,6 @@
                                 </span>
                             @endif
                         </div>
-
-{{--                        <div class="terms-and-conditions form-row mt-4 mb-4 px-2">--}}
-{{--                            <div class="col-md-6 col-sm-12 p-0 text-center text-lg-left text-sm-center">--}}
-{{--                                <label class="check-container">--}}
-{{--                                    <input type="checkbox" id="remember"--}}
-{{--                                           name="remember" {{ old('remember') ? 'checked' : '' }}>--}}
-{{--                                    <span class="checkmark"></span>--}}
-{{--                                    Remember Me--}}
-{{--                                </label>--}}
-{{--                            </div>--}}
-
-{{--                            <div class="col-md-6 col-sm-12 p-0 text-center text-lg-right text-sm-center">--}}
-{{--                            <span class="">--}}
-{{--                                <label class="tc-check">--}}
-{{--                                    <a href="{{ route('password.request') }}" target="_self">Forgotten Your Password?</a>--}}
-{{--                                </label>--}}
-{{--                            </span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
 
                         <div class="text-center mt-2">
                             <input type="submit" class="rounded-button" value="Register">

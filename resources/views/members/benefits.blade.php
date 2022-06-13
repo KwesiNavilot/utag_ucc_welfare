@@ -34,7 +34,7 @@
                         <p class="description">
                             You need the <strong>OBITUARY OF THE DECEASED</strong> (picture/PDF) to apply for this benefit.
 {{--                            We sincerely mourn your loss. Click here to apply for a death of spouse benefit.--}}
-                            <strong>Max: 1</strong>
+                            <strong style="color: red">Max: 1</strong>
                         </p>
                     </div>
                 </a>

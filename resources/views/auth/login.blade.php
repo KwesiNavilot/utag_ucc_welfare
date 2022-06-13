@@ -17,19 +17,15 @@
     <div class="gateway container">
         <div class="justify-content-center row">
             <div class="col-lg-5 gateway-inner p-0">
-                <div class="logo">
+                <div class="logo" style="padding:15px 0 0;">
                     <a href="{{ route('home') }}" class="d-flex w-auto justify-content-center">
-                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
+                        <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo" style="width: 50%;">
                     </a>
                 </div>
 
                 <div class="card p-5 mt-lg-3">
                     <h1 class="text-center text-gray font-weight-bold text-3xl">
-                        @if(session('relog') != null)
-                            Please Log In Again
-                        @else
-                            Welcome Back!
-                        @endif
+                        Welcome Back!
                     </h1>
 
                     <div class="mx-8 mt-2 w-24 border-b-2"></div>

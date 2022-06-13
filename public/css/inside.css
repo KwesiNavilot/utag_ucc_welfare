@@ -80,7 +80,7 @@
 form .form-group {
   padding-bottom: 8px;
 }
-form input {
+form input, form select {
   height: 44px !important;
 }
 form .form-control {

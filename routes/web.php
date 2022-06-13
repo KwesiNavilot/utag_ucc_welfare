@@ -44,18 +44,18 @@ Route::middleware('guest:web')->group(function () {
 });
 
 
-//Routes for members
+//Routes for members profile ignition
 Route::get('/ignite', [AccountController::class, 'startIgnition'])->name('members.startignition');
-Route::post('/ignite', [AccountController::class, 'ignite'])->name('members.ignite');
+Route::post('/ignite', [AccountController::class, 'igniteProfile'])->name('members.ignite');
 
-Route::middleware([RevalidateBackHistory::class, Authenticate::class])->group(function(){
+Route::middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
     Route::get('/account', [AccountController::class, 'index'])->name('members.account');
     Route::post('/account', [AccountController::class, 'updateDetails'])->name('members.updatedetails');
     Route::put('/account', [AccountController::class, 'updatePassword'])->name('members.updatepassword');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('members.dashboard');
 
-     Route::get('/requests', [BenefitRequestController::class, 'index'])->name('members.requests');
+    Route::get('/requests', [BenefitRequestController::class, 'index'])->name('members.requests');
 
     Route::resource('childbirth', ChildBirthController::class);
 

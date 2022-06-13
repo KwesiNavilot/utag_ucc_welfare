@@ -81,40 +81,55 @@ class AccountController extends Controller
     //start the ignition process
     public function startIgnition()
     {
-        if (Auth::user()->ignited == "yes") {
-            return back();
+        //if someone, by themselves enter the link or if someone is ignited but still comes here
+        if (Auth::user()->ignited_profile == "yes") {
+            return back();          //send them back where they came from
         } else {
-            return view('auth.ignite');
+            //if they were brought here on purpose, then let them ignite thier profile
+            return view('members.particulars.ignite_profile', ['departments' => Departments::all()]);
         }
     }
 
-    public function ignite(Request $request)
+    //Ignite the person's profile
+    public function igniteProfile(Request $request)
     {
-//        dd($request->all());
+        //dd($request->all());
 
         $this->validate($request, [
+            'staff_id' => ['required', 'string', 'max:5'],
+            'title' => ['required', 'string', 'max:5'],
             'date_of_birth' => ['required', 'date'],
-            'password' => ['required', 'alpha_num', 'min:8', 'confirmed']
+            'date_joined' => ['required', 'date'],
+            'department' => ['required', 'string', 'min:2'],
+            'dept_position' => ['nullable', 'string', 'min:2', 'max:30'],
+            'phonenumber' => ['required', 'string', 'size:10'],
+            'alt_phonenumber' => ['nullable', 'string', 'size:10'],
         ]);
 
-        //get the user, update their password and ignition status
+        //get the user, update their profile and ignition status
         $member = Auth::user();
+        $member->staff_id = $request->staff_id;
+        $member->title = $request->title;
         $member->date_of_birth = $request->date_of_birth;
-        $member->password = Hash::make($request->password);
-        $member->ignited = 'yes';
+        $member->date_joined = $request->date_joined;
+        $member->department = $request->department;
+        $member->dept_position = $request->dept_position;
+        $member->phonenumber = $request->phonenumber;
+        $member->alt_phonenumber = $request->alt_phonenumber;
+        $member->ignited_profile = 'yes';
         $member->save();
 
-//        dd($member);
+        //dd($member);
 
         //notify them of account ignition
         $member->notify((new AccountIgnitedNotification($member))->delay(10));
 
-        //log them out and regenerate their session
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        //set up a toast for them
+        $toast = [
+            'type' => 'success',
+            'message' => 'You have successfully created your profile'
+        ];
 
-        //get them to login again
-        return redirect('/login')->with('relog', 'Log in');
+        return redirect()->route('members.dashboard')->with('toast', $toast);
     }
 }

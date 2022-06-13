@@ -12,6 +12,30 @@ use Illuminate\Support\Str;
 
 trait Essentials
 {
+    /** THis function is used to generate
+     * the MemberID of the vendor or stores
+     * @param charset is set of accepted characters used in generation
+     * @param length is the length of characters to generate
+     * @param random_character is character generated per loop run
+     * @param gened is final code generated
+     */
+    function generateMemberId(){
+        $charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $length = 7;
+        $input_length = strlen($charset);
+        $random_string = '';
+
+        for($i = 0; $i < $length; $i++) {
+            $random_character = $charset[mt_rand(0, $input_length - 1)];
+            $random_string .= $random_character;
+        }
+
+        //die($gened);
+
+        return "UUW" . $random_string;
+    }
+
+    //Create a greeting based on the time of the day
     public function greet()
     {
         $hour = Carbon::now()->hour;

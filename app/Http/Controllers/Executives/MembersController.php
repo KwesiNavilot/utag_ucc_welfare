@@ -48,35 +48,7 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-        $this->validate($request, [
-            'staff_id' => ['required', 'string', 'size:8'],
-            'firstname' => ['required', 'string', 'min:2', 'max:30'],
-            'lastname' => ['required', 'string', 'min:2', 'max:30'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'phonenumber' => ['required', 'string', 'max:10', 'min:10'],
-            'department' => ['required', 'string', 'min:2']
-        ]);
 
-        $member = User::create([
-            'staff_id' => $request->staff_id,
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'phonenumber' => $request->phonenumber,
-            'department' => $request->department,
-            'date_joined' => Carbon::now()->format("Y-m-d"),
-            'password' => Hash::make($request->staff_id)
-        ]);
-
-        $member->notify((new MemberAdmissionNotification($member))->delay(10));
-
-        $toast = [
-            'type' => 'success',
-            'message' => 'You have successfully added a member'
-        ];
-
-        return redirect()->route('execs.members.index')->with('toast', $toast);
     }
 
     /**

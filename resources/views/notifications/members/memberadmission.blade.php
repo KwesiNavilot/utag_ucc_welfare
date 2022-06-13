@@ -1,10 +1,10 @@
 @component('mail::message')
 <h1>Hello {{$name}},</h1>
 
-This is to let you know that you have been added to the UTAG-UCC Welfare Portal. Through the portal, you can request for membership benefits and interact
-with the executives and fellow members. To do this, you have to activate your account by logging in and changing your password.
+This is to let you know that you have have successfully created your account on the UTAG-UCC Welfare Portal. Through the portal, you can request for membership benefits and interact
+with the executives and fellow members. To do this, you have to activate your account by logging in and updating your details.
 
-<strong>Please note that your default password is your STAFF ID. Your new password must be at least 8 characters long with a combination of letters and numbers.</strong>
+<strong>Please note that until you activate your account, you can't apply for any benefits.</strong>
 
 @component('mail::button', ['url' => $activate])
 Activate Account

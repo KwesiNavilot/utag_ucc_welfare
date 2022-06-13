@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label for="publish-to-members">Birth Certificate</label>
 
-                <input type="file" accept="image/*,.pdf" class="form-control @error('birth_certificate') is-invalid @enderror" name="birth_certificate">
+                <input type="file" accept="image/*,.pdf" class="form-control @error('birth_certificate') is-invalid @enderror" name="birth_certificate" required>
 
                 @error('birth_certificate')
                 <span class="invalid-feedback" role="alert">
