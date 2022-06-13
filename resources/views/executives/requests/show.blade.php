@@ -9,7 +9,7 @@
         @can('approve-request')
             @if($request->status == "Pending")
                 <a href="{{ route('execs.requests.update', $request) }}"
-                   class="util-btn float-right ml-lg-3"
+                   class="util-btn blu-util float-right ml-lg-3"
                    onclick="event.preventDefault(); document.getElementById('update-status').submit();">
                     Approve Request
                 </a>
@@ -24,7 +24,7 @@
 
         @can('create-broadcast')
             @if($request->request_type != "Child Birth" && $request->published == "no")
-                <a href="{{ route('execs.publish.create', $request) }}" class="util-btn float-right">
+                <a href="{{ route('execs.publish.create', $request) }}" class="util-btn blu-util float-right">
                     Create Broadcast
                 </a>
             @endif

@@ -6,7 +6,7 @@
     <h2 class="page-header font-weight-bold mb-lg-5">
         {{ __('Requests') }}
 
-        <a href="{{ route('execs.requests.create') }}" class="util-btn float-right">Mark Demise of Member</a>
+        <a href="{{ route('execs.requests.create') }}" class="util-btn blu-util float-right">Mark Demise of Member</a>
     </h2>
 
     <section class="bg-white shade w-100 p-0">

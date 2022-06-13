@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Members;
 
 use App\Http\Controllers\Controller;
+use App\Models\Spouse;
+use App\Traits\Essentials;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SpouseController extends Controller
 {
+    use Essentials;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class SpouseController extends Controller
      */
     public function index()
     {
-        //
+        //dd(Auth::user()->spouse);
+        return view('members.spouse.index')->with('spouse', Auth::user()->spouse);
     }
 
     /**
@@ -24,7 +30,7 @@ class SpouseController extends Controller
      */
     public function create()
     {
-        //
+        return view('members.spouse.create');
     }
 
     /**
@@ -35,7 +41,41 @@ class SpouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+
+        $rules = [
+            'firstname' => ['required', 'alpha', 'string', 'min:2', 'max:30'],
+            'lastname' => ['required', 'alpha', 'string', 'min:2', 'max:50'],
+            'phonenumber' => ['required', 'numeric', 'digits:10'],
+            'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
+            'gender' => ['required', 'string', 'min:4'],
+            'status' => ['required', 'string', 'min:5'],
+        ];
+
+        $attribute = [
+            'phonenumber' => 'phone number',
+            'alt_phonenumber' => 'alternate phone number'
+        ];
+
+        $this->validate($request, $rules, [], $attribute);
+
+        Spouse::create([
+            'spouse_id' => $this->generateMemberOrRelativeId('relative'),
+            'member_id' => Auth::id(),
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'gender' => $request->gender,
+            'status' => $request->status,
+            'phonenumber' => $request->phonenumber,
+            'alt_phonenumber' => $request->alt_phonenumber,
+        ]);
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Your spouse's details have been successfully added"
+        ];
+
+        return redirect()->route('members.spouse.index')->with('toast', $toast);
     }
 
     /**
@@ -44,9 +84,9 @@ class SpouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Spouse $spouse)
     {
-        //
+        return view('members.spouse.show',)->with('spouse', $spouse);
     }
 
     /**
@@ -55,9 +95,9 @@ class SpouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Spouse $spouse)
     {
-        //
+        return view('members.spouse.edit',)->with('spouse', $spouse);
     }
 
     /**
@@ -67,9 +107,32 @@ class SpouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Spouse $spouse)
     {
-        //
+        $rules = [
+            'firstname' => ['required', 'alpha', 'string', 'min:2', 'max:30'],
+            'lastname' => ['required', 'alpha', 'string', 'min:2', 'max:50'],
+            'phonenumber' => ['required', 'numeric', 'digits:10'],
+            'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
+            'gender' => ['required', 'string', 'min:4'],
+            'status' => ['required', 'string', 'min:5'],
+        ];
+
+        $attribute = [
+            'phonenumber' => 'phone number',
+            'alt_phonenumber' => 'alternate phone number'
+        ];
+
+        $this->validate($request, $rules, [], $attribute);
+
+        $spouse->update($request->all());
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Your spouse's details have been successfully updated"
+        ];
+
+        return redirect()->route('members.spouse.show', $spouse)->with('toast', $toast);
     }
 
     /**
@@ -78,8 +141,15 @@ class SpouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Spouse $spouse)
     {
-        //
+        $spouse->delete();
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Spouse details deleted successfully"
+        ];
+
+        return redirect()->route('members.spouse.index')->with('toast', $toast);
     }
 }

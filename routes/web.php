@@ -8,13 +8,14 @@ use App\Http\Controllers\Executives\PasswordResetController;
 use App\Http\Controllers\Executives\PublishingController;
 use App\Http\Controllers\Executives\RequestsController;
 use App\Http\Controllers\Members\AccountSettingsController;
-use App\Http\Controllers\Members\BenefitRequestController;
+use App\Http\Controllers\Members\GenericController;
 use App\Http\Controllers\Members\DeathOfParentController;
 use App\Http\Controllers\Members\DeathOfSpouseController;
 use App\Http\Controllers\Members\AccountController;
 use App\Http\Controllers\Members\ChildBirthController;
 use App\Http\Controllers\Members\DashboardController;
 use App\Http\Controllers\Members\RetirementController;
+use App\Http\Controllers\Members\SpouseController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\Ignition;
 use App\Http\Middleware\RevalidateBackHistory;
@@ -51,24 +52,26 @@ Route::post('/ignite', [AccountController::class, 'igniteProfile'])->name('membe
 
 //All routes can be named using 'members.' and the namespaces is Members
 Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
+    //Route for account settings, changing password & updating member profile
     Route::get('/settings', [AccountSettingsController::class, 'index'])->name('settings');
     Route::post('/settings', [AccountSettingsController::class, 'updatePassword'])->name('updatepassword');
-
     Route::get('/profile/', [AccountController::class, 'index'])->name('profile');
     Route::get('/profile/{user}/edit', [AccountController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/{user}', [AccountController::class, 'update'])->name('profile.update');
 
+    //Routes for singular pages
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/requests', [GenericController::class, 'requests'])->name('requests');
+    Route::get('/family', [GenericController::class, 'family'])->name('family');
 
-    Route::get('/requests', [BenefitRequestController::class, 'index'])->name('requests');
-
+    //Routes for individual benefits
     Route::resource('childbirth', ChildBirthController::class);
-
     Route::resource('deathofspouse', DeathOfSpouseController::class);
-
     Route::resource('deathofparent', DeathOfParentController::class);
-
     Route::resource('retirement', RetirementController::class);
+
+
+    Route::resource('spouse', SpouseController::class);
 });
 
 

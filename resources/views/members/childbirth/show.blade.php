@@ -8,7 +8,7 @@
 
         @if($request->status == "Pending")
             <a href="{{ route('members.childbirth.edit', $request->request_id) }}"
-               class="util-btn float-right">Edit Request</a>
+               class="util-btn blu-util float-right">Edit Request</a>
         @endif
     </h2>
 

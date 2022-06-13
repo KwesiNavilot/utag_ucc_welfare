@@ -32,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
 
 
         return User::create([
-            'member_id' => $this->generateMemberId(),
+            'member_id' => $this->generateMemberOrRelativeId(),
             'firstname' => $input['firstname'],
             'lastname' => $input['lastname'],
             'email' => $input['email'],

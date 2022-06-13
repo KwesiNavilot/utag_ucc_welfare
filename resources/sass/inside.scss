@@ -55,16 +55,27 @@ body {
 
     ///Rounded Button
     .util-btn {
-        background: #1977cc;
         font-size: 15px;
         padding: 15px 35px;
         color: $white;
         transition: 0.4s;
         border-radius: 0.25rem;
         text-decoration: none;
+    }
+
+    .blu-util {
+        background: #1977cc;
 
         &:hover {
             background: #2f365f;
+        }
+    }
+
+    .red-util {
+        background: #ff4d4d;
+
+        &:hover {
+            background: #ff0000;
         }
     }
 

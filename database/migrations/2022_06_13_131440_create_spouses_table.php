@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpouseTable extends Migration
+class CreateSpousesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateSpouseTable extends Migration
      */
     public function up()
     {
-        Schema::create('spouse', function (Blueprint $table) {
-            $table->string('spouse_id', 5)->primary();
+        Schema::create('spouses', function (Blueprint $table) {
+            $table->string('spouse_id', 10)->primary();
             $table->string('member_id', 10);
             $table->string('firstname', 30);
             $table->string('lastname', 30);

@@ -7,7 +7,7 @@
         {{ __('Members') }}
 
         @can('add-members')
-            <a href="{{ route('execs.members.create') }}" class="util-btn float-right">Add Member</a>
+            <a href="{{ route('execs.members.create') }}" class="util-btn blu-util float-right">Add Member</a>
         @endcan
     </h2>
 

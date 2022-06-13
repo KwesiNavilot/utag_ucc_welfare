@@ -6,7 +6,6 @@ use App\Models\BenefitRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -14,12 +13,14 @@ trait Essentials
 {
     /** THis function is used to generate
      * the MemberID of the vendor or stores
-     * @param charset is set of accepted characters used in generation
-     * @param length is the length of characters to generate
-     * @param random_character is character generated per loop run
-     * @param gened is final code generated
+     * @var string charset is set of accepted characters used in generation
+     * @var int length is the length of characters to generate
+     * @var string random_character is character generated per loop run
+     * @var string gened is final code generated
+     *
+     * @return string MemberID
      */
-    function generateMemberId(){
+    function generateMemberOrRelativeId($case = 'member'){
         $charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $length = 7;
         $input_length = strlen($charset);
@@ -30,9 +31,9 @@ trait Essentials
             $random_string .= $random_character;
         }
 
-        //die($gened);
+        $prefix = $case == "relative" ? 'MRI' : 'AMI';
 
-        return "UUW" . $random_string;
+        return $prefix . $random_string;
     }
 
     //Create a greeting based on the time of the day

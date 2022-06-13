@@ -7,6 +7,7 @@ use App\Models\Departments;
 use App\Models\User;
 use App\Notifications\AccountIgnitedNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -83,7 +84,7 @@ class AccountController extends Controller
     //Ignite the person's profile
     public function igniteProfile(Request $request)
     {
-        //dd($request->all());
+//        dd(Str::length($request->phonenumber));
 
         $this->validate($request, [
             'staff_id' => ['required', 'numeric', 'max:5'],
@@ -92,8 +93,8 @@ class AccountController extends Controller
             'date_joined' => ['required', 'date'],
             'department' => ['required', 'string', 'min:2'],
             'dept_position' => ['nullable', 'string', 'min:2', 'max:30'],
-            'phonenumber' => ['required', 'numeric', 'size:10'],
-            'alt_phonenumber' => ['nullable', 'numeric', 'size:10'],
+            'phonenumber' => ['required', 'numeric', 'digits:10'],
+            'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
         ]);
 
         //get the user, update their profile and ignition status

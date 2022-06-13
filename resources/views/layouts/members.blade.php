@@ -3,7 +3,7 @@
     $tips = '';
 
     //THis array creates the sidebar links
-    $navs = array("dashboard" => "Dashboard", "requests" => "Requests", "spouse" => "My Spouse", "children" => "My Children",
+    $navs = array("dashboard" => "Dashboard", "requests" => "Requests", "family" => "My Family", "spouse" => "My Spouse", "children" => "My Children",
                     "parents" => "My Parents");
 
     if(isset($toast)) {
