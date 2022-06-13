@@ -6,8 +6,8 @@
     <h2 class="page-header font-weight-bold mb-lg-5">
         {{ __('Personal Information') }}
 
-        <a href="{{ route('profile.edit', Auth::user()) }}"
-           class="util-btn float-right">Edit</a>
+        <a href="{{ route('members.profile.edit', Auth::user()) }}"
+           class="util-btn float-right">Edit Profile</a>
     </h2>
 
     <section class="w-100 marg">

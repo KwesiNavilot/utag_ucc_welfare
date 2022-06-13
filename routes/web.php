@@ -55,7 +55,8 @@ Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate:
     Route::post('/settings', [AccountSettingsController::class, 'updatePassword'])->name('updatepassword');
 
     Route::get('/profile/', [AccountController::class, 'index'])->name('profile');
-//    Route::get('/profile/edit', [AccountController::class, 'edit'])->name('profile');
+    Route::get('/profile/{user}/edit', [AccountController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/{user}', [AccountController::class, 'update'])->name('profile.update');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

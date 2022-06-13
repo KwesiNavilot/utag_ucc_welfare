@@ -17,9 +17,8 @@ class AccountSettingsController extends Controller
     }
 
     //We use the update method to update member's password
-    public function updatePassword(Request $request, User $member)
+    public function updatePassword(Request $request)
     {
-//        dd($request->new_password);
         $rules = [
             'current-password' => ['required', 'alpha_num', 'min:8', 'current_password'],
             'new_password' => ['required', 'alpha_num', 'min:8', 'confirmed']

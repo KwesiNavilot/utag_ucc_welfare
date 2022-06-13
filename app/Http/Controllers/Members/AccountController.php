@@ -22,17 +22,31 @@ class AccountController extends Controller
         ]);
     }
 
-    //We use the store method to update vendor's details
-    public function updateDetails(Request $request)
+    public function edit(User $user)
+    {
+        return view('members.particulars.edit')->with([
+            'member' => $user,
+            'departments' => Departments::all()
+        ]);
+    }
+
+    //update member's details
+    public function update(Request $request)
     {
 //        dd($request->all());
 
         $rules = [
-            'firstname' => 'required|alpha|string|min:2|max:30',
-            'lastname' => 'required|alpha|string|min:2|max:50',
-            'email' => 'required|email|max:255|' . Rule::unique('users')->ignore(Auth::id(), 'staff_id'),
-            'phonenumber' => ['required', 'string', 'max:10', 'min:10'],
-            'department' => ['required', 'string', 'min:2']
+            'staff_id' => ['required', 'numeric', 'max:5', Rule::unique(User::class)->ignore(Auth::id(), 'member_id')],
+            'title' => ['required', 'string', 'max:5'],
+            'firstname' => ['required', 'alpha', 'string', 'min:2', 'max:30'],
+            'lastname' => ['required', 'alpha', 'string', 'min:2', 'max:50'],
+            'date_of_birth' => ['required', 'date'],
+            'date_joined' => ['required', 'date'],
+            'email' => ['required', 'email', 'max:55', Rule::unique('users')->ignore(Auth::id(), 'member_id')],
+            'phonenumber' => ['required', 'numeric', 'digits:10'],
+            'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
+            'department' => ['required', 'string', 'min:2'],
+            'dept_position' => ['nullable', 'string', 'min:2', 'max:30']
         ];
 
         $this->validate($request, $rules);
@@ -45,7 +59,7 @@ class AccountController extends Controller
             'message' => 'Your personal details have been successfully updated'
         ];
 
-        return redirect('/account')->with('toast', $toast);
+        return redirect()->route('members.profile')->with('toast', $toast);
     }
 
     //start the ignition process
@@ -66,14 +80,14 @@ class AccountController extends Controller
         //dd($request->all());
 
         $this->validate($request, [
-            'staff_id' => ['required', 'string', 'max:5'],
+            'staff_id' => ['required', 'numeric', 'max:5'],
             'title' => ['required', 'string', 'max:5'],
             'date_of_birth' => ['required', 'date'],
             'date_joined' => ['required', 'date'],
             'department' => ['required', 'string', 'min:2'],
             'dept_position' => ['nullable', 'string', 'min:2', 'max:30'],
-            'phonenumber' => ['required', 'string', 'size:10'],
-            'alt_phonenumber' => ['nullable', 'string', 'size:10'],
+            'phonenumber' => ['required', 'numeric', 'size:10'],
+            'alt_phonenumber' => ['nullable', 'numeric', 'size:10'],
         ]);
 
         //get the user, update their profile and ignition status
