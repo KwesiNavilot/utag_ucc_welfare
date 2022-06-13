@@ -7,6 +7,7 @@ use App\Http\Controllers\Executives\MembersController;
 use App\Http\Controllers\Executives\PasswordResetController;
 use App\Http\Controllers\Executives\PublishingController;
 use App\Http\Controllers\Executives\RequestsController;
+use App\Http\Controllers\Members\AccountSettingsController;
 use App\Http\Controllers\Members\BenefitRequestController;
 use App\Http\Controllers\Members\DeathOfParentController;
 use App\Http\Controllers\Members\DeathOfSpouseController;
@@ -49,9 +50,10 @@ Route::get('/ignite', [AccountController::class, 'startIgnition'])->name('member
 Route::post('/ignite', [AccountController::class, 'igniteProfile'])->name('members.ignite');
 
 Route::middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
-    Route::get('/account', [AccountController::class, 'index'])->name('members.account');
-    Route::post('/account', [AccountController::class, 'updateDetails'])->name('members.updatedetails');
-    Route::put('/account', [AccountController::class, 'updatePassword'])->name('members.updatepassword');
+    Route::get('/settings', [AccountSettingsController::class, 'index'])->name('members.settings');
+    Route::post('/settings', [AccountSettingsController::class, 'updatePassword'])->name('members.updatepassword');
+
+    //Route::post('/account', [AccountController::class, 'updateDetails'])->name('members.updatedetails');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('members.dashboard');
 

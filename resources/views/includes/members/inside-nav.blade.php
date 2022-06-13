@@ -29,6 +29,9 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('members.account') }}">{{ __('My Account') }}</a>
+
+                            <a class="dropdown-item" href="{{ route('members.settings') }}">{{ __('Change Password') }}</a>
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -70,7 +73,7 @@
             </div>
 
             <p class="text-center col m-0 p-0">
-                <a href="{{ route('members.account') }}">{{ __('My Account') }}</a> |
+                <a href="{{ route('members.settings') }}">{{ __('Change Password') }}</a> |
 
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
