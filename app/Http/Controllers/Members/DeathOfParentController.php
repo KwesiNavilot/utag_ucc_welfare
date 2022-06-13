@@ -63,7 +63,7 @@ class DeathOfParentController extends Controller
 
         $benefitRequest = BenefitRequest::create([
             'request_id' => $this->generateRequestId(),
-            'staff_id' => Auth::id(),
+            'member_id' => Auth::id(),
             'request_type' => 'Death of Parent',
             'funeral_date' => $request->funeral_date,
             'parent_name' => $request->parent_name,

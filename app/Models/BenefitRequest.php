@@ -16,7 +16,7 @@ class BenefitRequest extends Model
 
     protected $fillable = [
         'request_id',
-        'staff_id',
+        'member_id',
         'request_type',
         'child_name',
         'child_dob',

@@ -15,7 +15,7 @@ class ChildBirth extends Model
 
     protected $fillable = [
         'request_id',
-        'staff_id',
+        'member_id',
         'child_name',
         'child_dob',
         'birth_certificate',

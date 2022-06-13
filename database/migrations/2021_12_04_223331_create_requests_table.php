@@ -15,7 +15,7 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->string('request_id', 17)->primary();
-            $table->string('staff_id', 10);
+            $table->string('member_id', 10);
             $table->set('request_type', ['Child Birth', 'Death of Parent', 'Death of Spouse', 'Death of Member', 'Retirement']);
             $table->set('status', ['Pending', 'Under Review', 'Reviewed', 'Approved'])->default('Pending');
             $table->date('child_dob')->nullable();

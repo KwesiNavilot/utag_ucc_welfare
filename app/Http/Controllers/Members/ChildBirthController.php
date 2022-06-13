@@ -62,7 +62,7 @@ class ChildBirthController extends Controller
 
         $benefitRequest = BenefitRequest::create([
             'request_id' => $this->generateRequestId(),
-            'staff_id' => Auth::id(),
+            'member_id' => Auth::id(),
             'request_type' => 'Child Birth',
             'child_dob' => $request->child_dob,
             'child_name' => $request->child_name,

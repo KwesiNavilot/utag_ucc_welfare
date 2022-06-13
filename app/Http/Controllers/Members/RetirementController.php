@@ -61,7 +61,7 @@ class RetirementController extends Controller
 
         $benefitRequest = BenefitRequest::create([
             'request_id' => $this->generateRequestId(),
-            'staff_id' => Auth::id(),
+            'member_id' => Auth::id(),
             'request_type' => 'Retirement',
             'retirement_date' => $request->retirement_date,
             'publish' => $request->publish

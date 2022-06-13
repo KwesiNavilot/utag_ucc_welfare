@@ -56,7 +56,7 @@ class User extends Authenticatable
     ];
 
     public function benefits() {
-        return $this->hasMany(BenefitRequest::class, 'staff_id', 'staff_id');
+        return $this->hasMany(BenefitRequest::class, 'member_id', 'member_id');
     }
 
     public function departments()
