@@ -31,7 +31,7 @@ class AccountController extends Controller
     }
 
     //update member's details
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
 //        dd($request->all());
 
@@ -49,10 +49,16 @@ class AccountController extends Controller
             'dept_position' => ['nullable', 'string', 'min:2', 'max:30']
         ];
 
-        $this->validate($request, $rules);
+        $attribute = [
+            'staff_id' => 'staff ID',
+            'phonenumber' => 'phone number',
+            'alt_phonenumber' => 'alternate phone number',
+            'dept_position' => 'department position'
+        ];
 
-        $member = Auth::user();
-        $member->update($request->all());
+        $this->validate($request, $rules, [], $attribute);
+
+        $user->update($request->all());
 
         $toast = [
             'type' => 'success',

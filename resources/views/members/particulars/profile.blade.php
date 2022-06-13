@@ -3,6 +3,7 @@
 @section('title', 'My Profile | UTAG-UCC Welfare')
 
 @section('content')
+{{--    @dd($member)--}}
     <h2 class="page-header font-weight-bold mb-lg-5">
         {{ __('Personal Information') }}
 
