@@ -8,7 +8,7 @@
     </h2>
 
     <div class="shade col-lg-12">
-        <form action="{{route('retirement.store')}}" enctype="multipart/form-data" method="POST">
+        <form action="{{route('members.retirement.store')}}" enctype="multipart/form-data" method="POST">
             @csrf
 
             <div class="form-group">

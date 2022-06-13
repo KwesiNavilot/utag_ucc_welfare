@@ -8,7 +8,7 @@
     </h2>
 
     <div class="shade col-lg-12">
-        <form action="{{route('retirement.update', $request->request_id)}}" method="POST">
+        <form action="{{route('members.retirement.update', $request->request_id)}}" method="POST">
             @csrf
             @method('PUT')
 

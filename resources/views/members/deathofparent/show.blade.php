@@ -7,7 +7,7 @@
         {{ __('Request Information') }}
 
         @if($request->status == "Pending")
-            <a href="{{ route('deathofparent.edit', $request->request_id) }}"
+            <a href="{{ route('members.deathofparent.edit', $request->request_id) }}"
                class="util-btn float-right">Edit Request</a>
         @endif
     </h2>

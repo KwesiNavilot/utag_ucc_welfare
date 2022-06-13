@@ -10,7 +10,7 @@
     <section id="claims" class="section mb-lg-5">
         <div class="row icon-boxes">
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="{{ route('childbirth.create') }}">
+                <a href="{{ route('members.childbirth.create') }}">
                     <div class="icon-box">
                         <h4 class="title text-center">
                             <span>Birth of Child</span>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="{{ route('deathofspouse.create') }}">
+                <a href="{{ route('members.deathofspouse.create') }}">
                     <div class="icon-box">
                         <h4 class="title text-center">
                             <span>Death of Spouse</span>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="{{ route('deathofparent.create') }}">
+                <a href="{{ route('members.deathofparent.create') }}">
                     <div class="icon-box">
                         <h4 class="title text-center">
                             <span>Death of Parent</span>
@@ -50,14 +50,14 @@
                         <p class="description">
                             You need the <strong>OBITUARY OF THE DECEASED</strong> (picture/PDF) to apply for this benefit.
 {{--                            We are deeply sorry for your loss. Click here to apply for a death of parent benefit.--}}
-                            <strong>Max: 2</strong>
+                            <strong style="color: red">Max: 2</strong>
                         </p>
                     </div>
                 </a>
             </div>
 
             <div class="col-md-3 col-lg-3 col-sm-12 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="{{ route('retirement.create') }}">
+                <a href="{{ route('members.retirement.create') }}">
                     <div class="icon-box">
                         <h4 class="title text-center">
                             <span>Retirement</span>
@@ -65,7 +65,7 @@
 
                         <p class="description">
                             We celebrate your good work done. Click here to apply for retirement benefit.
-                            <strong>Max: 1</strong>
+                            <strong style="color: red">Max: 1</strong>
                         </p>
                     </div>
                 </a>

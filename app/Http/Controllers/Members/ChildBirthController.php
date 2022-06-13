@@ -135,7 +135,7 @@ class ChildBirthController extends Controller
             'message' => 'You have successfully updated the benefit request'
         ];
 
-        return redirect()->route('childbirth.show', $request_id)->with('toast', $toast);
+        return redirect()->route('members.childbirth.show', $request_id)->with('toast', $toast);
     }
 
     /**

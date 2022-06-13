@@ -8,7 +8,7 @@
     </h2>
 
     <div class="shade col-lg-12">
-        <form action="{{route('deathofparent.update', $request->request_id)}}" enctype="multipart/form-data"
+        <form action="{{route('members.deathofparent.update', $request->request_id)}}" enctype="multipart/form-data"
               method="POST">
             @csrf
             @method('PUT')

@@ -50,16 +50,16 @@ Route::get('/ignite', [AccountController::class, 'startIgnition'])->name('member
 Route::post('/ignite', [AccountController::class, 'igniteProfile'])->name('members.ignite');
 
 //All routes can be named using 'members.' and the namespaces is Members
-Route::name('execs.')->middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
-    Route::get('/settings', [AccountSettingsController::class, 'index'])->name('members.settings');
-    Route::post('/settings', [AccountSettingsController::class, 'updatePassword'])->name('members.updatepassword');
+Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate::class, Ignition::class])->group(function(){
+    Route::get('/settings', [AccountSettingsController::class, 'index'])->name('settings');
+    Route::post('/settings', [AccountSettingsController::class, 'updatePassword'])->name('updatepassword');
 
-    Route::get('/profile/', [AccountController::class, 'index'])->name('members.profile');
-    Route::get('/profile/edit', [AccountController::class, 'edit'])->name('members.profile');
+    Route::get('/profile/', [AccountController::class, 'index'])->name('profile');
+//    Route::get('/profile/edit', [AccountController::class, 'edit'])->name('profile');
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('members.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/requests', [BenefitRequestController::class, 'index'])->name('members.requests');
+    Route::get('/requests', [BenefitRequestController::class, 'index'])->name('requests');
 
     Route::resource('childbirth', ChildBirthController::class);
 
