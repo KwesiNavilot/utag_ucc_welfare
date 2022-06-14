@@ -40,7 +40,7 @@ class AccountController extends Controller
             'staff_id' => ['required', 'numeric', 'max:5', Rule::unique(User::class)->ignore(Auth::id(), 'member_id')],
             'title' => ['required', 'string', 'max:5'],
             'firstname' => ['required', 'alpha', 'string', 'min:2', 'max:30'],
-            'lastname' => ['required', 'alpha', 'string', 'min:2', 'max:50'],
+            'lastname' => ['required', 'alpha_dash', 'min:2', 'max:50'],
             'date_of_birth' => ['required', 'date'],
             'date_joined' => ['required', 'date'],
             'email' => ['required', 'email', 'max:55', Rule::unique('users')->ignore(Auth::id(), 'member_id')],

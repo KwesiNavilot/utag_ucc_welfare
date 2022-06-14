@@ -22,7 +22,6 @@ class DeathOfSpouseController extends Controller
     public function index()
     {
         return redirect()->route('deathofspouse.create');
-//        return view('members.deathofspouse.create');
     }
 
     /**
@@ -41,7 +40,9 @@ class DeathOfSpouseController extends Controller
             return redirect()->route('members.requests')->with('toast', $toast);
         }
 
-        return view('members.deathofspouse.create');
+//        dd(Auth::user()->spouse);
+
+        return view('members.deathofspouse.create')->with('spouse', );
     }
 
     /**

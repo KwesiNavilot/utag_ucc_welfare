@@ -24,7 +24,7 @@ class AccountController extends Controller
 
         $rules = [
             'firstname' => ['required', 'alpha', 'string', 'min:2' ,'max:30'],
-            'lastname' => ['required', 'alpha', 'string', 'min:2', 'max:50'],
+            'lastname' => ['required', 'alpha_dash', 'string', 'min:2', 'max:50'],
             'email' => ['required', 'email', 'max:255', Rule::unique('admins')->ignore(Auth::id(), 'admin_id')],
             'phonenumber' => ['required', 'string', 'max:10', 'min:10'],
         ];

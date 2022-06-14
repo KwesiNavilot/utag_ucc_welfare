@@ -12,12 +12,12 @@
             @csrf
 
             <div class="form-group">
-                <label for="funeral_date">Date of Funeral</label>
+                <label for="spouse_name">Name Of Spouse</label>
 
-                <input type="date" class="form-control @error('funeral_date') is-invalid @enderror"
-                       name="funeral_date" value="{{ old('funeral_date') }}" placeholder="Enter the date of the funeral..." required>
+                <input type="text" class="form-control @error('spouse_name') is-invalid @enderror"
+                       name="spouse_name" value="{{ old('spouse_name') }}" placeholder="Enter your spouse's name here..." required>
 
-                @error('funeral_date')
+                @error('spouse_name')
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -25,12 +25,12 @@
             </div>
 
             <div class="form-group">
-                <label for="spouse_name">Name Of Spouse</label>
+                <label for="funeral_date">Date of Funeral</label>
 
-                <input type="text" class="form-control @error('spouse_name') is-invalid @enderror"
-                       name="spouse_name" value="{{ old('spouse_name') }}" placeholder="Enter your spouse's name here..." required>
+                <input type="date" class="form-control @error('funeral_date') is-invalid @enderror"
+                       name="funeral_date" value="{{ old('funeral_date') }}" placeholder="Enter the date of the funeral..." required>
 
-                @error('spouse_name')
+                @error('funeral_date')
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

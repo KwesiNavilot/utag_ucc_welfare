@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Members;
 use App\Events\BenefitRequestEvent;
 use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
-use App\Models\ChildBirth;
+use App\Models\Child;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;

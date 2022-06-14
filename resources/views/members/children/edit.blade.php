@@ -41,7 +41,7 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-lg-6">
                     <label for="gender">Gender<span style="color: red">*</span></label>
                     <select class="form-control @error('gender') is-invalid @enderror" required name="gender">
                         <option value="male">Male</option>
@@ -55,7 +55,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-lg-6">
                     <label for="status">Status<span style="color: red">*</span></label>
                     <select class="form-control @error('status') is-invalid @enderror" required name="status">
                         <option value="alive">Alive</option>
@@ -71,7 +71,7 @@
             </div>
 
             <div class="form-row">
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group pl-0">
                     <label for="phonenumber">Phone Number<span style="color: red">*</span></label>
                     <input class="form-control @error('phonenumber') is-invalid @enderror"
                            placeholder="{{ __('E.g: 0212345678') }}" required name="phonenumber" type="text"
@@ -84,7 +84,7 @@
                     @enderror
                 </div>
 
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group pr-0">
                     <label for="alt_phonenumber">Alternate Phone Number</label>
                     <input class="form-control @error('alt_phonenumber') is-invalid @enderror"
                            placeholder="{{ __('E.g: 0212345678') }}" name="alt_phonenumber" type="text"

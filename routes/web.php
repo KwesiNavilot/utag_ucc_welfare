@@ -8,6 +8,7 @@ use App\Http\Controllers\Executives\PasswordResetController;
 use App\Http\Controllers\Executives\PublishingController;
 use App\Http\Controllers\Executives\RequestsController;
 use App\Http\Controllers\Members\AccountSettingsController;
+use App\Http\Controllers\Members\ChildrenController;
 use App\Http\Controllers\Members\GenericController;
 use App\Http\Controllers\Members\DeathOfParentController;
 use App\Http\Controllers\Members\DeathOfSpouseController;
@@ -62,7 +63,7 @@ Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate:
     //Routes for singular pages
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/requests', [GenericController::class, 'requests'])->name('requests');
-    Route::get('/family', [GenericController::class, 'family'])->name('family');
+//    Route::get('/family', [GenericController::class, 'family'])->name('family');
 
     //Routes for individual benefits
     Route::resource('childbirth', ChildBirthController::class);
@@ -70,8 +71,9 @@ Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate:
     Route::resource('deathofparent', DeathOfParentController::class);
     Route::resource('retirement', RetirementController::class);
 
-
+    //Routes for adding, updating and deleting family members
     Route::resource('spouse', SpouseController::class);
+    Route::resource('children', ChildrenController::class);
 });
 
 

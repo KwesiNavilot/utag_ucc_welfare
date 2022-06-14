@@ -127,6 +127,9 @@ return [
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
+    //custom validation messages
+    'alpha_spaces' => 'The :attribute may only contain letters and hyphens.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
