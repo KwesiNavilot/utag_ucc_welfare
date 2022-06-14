@@ -29,7 +29,7 @@
                 </div>
 
                 <li class="list-group-item">
-                    <medium class="card-sub">Name</medium>
+                    <medium class="card-sub">Full Name</medium>
                     <p class="mb-0 mt-1">{{$member->firstname . " " . $member->lastname}}</p>
                 </li>
 

@@ -44,8 +44,8 @@
                 <div class="form-group col-md-6">
                     <label for="gender">Gender<span style="color: red">*</span></label>
                     <select class="form-control @error('gender') is-invalid @enderror" required name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="male" @if($child->gender == 'male') selected @endif>Male</option>
+                        <option value="female" @if($child->gender == 'female') selected @endif>Female</option>
                     </select>
 
                     @error('gender')
@@ -58,8 +58,8 @@
                 <div class="form-group col-md-6">
                     <label for="status">Status<span style="color: red">*</span></label>
                     <select class="form-control @error('status') is-invalid @enderror" required name="status">
-                        <option value="alive">Alive</option>
-                        <option value="deceased">Deceased</option>
+                        <option value="alive" @if($child->status == 'alive') selected @endif>Alive</option>
+                        <option value="deceased" @if($child->status == 'deceased') selected @endif>Deceased</option>
                     </select>
 
                     @error('status')

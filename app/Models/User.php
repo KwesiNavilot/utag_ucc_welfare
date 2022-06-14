@@ -69,6 +69,11 @@ class User extends Authenticatable
         return $this->hasOne(Spouse::class, 'member_id', 'member_id');
     }
 
+    public function children()
+    {
+        return $this->hasMany(Child::class, 'member_id', 'member_id');
+    }
+
     public function scopeRetiree($query)
     {
         return $query->where("ROUND(DATEDIFF(now(), date_of_birth) / 365) >= 60");

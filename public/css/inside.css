@@ -304,3 +304,6 @@ body .fs-20 {
 .content .rqs-table th:last-child {
   width: 25%;
 }
+.content .card {
+  width: 32.27% !important;
+}

@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Members;
 
 use App\Http\Controllers\Controller;
 use App\Models\Child;
+use App\Traits\Essentials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ChildrenController extends Controller
 {
+    use Essentials;
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +19,7 @@ class ChildrenController extends Controller
      */
     public function index()
     {
-        return view('members.children.index')->with('children', Auth::user()->spouse);
+        return view('members.children.index')->with('children', Auth::user()->children);
     }
 
     /**
@@ -53,8 +56,6 @@ class ChildrenController extends Controller
 
         $this->validate($request, $rules, [], $attribute);
 
-        dd($request->all());
-
         Child::create([
             'child_id' => $this->generateMemberOrRelativeId('relative'),
             'member_id' => Auth::id(),
@@ -64,7 +65,6 @@ class ChildrenController extends Controller
             'gender' => $request->gender,
             'status' => $request->status,
             'phonenumber' => $request->phonenumber,
-            'alt_phonenumber' => $request->alt_phonenumber,
         ]);
 
         $toast = [
@@ -81,9 +81,9 @@ class ChildrenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Spouse $spouse)
+    public function show(Child $child)
     {
-        return view('members.children.show',)->with('spouse', $spouse);
+        return view('members.children.show',)->with('child', $child);
     }
 
     /**
@@ -92,9 +92,9 @@ class ChildrenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spouse $spouse)
+    public function edit(Child $child)
     {
-        return view('members.children.edit',)->with('spouse', $spouse);
+        return view('members.children.edit',)->with('child', $child);
     }
 
     /**
@@ -104,32 +104,31 @@ class ChildrenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Spouse $spouse)
+    public function update(Request $request, Child $child)
     {
         $rules = [
             'firstname' => ['required', 'alpha', 'string', 'min:2', 'max:30'],
             'lastname' => ['required', 'alpha_dash', 'min:2', 'max:50'],
-            'phonenumber' => ['required', 'numeric', 'digits:10'],
-            'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
+            'date_of_birth' => ['required', 'date'],
             'gender' => ['required', 'string', 'min:4'],
             'status' => ['required', 'string', 'min:5'],
+            'phonenumber' => ['nullable', 'numeric', 'digits:10'],
         ];
 
         $attribute = [
             'phonenumber' => 'phone number',
-            'alt_phonenumber' => 'alternate phone number'
         ];
 
         $this->validate($request, $rules, [], $attribute);
 
-        $spouse->update($request->all());
+        $child->update($request->all());
 
         $toast = [
             'type' => 'success',
-            'message' => "Your spouse's details have been successfully updated"
+            'message' => "Your child's details have been successfully updated"
         ];
 
-        return redirect()->route('members.children.show', $spouse)->with('toast', $toast);
+        return redirect()->route('members.children.show', $child)->with('toast', $toast);
     }
 
     /**
@@ -138,13 +137,13 @@ class ChildrenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spouse $spouse)
+    public function destroy(Child $child)
     {
-        $spouse->delete();
+        $child->delete();
 
         $toast = [
             'type' => 'success',
-            'message' => "Spouse details deleted successfully"
+            'message' => "Child details deleted successfully"
         ];
 
         return redirect()->route('members.children.index')->with('toast', $toast);

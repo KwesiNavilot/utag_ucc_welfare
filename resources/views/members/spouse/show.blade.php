@@ -1,6 +1,6 @@
 @extends('layouts.members')
 
-@section('title', 'My Profile | UTAG-UCC Welfare')
+@section('title', 'Spouse Details | UTAG-UCC Welfare')
 
 @section('content')
     <h2 class="page-header font-weight-bold mb-lg-5">
@@ -21,7 +21,7 @@
         <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-100">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <medium class="card-sub">Name</medium>
+                    <medium class="card-sub">Full Name</medium>
                     <p class="mb-0 mt-1">{{$spouse->firstname . " " . $spouse->lastname}}</p>
                 </li>
 
