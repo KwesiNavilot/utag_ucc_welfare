@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Executives;
 
 use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
-use App\Models\Departments;
+use App\Models\Department;
 use App\Models\User;
 use App\Notifications\MemberRequestUpdateNotification;
 use App\Traits\Essentials;
@@ -35,7 +35,7 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        return view('executives.requests.demise', ['departments' => Departments::all()]);
+        return view('executives.requests.demise', ['departments' => Department::all()]);
     }
 
     /**
@@ -84,7 +84,7 @@ class RequestsController extends Controller
     public function show(BenefitRequest $request)
     {
         $request = $request->load('user');
-        $department = Departments::where('short', $request->user->department)->get(['name']);
+        $department = Department::where('short', $request->user->department)->get(['name']);
 
         return view('executives.requests.show', [
             'request' => $request,

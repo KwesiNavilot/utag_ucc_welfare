@@ -1,6 +1,6 @@
 @extends('layouts.members')
 
-@section('title', 'Add Your Spouse | UTAG-UCC Welfare')
+@section('title', 'Update Spouse Details | UTAG-UCC Welfare')
 
 @section('content')
     <h2 class="page-header font-weight-bold mb-lg-5">
@@ -44,8 +44,8 @@
                 <div class="form-group col-md-6">
                     <label for="gender">Gender<span style="color: red">*</span></label>
                     <select class="form-control @error('gender') is-invalid @enderror" required name="gender">
-                        <option value="male" @if($child->gender == 'male') selected @endif>Male</option>
-                        <option value="female" @if($child->gender == 'female') selected @endif>Female</option>
+                        <option value="male" @if($spouse->gender == 'male') selected @endif>Male</option>
+                        <option value="female" @if($spouse->gender == 'female') selected @endif>Female</option>
                     </select>
 
                     @error('gender')
@@ -58,8 +58,8 @@
                 <div class="form-group col-md-6">
                     <label for="status">Status<span style="color: red">*</span></label>
                     <select class="form-control @error('status') is-invalid @enderror" required name="status">
-                        <option value="alive" @if($child->status == 'alive') selected @endif>Alive</option>
-                        <option value="deceased" @if($child->status == 'deceased') selected @endif>Deceased</option>
+                        <option value="alive" @if($spouse->status == 'alive') selected @endif>Alive</option>
+                        <option value="deceased" @if($spouse->status == 'deceased') selected @endif>Deceased</option>
                     </select>
 
                     @error('status')

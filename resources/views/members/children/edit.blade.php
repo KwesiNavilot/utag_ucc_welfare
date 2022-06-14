@@ -1,6 +1,6 @@
 @extends('layouts.members')
 
-@section('title', 'Add Your Spouse | UTAG-UCC Welfare')
+@section('title', "Update Child's Details | UTAG-UCC Welfare")
 
 @section('content')
     <h2 class="page-header font-weight-bold mb-lg-5">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-12 pl-0">
+                <div class="form-group col-md-12">
                     <label for="date_of_birth">Date of Birth<span style="color: red">*</span></label>
                     <input type="date" class="form-control @error('date_of_birth') is-invalid @enderror"
                            name="date_of_birth" value="{{ old('date_of_birth') ?? $child->date_of_birth }}" required>

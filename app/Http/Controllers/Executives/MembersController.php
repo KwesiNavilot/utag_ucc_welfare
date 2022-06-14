@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Executives;
 
 use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
-use App\Models\Departments;
+use App\Models\Department;
 use App\Models\User;
 use App\Notifications\MemberAdmissionNotification;
 use Carbon\Carbon;
@@ -21,7 +21,7 @@ class MembersController extends Controller
     public function index()
     {
         $members = User::addSelect([
-                            'department' => Departments::select('name')
+                            'department' => Department::select('name')
                             ->whereColumn('short', 'users.department')
                         ])->orderBy('created_at', 'DESC')->get()->paginate(25);
 
@@ -37,7 +37,7 @@ class MembersController extends Controller
      */
     public function create()
     {
-        return view('executives.members.create', ['departments' => Departments::all()]);
+        return view('executives.members.create', ['departments' => Department::all()]);
     }
 
     /**

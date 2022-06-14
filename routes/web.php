@@ -15,6 +15,7 @@ use App\Http\Controllers\Members\DeathOfSpouseController;
 use App\Http\Controllers\Members\AccountController;
 use App\Http\Controllers\Members\ChildBirthController;
 use App\Http\Controllers\Members\DashboardController;
+use App\Http\Controllers\Members\ParentsController;
 use App\Http\Controllers\Members\RetirementController;
 use App\Http\Controllers\Members\SpouseController;
 use App\Http\Middleware\Authenticate;
@@ -74,6 +75,7 @@ Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate:
     //Routes for adding, updating and deleting family members
     Route::resource('spouse', SpouseController::class);
     Route::resource('children', ChildrenController::class);
+    Route::resource('parents', ParentsController::class);
 });
 
 

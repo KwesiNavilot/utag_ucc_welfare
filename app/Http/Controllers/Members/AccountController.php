@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Members;
 
 use App\Http\Controllers\Controller;
-use App\Models\Departments;
+use App\Models\Department;
 use App\Models\User;
 use App\Notifications\AccountIgnitedNotification;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class AccountController extends Controller
     {
         return view('members.particulars.profile')->with([
             'member' => Auth::user(),       //get the user's details
-            'department' => Departments::where('short', Auth::user()->department)->get(['name'])    //get their department
+            'department' => Department::where('short', Auth::user()->department)->get(['name'])    //get their department
         ]);
     }
 
@@ -27,7 +27,7 @@ class AccountController extends Controller
     {
         return view('members.particulars.edit')->with([
             'member' => $user,
-            'departments' => Departments::all()
+            'departments' => Department::all()
         ]);
     }
 
@@ -77,7 +77,7 @@ class AccountController extends Controller
             return back();          //send them back where they came from
         } else {
             //if they were brought here on purpose, then let them ignite thier profile
-            return view('members.particulars.ignite_profile', ['departments' => Departments::all()]);
+            return view('members.particulars.ignite_profile', ['departments' => Department::all()]);
         }
     }
 

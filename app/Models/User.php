@@ -61,7 +61,7 @@ class User extends Authenticatable
 
     public function departments()
     {
-        return $this->hasOne(Departments::class, 'short', 'department');
+        return $this->hasOne(Department::class, 'short', 'department');
     }
 
     public function spouse()
@@ -72,6 +72,11 @@ class User extends Authenticatable
     public function children()
     {
         return $this->hasMany(Child::class, 'member_id', 'member_id');
+    }
+
+    public function parents()
+    {
+        return $this->hasMany(Parents::class, 'member_id', 'member_id');
     }
 
     public function scopeRetiree($query)
