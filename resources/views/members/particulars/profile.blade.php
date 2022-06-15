@@ -3,7 +3,7 @@
 @section('title', 'My Profile | UTAG-UCC Welfare')
 
 @section('content')
-{{--    @dd($member)--}}
+    {{--    @dd($member)--}}
     <h2 class="page-header font-weight-bold mb-lg-5">
         {{ __('Personal Information') }}
 
@@ -16,34 +16,30 @@
 
         <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-100">
             <ul class="list-group list-group-flush">
-                <div class="d-flex">
-                    <li class="list-group-item border-left-0 border-right-0 border-top-0 col-lg-6 list-group-item">
-                        <medium class="card-sub">Staff ID</medium>
-                        <p class="mb-0 mt-1">{{$member->staff_id}}</p>
-                    </li>
+                <li class="list-group-item">
+                    <medium class="card-sub">Staff ID</medium>
+                    <p class="mb-0 mt-1">{{$member->staff_id}}</p>
+                </li>
 
-                    <li class="list-group-item border-left-0 border-right-0 border-top-0 col-lg-6 list-group-item">
-                        <medium class="card-sub">Title</medium>
-                        <p class="mb-0 mt-1">{{$member->title}}</p>
-                    </li>
-                </div>
+                <li class="list-group-item">
+                    <medium class="card-sub">Title</medium>
+                    <p class="mb-0 mt-1">{{$member->title}}</p>
+                </li>
 
                 <li class="list-group-item">
                     <medium class="card-sub">Full Name</medium>
                     <p class="mb-0 mt-1">{{$member->firstname . " " . $member->lastname}}</p>
                 </li>
 
-                <div class="d-flex">
-                    <li class="list-group-item border-0 col-lg-6 list-group-item">
-                        <medium class="card-sub">Date of Birth</medium>
-                        <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($member->date_of_birth)->format('jS F, Y') }}</p>
-                    </li>
+                <li class="list-group-item">
+                    <medium class="card-sub">Date of Birth</medium>
+                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($member->date_of_birth)->format('jS F, Y') }}</p>
+                </li>
 
-                    <li class="list-group-item border-0 col-lg-6 list-group-item">
-                        <medium class="card-sub">Date of Joining Association</medium>
-                        <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($member->date_joined)->format('jS F, Y') }}</p>
-                    </li>
-                </div>
+                <li class="list-group-item">
+                    <medium class="card-sub">Date of Joining Association</medium>
+                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($member->date_joined)->format('jS F, Y') }}</p>
+                </li>
             </ul>
         </div>
     </section>

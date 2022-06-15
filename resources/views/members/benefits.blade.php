@@ -73,6 +73,7 @@
         </div>
     </section>
 
+    <h4 class="card-sub">{{__('Your Requests')}}</h4>
     <section class="bg-white shade w-100 p-0">
         @empty($requests->all())
             <div class="p-3">

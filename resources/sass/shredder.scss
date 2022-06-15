@@ -153,7 +153,6 @@
 
     .gateway-inner {
         margin: 10%;
-        //padding: 0 5% !important;
     }
 
     .check-container {
@@ -212,6 +211,10 @@
         .util-btn {
             margin-bottom: 5% !important;
         }
+
+        .border-bottom-sm {
+            border-bottom: 1px solid #dee2e6 !important;
+        }
     }
 
     .w-65, .w-30 {
@@ -240,6 +243,10 @@
     .mt-xs {
         margin-top: 3rem !important;
     }
+
+    //body {
+    //    background: purple;
+    //}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -368,6 +375,14 @@
     .mt-sm {
         margin-top: 5% !important;
     }
+
+    .card {
+        width: 50% !important;
+    }
+
+    //body {
+    //    background: orange;
+    //}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -464,6 +479,19 @@
     .mt-md {
         margin-top: 5% !important;
     }
+
+    .card {
+        width: 48% !important;
+    }
+
+    .alpha, .midla, .omega {
+        margin-left: 0;
+        margin-right: 2%;
+    }
+
+    //body {
+    //    background: blue;
+    //}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -572,6 +600,29 @@
     .mt-xs {
         margin-top: 0 !important;
     }
+
+    .alpha {
+        margin-left: 0;
+        margin-right: 1%;
+    }
+
+    .midla {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .omega {
+        margin-left: 1%;
+        margin-right: 0;
+    }
+
+    .card {
+        width: 32% !important;
+    }
+
+    //body {
+    //    background: red;
+    //}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
