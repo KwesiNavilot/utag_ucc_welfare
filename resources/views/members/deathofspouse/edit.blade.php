@@ -14,6 +14,21 @@
             @method('PUT')
 
             <div class="form-group">
+                <label for="spouse_name">Name Of Spouse</label>
+                <select class="form-control @error('spouse') is-invalid @enderror" name="spouse">
+                    <option value="{{ $request->spouse->spouse_id }}">
+                        {{ $request->spouse->firstname . " " . $request->spouse->lastname }}
+                    </option>
+                </select>
+
+                @error('spouse')
+                <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="funeral_date">Date of Funeral</label>
 
                 <input type="date" class="form-control @error('funeral_date') is-invalid @enderror"
@@ -27,34 +42,6 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                <label for="spouse_name">Name Of Spouse</label>
-
-                <input type="text" class="form-control @error('spouse_name') is-invalid @enderror"
-                       name="spouse_name" value="{{ old('spouse_name') ?? $request->spouse_name }}"
-                       placeholder="Enter your parent's name here..." required>
-
-                @error('spouse_name')
-                <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                @enderror
-            </div>
-
-{{--            <div class="form-group">--}}
-{{--                <label for="relation">Relation</label>--}}
-
-{{--                <select class="form-control @error('relation') is-invalid @enderror" name="relation">--}}
-{{--                    <option value="mother" @if($request->relation == 'mother')selected @endif>Mother</option>--}}
-{{--                    <option value="father" @if($request->relation == 'father')selected @endif>Father</option>--}}
-{{--                </select>--}}
-
-{{--                @error('relation')--}}
-{{--                <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                @enderror--}}
-{{--            </div>--}}
 
             <div class="form-group">
                 <label for="publish">Publish To Members</label>
@@ -70,12 +57,6 @@
                                     </span>
                 @enderror
             </div>
-
-{{--            <label class='check-container'>--}}
-{{--                <input class="" type="checkbox" name="uploadNewImages" id="uploadNewImages" {{ old('uploadNewImages') ? 'checked' : '' }}>--}}
-{{--                <span class='checkmark'></span>--}}
-{{--                {{ __('Click To Upload New Image') }}--}}
-{{--            </label>--}}
 
             <div class="form-group">
                 <label class="form-check-label pr-4" for="type">Do You Want To Upload A New Image?</label>

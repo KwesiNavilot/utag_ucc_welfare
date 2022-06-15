@@ -18,12 +18,10 @@ class CreateRequestsTable extends Migration
             $table->string('member_id', 10);
             $table->set('request_type', ['Child Birth', 'Death of Parent', 'Death of Spouse', 'Death of Member', 'Retirement']);
             $table->set('status', ['Pending', 'Under Review', 'Reviewed', 'Approved'])->default('Pending');
-            $table->date('child_dob')->nullable();
-            $table->string('child_name', 60)->nullable();
+            $table->string('child_id', 60)->nullable();
+            $table->string('spouse_id', 60)->nullable();
+            $table->string('parent_id', 60)->nullable();
             $table->date('funeral_date')->nullable();
-            $table->string('spouse_name', 60)->nullable();
-            $table->string('parent_name', 60)->nullable();
-            $table->set('relation', ['husband', 'wife', 'father', 'mother'])->nullable();
             $table->date('retirement_date')->nullable();
             $table->set('publish', ['yes', 'no'])->default('no')->nullable();
             $table->set('published', ['yes', 'no'])->default('no');

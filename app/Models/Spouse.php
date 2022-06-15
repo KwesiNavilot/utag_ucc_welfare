@@ -27,4 +27,8 @@ class Spouse extends Model
     public function user() {
         return $this->belongsTo(User::class, 'member_id', 'member_id');
     }
+
+    public function benefit() {
+        return $this->belongsTo(BenefitRequest::class, 'member_id', 'member_id');
+    }
 }

@@ -9,6 +9,7 @@ use App\Models\Spouse;
 use App\Traits\Essentials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DeathOfSpouseController extends Controller
 {
@@ -40,9 +41,12 @@ class DeathOfSpouseController extends Controller
             return redirect()->route('members.requests')->with('toast', $toast);
         }
 
-//        dd(Auth::user()->spouse);
+        $spouse = Spouse::where('member_id', Auth::id())->get(['spouse_id', 'firstname', 'lastname'])[0];
 
-        return view('members.deathofspouse.create')->with('spouse', );
+        return view('members.deathofspouse.create')->with([
+            'spouse_id' => $spouse->spouse_id,
+            'name' => $spouse->firstname . " " . $spouse->lastname
+        ]);
     }
 
     /**
@@ -53,11 +57,10 @@ class DeathOfSpouseController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
+//        dd($request->all());
         $this->validate($request, [
+            'spouse' => ['required', 'alpha_num'],
             'funeral_date' => ['required', 'date'],
-            'spouse_name' => ['required', 'string', 'min:2', 'max:50'],
-            'relation' => ['nullable', 'string'],
             'publish' => ['required', 'string'],
             'poster' => ['required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
@@ -66,9 +69,8 @@ class DeathOfSpouseController extends Controller
             'request_id' => $this->generateRequestId(),
             'member_id' => Auth::id(),
             'request_type' => 'Death of Spouse',
+            'spouse_id' => $request->spouse,
             'funeral_date' => $request->funeral_date,
-            'spouse_name' => $request->spouse_name,
-//            'relation' => $request->relation,
             'publish' => $request->publish,
             'media' => $request->poster->store('deathofspouses', 'public')
         ]);
@@ -93,7 +95,7 @@ class DeathOfSpouseController extends Controller
      */
     public function show($request_id)
     {
-        $request = BenefitRequest::findOrFail($request_id);
+        $request = BenefitRequest::findOrFail($request_id)->load('spouse');
         return view('members.deathofspouse.show')->with('request', $request);
     }
 
@@ -121,16 +123,14 @@ class DeathOfSpouseController extends Controller
         //        dd($request);
         $this->validate($request, [
             'funeral_date' => ['required', 'date'],
-            'spouse_name' => ['required', 'string', 'min:2', 'max:50'],
-//            'relation' => ['nullable', 'string'],
+            'spouse' => ['required', 'alpha_num'],
             'publish' => ['required', 'string'],
             'poster' => ['sometimes', 'required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
 
         $benefitRequest = tap(BenefitRequest::findOrFail($request_id))->update([
             'funeral_date' => $request->funeral_date,
-            'spouse_name' => $request->spouse_name,
-//            'relation' => $request->relation,
+            'spouse_id' => $request->spouse_id,
             'publish' => $request->publish
         ]);
 
@@ -143,7 +143,7 @@ class DeathOfSpouseController extends Controller
             'message' => 'You have successfully updated the benefit request'
         ];
 
-        return redirect()->route('deathofspouse.show', $request_id)->with('toast', $toast);
+        return redirect()->route('members.deathofspouse.show', $request_id)->with('toast', $toast);
     }
 
     /**
@@ -154,6 +154,20 @@ class DeathOfSpouseController extends Controller
      */
     public function destroy($request_id)
     {
-        //
+        $request = BenefitRequest::findOrFail($request_id);
+
+        //check if there is a media for the request and delete the file(s)
+        if (isset($request->media)) {
+            Storage::disk('public')->delete($request->media);
+        }
+
+        $request->delete();
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Benefit request deleted successfully"
+        ];
+
+        return redirect()->route('members.requests')->with('toast', $toast);
     }
 }

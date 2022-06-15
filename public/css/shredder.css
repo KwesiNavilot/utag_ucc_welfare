@@ -209,10 +209,6 @@
   .mt-xs {
     margin-top: 3rem !important;
   }
-
-  body {
-    background: purple;
-  }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -338,10 +334,6 @@
   .card {
     width: 50% !important;
   }
-
-  body {
-    background: orange;
-  }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -436,10 +428,6 @@
   .alpha, .midla, .omega {
     margin-left: 0;
     margin-right: 2%;
-  }
-
-  body {
-    background: blue;
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */
@@ -551,10 +539,6 @@
 
   .card {
     width: 32% !important;
-  }
-
-  body {
-    background: red;
   }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
