@@ -8,6 +8,20 @@
         {{ __('Request Death Of Spouse Benefit') }}
     </h2>
 
+    @empty($spouse_id)
+        <div class="alert alert-warning p-4" role="alert">
+            <p style="color: black;">
+                You can't apply for any spousal benefits because <strong>you either haven't added any spouses or you
+                    have already exhausted</strong> all your spousal benefits.
+                Please add a spouse or update your spouse's Status in order to apply for this type of benefit.
+            </p>
+
+            <div class="pt-3">
+                <a href="{{ route('members.spouse.index') }}" class="util-btn blu-util border-0">Add Or Update Spouse Details</a>
+            </div>
+        </div>
+    @endempty
+
     @isset($spouse_id)
         <div class="shade col-lg-12">
             <form action="{{route('members.deathofspouse.store')}}" enctype="multipart/form-data" method="POST">
@@ -58,7 +72,8 @@
                 <div class="form-group">
                     <label for="publish-to-members">Funeral Poster/Invitation</label>
 
-                    <input type="file" accept="image/*,.pdf" class="form-control @error('poster') is-invalid @enderror"
+                    <input type="file" accept="image/*,.pdf"
+                           class="form-control @error('poster') is-invalid @enderror"
                            name="poster">
 
                     @error('poster')

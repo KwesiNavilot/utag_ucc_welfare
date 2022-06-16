@@ -28,7 +28,7 @@ class DeathOfSpouseController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create(Request $request)
     {
@@ -41,11 +41,16 @@ class DeathOfSpouseController extends Controller
             return redirect()->route('members.requests')->with('toast', $toast);
         }
 
-        $spouse = Spouse::where('member_id', Auth::id())->get(['spouse_id', 'firstname', 'lastname'])[0];
-
+        $spouse = Spouse::where([
+                        ['member_id', Auth::id()],
+                        ['status', '<>', 'deceased']
+                    ])
+                    ->get(['spouse_id', 'firstname', 'lastname'])
+                    ->first();
+//        dd($spouse);
         return view('members.deathofspouse.create')->with([
-            'spouse_id' => $spouse->spouse_id,
-            'name' => $spouse->firstname . " " . $spouse->lastname
+            'spouse_id' => $spouse->spouse_id ?? null,
+            'name' => isset($spouse->spouse_id) ? $spouse->firstname . " " . $spouse->lastname : null
         ]);
     }
 

@@ -21,7 +21,7 @@
 
     @isset($spouse)
         <div class="w-100">
-            <div class="shade card p-0">
+            <div class="shade card cardinal p-0">
                 <div class="img-hover-zoom">
                     <img class="card-img-top" src="{{url('/img/system/shield.jpg')}}" alt="Service Image">
                 </div>
