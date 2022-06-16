@@ -17,7 +17,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <medium class="card-sub">Name of Child</medium>
-                    <p class="mb-0 mt-1">{{$request->child_name}}</p>
+                    <p class="mb-0 mt-1">{{$request->child->firstname . " " . $request->child->lastname}}</p>
                 </li>
 
                 <li class="list-group-item">

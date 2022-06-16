@@ -42,11 +42,11 @@ class DeathOfSpouseController extends Controller
         }
 
         $spouse = Spouse::where([
-                        ['member_id', Auth::id()],
-                        ['status', '<>', 'deceased']
-                    ])
-                    ->get(['spouse_id', 'firstname', 'lastname'])
-                    ->first();
+            ['member_id', Auth::id()],
+            ['status', '<>', 'deceased']
+        ])
+            ->get(['spouse_id', 'firstname', 'lastname'])
+            ->first();
 //        dd($spouse);
         return view('members.deathofspouse.create')->with([
             'spouse_id' => $spouse->spouse_id ?? null,

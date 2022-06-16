@@ -29,7 +29,7 @@
 
                 <div class="form-group">
                     <label for="spouse">Name Of Spouse</label>
-                    <select class="form-control @error('spouse') is-invalid @enderror" name="spouse">
+                    <select class="form-control @error('spouse') is-invalid @enderror" name="spouse" required>
                         <option value="{{ $spouse_id }}">{{ $name }}</option>
                     </select>
 

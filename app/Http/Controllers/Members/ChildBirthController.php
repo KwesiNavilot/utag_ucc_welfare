@@ -42,7 +42,15 @@ class ChildBirthController extends Controller
 //            return redirect()->back()->with('toast', $toast);
 //        }
 
-        return view('members.childbirth.create');
+        $children = Child::where([
+                ['member_id', Auth::id()],
+                ['status', '<>', 'deceased']
+            ])
+            ->get(['child_id', 'firstname', 'lastname']);
+
+//        dd($children);
+
+        return view('members.childbirth.create')->with('children', $children);
     }
 
     /**
@@ -56,16 +64,16 @@ class ChildBirthController extends Controller
 //        dd($request);
         $this->validate($request, [
             'child_dob' => ['required', 'date'],
-            'child_name' => ['required', 'string', 'min:2', 'max:50'],
+            'child' => ['required', 'string', 'min:2', 'max:50'],
             'birth_certificate' => ['required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
 
         $benefitRequest = BenefitRequest::create([
             'request_id' => $this->generateRequestId(),
             'member_id' => Auth::id(),
+            'child_id' => $request->child,
             'request_type' => 'Child Birth',
             'child_dob' => $request->child_dob,
-            'child_name' => $request->child_name,
             'media' => $request->birth_certificate->store('childbirths', 'public')
         ]);
 
@@ -89,7 +97,8 @@ class ChildBirthController extends Controller
      */
     public function show($request_id)
     {
-        $request = BenefitRequest::findOrFail($request_id);
+        $request = BenefitRequest::findOrFail($request_id)->load('child');
+
         return view('members.childbirth.show')->with('request', $request);
     }
 

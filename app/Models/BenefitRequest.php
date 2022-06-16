@@ -33,6 +33,11 @@ class BenefitRequest extends Model
         return $this->hasOne(Spouse::class, 'member_id', 'member_id');
     }
 
+    public function child()
+    {
+        return $this->hasOne(Child::class, 'member_id', 'member_id');
+    }
+
     public function user() {
         return $this->belongsTo(User::class, 'member_id', 'member_id');
     }
