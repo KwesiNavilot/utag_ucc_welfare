@@ -14,13 +14,15 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="child_dob">Child's Date of Birth</label>
+                <label for="child">Name Of Child</label>
 
-                <input type="date" class="form-control @error('child_dob') is-invalid @enderror"
-                       name="child_dob" value="{{ old('child_dob') ?? $request->child_dob }}"
-                       placeholder="Enter the your child's date of birth..." required>
+                <select class="form-control @error('child') is-invalid @enderror" name="child" required>
+                    <option value="{{ $request->child->child_id }}">
+                        {{ $request->child->firstname . " " . $request->child->lastname }}
+                    </option>
+                </select>
 
-                @error('child_dob')
+                @error('child')
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -28,13 +30,13 @@
             </div>
 
             <div class="form-group">
-                <label for="child_name">Name Of Child</label>
+                <label for="child_dob">Child's Date of Birth</label>
 
-                <input type="text" class="form-control @error('child_name') is-invalid @enderror"
-                       name="child_name" value="{{ old('child_name') ?? $request->child_name }}"
-                       placeholder="Enter your child's name here..." required>
+                <input disabled type="date" class="form-control @error('child_dob') is-invalid @enderror"
+                       name="child_dob" value="{{ old('child_dob') ?? $request->child->date_of_birth }}"
+                       placeholder="Enter the your child's date of birth..." required>
 
-                @error('child_name')
+                @error('child_dob')
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

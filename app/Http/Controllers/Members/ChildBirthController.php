@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\Essentials;
+use Illuminate\Support\Facades\Storage;
 
 class ChildBirthController extends Controller
 {
@@ -63,7 +64,6 @@ class ChildBirthController extends Controller
     {
 //        dd($request);
         $this->validate($request, [
-            'child_dob' => ['required', 'date'],
             'child' => ['required', 'string', 'min:2', 'max:50'],
             'birth_certificate' => ['required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
@@ -73,7 +73,6 @@ class ChildBirthController extends Controller
             'member_id' => Auth::id(),
             'child_id' => $request->child,
             'request_type' => 'Child Birth',
-            'child_dob' => $request->child_dob,
             'media' => $request->birth_certificate->store('childbirths', 'public')
         ]);
 
@@ -123,16 +122,15 @@ class ChildBirthController extends Controller
      */
     public function update(Request $request, $request_id)
     {
-//                dd($request);
+//        dd($request);
+
         $this->validate($request, [
-            'child_dob' => ['required', 'date'],
-            'child_name' => ['required', 'string', 'min:2', 'max:50'],
+            'child' => ['required', 'string', 'min:2', 'max:50'],
             'birth_certificate' => ['sometimes', 'required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
 
         $benefitRequest = tap(BenefitRequest::findOrFail($request_id))->update([
-            'child_dob' => $request->child_dob,
-            'child_name' => $request->child_name,
+            'child' => $request->child_id,
         ]);
 
         if ($request->hasFile('birth_certificate')) {
@@ -155,6 +153,20 @@ class ChildBirthController extends Controller
      */
     public function destroy($request_id)
     {
-        //
+        $request = BenefitRequest::findOrFail($request_id);
+
+        //check if there is a media for the request and delete the file(s)
+        if (isset($request->media)) {
+            Storage::disk('public')->delete($request->media);
+        }
+
+        $request->delete();
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Benefit request deleted successfully"
+        ];
+
+        return redirect()->route('members.requests')->with('toast', $toast);
     }
 }

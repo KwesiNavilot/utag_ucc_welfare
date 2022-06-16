@@ -41,18 +41,18 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                <label for="child_dob">Child's Date Of Birth</label>
+{{--            <div class="form-group">--}}
+{{--                <label for="child_dob">Child's Date Of Birth</label>--}}
 
-                <input type="date" class="form-control @error('child_dob') is-invalid @enderror"
-                       name="child_dob" value="{{ old('child_dob') }}" placeholder="Enter your child's date of birth here..." required>
+{{--                <input type="date" class="form-control @error('child_dob') is-invalid @enderror"--}}
+{{--                       name="child_dob" value="{{ old('child_dob') }}" placeholder="Enter your child's date of birth here..." required>--}}
 
-                @error('child_dob')
-                <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                @enderror
-            </div>
+{{--                @error('child_dob')--}}
+{{--                <span class="invalid-feedback" role="alert">--}}
+{{--                            <strong>{{ $message }}</strong>--}}
+{{--                        </span>--}}
+{{--                @enderror--}}
+{{--            </div>--}}
 
             <div class="form-group">
                 <label for="publish-to-members">Birth Certificate</label>

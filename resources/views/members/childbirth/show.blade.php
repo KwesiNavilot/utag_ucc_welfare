@@ -7,8 +7,17 @@
         {{ __('Request Information') }}
 
         @if($request->status == "Pending")
-            <a href="{{ route('members.childbirth.edit', $request->request_id) }}"
-               class="util-btn blu-util float-right">Edit Request</a>
+            <div class="float-right">
+                <a href="{{ route('members.childbirth.edit', $request->request_id) }}"
+                   class="util-btn blu-util">Edit Request</a>
+
+                <form class="float-right pl-lg-3 pl-md-3 pl-sm-3 pl-xs-3"
+                      action="{{ route('members.deathofspouse.destroy', $request->request_id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="util-btn red-util">Delete Request</button>
+                </form>
+            </div>
         @endif
     </h2>
 
@@ -22,7 +31,7 @@
 
                 <li class="list-group-item">
                     <medium class="card-sub">Child Date of Birth</medium>
-                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->child_dob)->format('jS F, Y') }}</p>
+                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->child->date_of_birth)->format('jS F, Y') }}</p>
                 </li>
 
                 <li class="list-group-item">

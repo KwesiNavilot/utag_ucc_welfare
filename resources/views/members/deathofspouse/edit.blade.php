@@ -14,7 +14,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="spouse_name">Name Of Spouse</label>
+                <label for="spouse">Name Of Spouse</label>
                 <select class="form-control @error('spouse') is-invalid @enderror" name="spouse">
                     <option value="{{ $request->spouse->spouse_id }}">
                         {{ $request->spouse->firstname . " " . $request->spouse->lastname }}
