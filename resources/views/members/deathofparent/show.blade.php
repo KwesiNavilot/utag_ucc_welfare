@@ -7,8 +7,17 @@
         {{ __('Request Information') }}
 
         @if($request->status == "Pending")
-            <a href="{{ route('members.deathofparent.edit', $request->request_id) }}"
-               class="util-btn blu-util float-right">Edit Request</a>
+            <div class="float-right">
+                <a href="{{ route('members.deathofparent.edit', $request->request_id) }}"
+                   class="util-btn blu-util">Edit Request</a>
+
+                <form class="float-right pl-lg-3 pl-md-3 pl-sm-3 pl-xs-3"
+                      action="{{ route('members.deathofparent.destroy', $request->request_id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="util-btn red-util">Delete Request</button>
+                </form>
+            </div>
         @endif
     </h2>
 
@@ -17,12 +26,12 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <medium class="card-sub">Name of Parent</medium>
-                    <p class="mb-0 mt-1">{{$request->parent_name}}</p>
+                    <p class="mb-0 mt-1">{{$parent->firstname . " " . $parent->lastname}}</p>
                 </li>
 
                 <li class="list-group-item">
                     <medium class="card-sub">Relation</medium>
-                    <p class="mb-0 mt-1">{{ \Illuminate\Support\Str::ucfirst($request->relation) }}</p>
+                    <p class="mb-0 mt-1">{{ \Illuminate\Support\Str::ucfirst($parent->relation) }}</p>
                 </li>
 
                 <li class="list-group-item">

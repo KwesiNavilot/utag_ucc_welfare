@@ -12,6 +12,21 @@
             @csrf
 
             <div class="form-group">
+                <label for="parent">Name Of Parent</label>
+                <select class="form-control @error('parent') is-invalid @enderror" name="parent" required>
+                    @foreach($parents as $parent)
+                        <option value="{{ $parent->parent_id }}">{{ $parent->firstname . " " . $parent->lastname }}</option>
+                    @endforeach
+                </select>
+
+                @error('parent')
+                <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="funeral_date">Date of Funeral</label>
 
                 <input type="date" class="form-control @error('funeral_date') is-invalid @enderror"
@@ -22,35 +37,6 @@
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="parent_name">Name Of Parent</label>
-
-                <input type="text" class="form-control @error('parent_name') is-invalid @enderror"
-                       name="parent_name" value="{{ old('parent_name') }}"
-                       placeholder="Enter your parent's name here..." required>
-
-                @error('parent_name')
-                <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="relation">Relation</label>
-
-                <select class="form-control @error('relation') is-invalid @enderror" name="relation">
-                    <option value="mother">Mother</option>
-                    <option value="father">Father</option>
-                </select>
-
-                @error('relation')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
                 @enderror
             </div>
 

@@ -27,14 +27,14 @@
             @csrf
 
             <div class="form-group">
-                <label for="child_name">Name Of Child</label>
+                <label for="child">Name Of Child</label>
                 <select class="form-control @error('child') is-invalid @enderror" name="child" required>
                     @foreach($children as $child)
                         <option value="{{ $child->child_id }}">{{ $child->firstname . " " . $child->lastname }}</option>
                     @endforeach
                 </select>
 
-                @error('child_name')
+                @error('child')
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

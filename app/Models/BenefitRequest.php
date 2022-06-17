@@ -35,7 +35,12 @@ class BenefitRequest extends Model
 
     public function child()
     {
-        return $this->hasOne(Child::class, 'member_id', 'member_id');
+        return $this->hasMany(Child::class, 'member_id', 'member_id');
+    }
+
+    public function parents()
+    {
+        return $this->hasMany(Parents::class, 'member_id', 'member_id');
     }
 
     public function user() {

@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Members;
 use App\Events\BenefitRequestEvent;
 use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
+use App\Models\Parents;
 use App\Traits\Essentials;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class DeathOfParentController extends Controller
@@ -41,7 +43,13 @@ class DeathOfParentController extends Controller
             return redirect()->route('members.requests')->with('toast', $toast);
         }
 
-        return view('members.deathofparent.create');
+        $parents = Parents::where([
+                ['member_id', Auth::id()],
+                ['status', '<>', 'deceased']
+            ])
+            ->get(['parent_id', 'firstname', 'lastname']);
+
+        return view('members.deathofparent.create')->with('parents', $parents);
     }
 
     /**
@@ -52,11 +60,10 @@ class DeathOfParentController extends Controller
      */
     public function store(Request $request)
     {
-        //        dd($request);
+//                dd($request);
         $this->validate($request, [
+            'parent' => ['required', 'string', 'min:2', 'max:50'],
             'funeral_date' => ['required', 'date'],
-            'parent_name' => ['required', 'string', 'min:2', 'max:50'],
-            'relation' => ['required', 'string'],
             'publish' => ['required', 'string'],
             'poster' => ['required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
@@ -64,10 +71,9 @@ class DeathOfParentController extends Controller
         $benefitRequest = BenefitRequest::create([
             'request_id' => $this->generateRequestId(),
             'member_id' => Auth::id(),
+            'parent_id' => $request->parent,
             'request_type' => 'Death of Parent',
             'funeral_date' => $request->funeral_date,
-            'parent_name' => $request->parent_name,
-            'relation' => $request->relation,
             'publish' => $request->publish,
             'media' => $request->poster->store('deathofparents', 'public')
         ]);
@@ -92,9 +98,18 @@ class DeathOfParentController extends Controller
      */
     public function show($request_id)
     {
-//        dd($request_id);
         $request = BenefitRequest::findOrFail($request_id);
-        return view('members.deathofparent.show')->with('request', $request);
+        $parent = Parents::where('parent_id', $request->parent_id)
+                            ->get(['firstname', 'lastname', 'relation'])
+                            ->first();
+
+//        dd($request);
+//        dd($parent);
+        return view('members.deathofparent.show')
+                ->with([
+                    'request' => $request,
+                    'parent' => $parent
+                ]);
     }
 
     /**
@@ -105,9 +120,16 @@ class DeathOfParentController extends Controller
      */
     public function edit($request_id)
     {
-//        dd($benefitRequest);
         $request = BenefitRequest::findOrFail($request_id);
-        return view('members.deathofparent.edit')->with('request', $request);
+        $parent = Parents::where('parent_id', $request->parent_id)
+            ->get(['firstname', 'lastname', 'parent_id'])
+            ->first();
+
+        return view('members.deathofparent.edit')
+                    ->with([
+                        'request' => $request,
+                        'parent' => $parent
+                    ]);
     }
 
     /**
@@ -122,17 +144,14 @@ class DeathOfParentController extends Controller
 //        dd($request);
         $this->validate($request, [
             'funeral_date' => ['required', 'date'],
-            'parent_name' => ['required', 'string', 'min:2', 'max:50'],
-            'relation' => ['required', 'string', Rule::in(['mother', 'father'])],
+            'parent' => ['required', 'string', 'min:2', 'max:50'],
             'publish' => ['required', 'string'],
-            'uploadNewImage' => ['required', 'string'],
             'poster' => ['sometimes', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
         ]);
 
         $benefitRequest = tap(BenefitRequest::findOrFail($request_id))->update([
             'funeral_date' => $request->funeral_date,
             'parent_name' => $request->parent_name,
-            'relation' => $request->relation,
             'publish' => $request->publish
         ]);
 
@@ -145,7 +164,7 @@ class DeathOfParentController extends Controller
             'message' => 'You have successfully updated the benefit request'
         ];
 
-        return redirect()->route('deathofparent.show', $request_id)->with('toast', $toast);
+        return redirect()->route('members.deathofparent.show', $request_id)->with('toast', $toast);
     }
 
     /**
@@ -154,8 +173,22 @@ class DeathOfParentController extends Controller
      * @param BenefitRequest $benefitRequest
      * @return Response
      */
-    public function destroy(BenefitRequest $benefitRequest)
+    public function destroy($request_id)
     {
-        //
+        $request = BenefitRequest::findOrFail($request_id);
+
+        //check if there is a media for the request and delete the file(s)
+        if (isset($request->media)) {
+            Storage::disk('public')->delete($request->media);
+        }
+
+        $request->delete();
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Benefit request deleted successfully"
+        ];
+
+        return redirect()->route('members.requests')->with('toast', $toast);
     }
 }
