@@ -43,7 +43,7 @@
                 <li class="list-group-item">
                     <medium class="card-sub">Phone Number</medium>
                     <p class="mb-0 mt-1">
-                        @isset($parent->phonenumber)
+                        @if(isset($parent->phonenumber))
                             {{ $parent->phonenumber }}
                         @else
                             None Provided

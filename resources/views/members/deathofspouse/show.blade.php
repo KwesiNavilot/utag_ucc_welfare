@@ -67,9 +67,9 @@
                     </div>
                 @endif
 
-                @isset($request->media)
+                @if(isset($request->media))
                     <img src="{{ asset('/storage/' . $request->media) }}">
-                @endisset
+                @endif
             </div>
         </div>
     </section>

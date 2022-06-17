@@ -62,7 +62,7 @@
                 <li class="list-group-item">
                     <medium class="card-sub">Alternate Phone Number</medium>
                     <p class="mb-0 mt-1">
-                        @isset($member->alt_phonenumber)
+                        @if(isset($member->alt_phonenumber))
                             {{ $member->alt_phonenumber }}
                         @else
                             None Provided
@@ -86,7 +86,7 @@
                 <li class="list-group-item">
                     <medium class="card-sub">Position</medium>
                     <p class="mb-0 mt-1">
-                        @isset($member->dept_position)
+                        @if(isset($member->dept_position))
                             {{ $member->dept_position }}
                         @else
                             None Provided

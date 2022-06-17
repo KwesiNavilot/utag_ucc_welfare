@@ -36,47 +36,47 @@
 
         <div class="bg-white float-lg-none mb-lg-0 mb-md-5 mb-sm-5 shade w-65">
             <ul class="list-group list-group-flush">
-                @isset($request->child_name)
+                @if(isset($request->child_name))
                     <li class="list-group-item">
                         <medium class="card-sub">Name of Child</medium>
                         <p class="mb-0 mt-1">{{$request->child_name}}</p>
                     </li>
-                @endisset
+                @endif
 
-                @isset($request->parent_name)
+                @if(isset($request->parent_name))
                     <li class="list-group-item">
                         <medium class="card-sub">Name of Parent</medium>
                         <p class="mb-0 mt-1">{{$request->parent_name}}</p>
                     </li>
-                @endisset
+                @endif
 
-                @isset($request->spouse_name)
+                @if(isset($request->spouse_name))
                     <li class="list-group-item">
                         <medium class="card-sub">Name of Spouse</medium>
                         <p class="mb-0 mt-1">{{$request->spouse_name}}</p>
                     </li>
-                @endisset
+                @endif
 
-                @isset($request->relation)
+                @if(isset($request->relation))
                     <li class="list-group-item">
                         <medium class="card-sub">Relation</medium>
                         <p class="mb-0 mt-1">{{ \Illuminate\Support\Str::ucfirst($request->relation) }}</p>
                     </li>
-                @endisset
+                @endif
 
-                @isset($request->child_dob)
+                @if(isset($request->child_dob))
                     <li class="list-group-item">
                         <medium class="card-sub">Child Date of Birth</medium>
                         <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->child_dob)->format('jS F, Y') }}</p>
                     </li>
-                @endisset
+                @endif
 
-                @isset($request->funeral_date)
+                @if(isset($request->funeral_date))
                     <li class="list-group-item">
                         <medium class="card-sub">Date of Funeral</medium>
                         <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->funeral_date)->format('jS F, Y') }}</p>
                     </li>
-                @endisset
+                @endif
 
                 @if(isset($request->publish) && $request->request_type != "Child Birth")
                     <li class="list-group-item">
@@ -132,9 +132,9 @@
                     </div>
                 @endif
 
-                @isset($request->media)
+                @if(isset($request->media))
                     <img src="{{ asset('/storage/' . $request->media) }}">
-                @endisset
+                @endif
             </div>
         </div>
     </section>

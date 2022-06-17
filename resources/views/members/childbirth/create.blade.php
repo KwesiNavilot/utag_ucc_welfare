@@ -21,7 +21,7 @@
         </div>
     @endempty
 
-    @isset($children)
+    @if(isset($children))
     <div class="shade col-lg-12">
         <form action="{{route('members.childbirth.store')}}" enctype="multipart/form-data" method="POST">
             @csrf
@@ -71,5 +71,5 @@
             </div>
         </form>
     </div>
-    @endisset
+    @endif
 @endsection

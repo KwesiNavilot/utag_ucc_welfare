@@ -43,7 +43,7 @@
                 <li class="list-group-item">
                     <medium class="card-sub">Alternate Phone Number</medium>
                     <p class="mb-0 mt-1">
-                        @isset($spouse->alt_phonenumber)
+                        @if(isset($spouse->alt_phonenumber))
                             {{ $spouse->alt_phonenumber }}
                         @else
                             None Provided

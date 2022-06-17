@@ -17,7 +17,7 @@
         </section>
     @endempty
 
-    @isset($children)
+    @if(isset($children))
         <section class="w-100">
             @foreach($children as $child)
                 <div class="shade float-left align-items-stretch card cardinal mb-5 p-0 @if($loop->index % 3 == 0)alpha @elseif($loop->index % 3 == 2)omega @else midla @endif">
@@ -33,6 +33,6 @@
                 </div>
             @endforeach
         </section>
-    @endisset
+    @endif
 
 @endsection

@@ -22,7 +22,7 @@
         </div>
     @endempty
 
-    @isset($spouse_id)
+    @if(isset($spouse_id))
         <div class="shade col-lg-12">
             <form action="{{route('members.deathofspouse.store')}}" enctype="multipart/form-data" method="POST">
                 @csrf
@@ -88,5 +88,5 @@
                 </div>
             </form>
         </div>
-    @endisset
+    @endif
 @endsection

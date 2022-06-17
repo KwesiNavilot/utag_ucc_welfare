@@ -19,7 +19,7 @@
         </div>
     @endempty
 
-    @isset($spouse)
+    @if(isset($spouse))
         <div class="w-100">
             <div class="shade card cardinal p-0">
 {{--                <div class="img-hover-zoom">--}}
@@ -33,6 +33,6 @@
                 </div>
             </div>
         </div>
-    @endisset
+    @endif
 
 @endsection
