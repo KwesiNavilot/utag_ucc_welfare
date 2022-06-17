@@ -3,7 +3,7 @@
 @section('title', 'Request Death Of Parent Benefits | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Request Death Of Parent Benefit') }}
     </h2>
 

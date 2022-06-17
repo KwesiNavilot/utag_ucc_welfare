@@ -3,7 +3,7 @@
 @section('title', 'Benefit Requests | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Requests') }}
 
         <a href="{{ route('execs.requests.create') }}" class="util-btn blu-util float-right">Mark Demise of Member</a>

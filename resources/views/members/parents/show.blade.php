@@ -3,7 +3,7 @@
 @section('title', "Parent's Details | UTAG-UCC Welfare")
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __("Parent's Details") }}
 
         <div class="float-right">

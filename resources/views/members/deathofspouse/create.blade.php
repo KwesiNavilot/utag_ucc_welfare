@@ -4,7 +4,7 @@
 
 @section('content')
     {{--    @dd($spouse_id)--}}
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Request Death Of Spouse Benefit') }}
     </h2>
 

@@ -3,7 +3,7 @@
 @section('title', 'Retirement Benefit Request Information | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Request Information') }}
 
         @if($request->status == "Pending")

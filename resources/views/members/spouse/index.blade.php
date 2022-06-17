@@ -4,7 +4,7 @@
 
 @section('content')
 {{--    @dd($spouse)--}}
-    <h2 class="page-header font-weight-bold mb-lg-4">
+    <h2 class="page-header font-weight-bold">
         {{ __('My Spouse') }}
 
         @empty($spouse)

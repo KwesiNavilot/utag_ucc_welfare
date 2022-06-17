@@ -3,7 +3,7 @@
 @section('title', 'Benefit Request Information | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-4">
+    <h2 class="page-header font-weight-bold">
         {{ __('Request Information') }}
 
         @can('approve-request')

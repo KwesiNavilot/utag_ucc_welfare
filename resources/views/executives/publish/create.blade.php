@@ -3,7 +3,7 @@
 @section('title', 'Create An Announcement For The Benefit Request | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-4">
+    <h2 class="page-header font-weight-bold">
         {{ __('Create Announcement For The Request') }}
     </h2>
 

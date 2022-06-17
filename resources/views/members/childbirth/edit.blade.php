@@ -3,7 +3,7 @@
 @section('title', 'Edit Childbirth Benefit Request | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Edit Request') }}
     </h2>
 

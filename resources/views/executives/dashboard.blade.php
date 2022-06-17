@@ -3,7 +3,9 @@
 @section('title', 'Executive Dashboard | UTAG-UCC Welfare')
 
 @section('content')
-        <h1 class="page-header font-weight-bold mb-3">{{ $greeting }}, {{ Auth::guard('execs')->user()->firstname }}</h1>
+        <h1 class="page-header font-weight-bold">
+            {{ $greeting }}, {{ Auth::guard('execs')->user()->firstname }}
+        </h1>
 {{--    <div class="row">--}}
         <div class='dash-lane marg m-0'>
             <div class='shade dash col-lg-3 col-md-5'>

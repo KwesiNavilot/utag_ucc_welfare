@@ -4,7 +4,7 @@
 
 @section('content')
     {{--    @dd($member)--}}
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Personal Information') }}
 
         <a href="{{ route('members.profile.edit', Auth::user()) }}"

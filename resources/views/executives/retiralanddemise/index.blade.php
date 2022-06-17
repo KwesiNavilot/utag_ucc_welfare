@@ -3,7 +3,7 @@
 @section('title', 'Association Members Due For Retirement | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-4">
+    <h2 class="page-header font-weight-bold">
         {{ __('Members Due For Retirement') }}
 
 {{--        @can('add-members')--}}

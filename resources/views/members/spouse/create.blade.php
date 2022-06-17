@@ -3,7 +3,7 @@
 @section('title', 'Add Your Spouse | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Add Your Spouse') }}
     </h2>
 

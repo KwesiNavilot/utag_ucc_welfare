@@ -3,7 +3,7 @@
 @section('title', 'My Profile | UTAG-UCC Welfare')
 
 @section('content')
-    <h2 class="page-header font-weight-bold mb-lg-5">
+    <h2 class="page-header font-weight-bold">
         {{ __('Update Information') }}
 
         {{--        <a href="{{ route('members.profile.edit', Auth::user()) }}"--}}
