@@ -19,7 +19,8 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        return view('members.parents.index')->with('parents', Auth::user()->parents);
+        $parents = Auth::user()->parents;
+        return view('members.parents.index')->with('parents', $parents);
     }
 
     /**

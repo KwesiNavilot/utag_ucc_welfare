@@ -3,6 +3,7 @@
 @section('title', 'My Spouse | UTAG-UCC Welfare')
 
 @section('content')
+{{--    @dd($spouse)--}}
     <h2 class="page-header font-weight-bold mb-lg-4">
         {{ __('My Spouse') }}
 
@@ -11,15 +12,15 @@
         @endempty
     </h2>
 
-    @empty($spouse)
+    @if(empty($spouse))
         <div class="w-100 bg-white shade">
             <div>
                 <p class="m-0 text-center">You haven't added your spouse yet.</p>
             </div>
         </div>
-    @endempty
+    @endif
 
-    @if(isset($spouse))
+    @if(!empty($spouse))
         <div class="w-100">
             <div class="shade card cardinal p-0">
 {{--                <div class="img-hover-zoom">--}}

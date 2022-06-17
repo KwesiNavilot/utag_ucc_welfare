@@ -9,7 +9,7 @@
         <a href="{{ route('members.children.create') }}" class="util-btn blu-util float-right">Add A Child</a>
     </h2>
 
-    @empty($children)
+    @if($children->isEmpty())
         <section class="w-100 bg-white shade">
             <div>
                 <p class="m-0 text-center">You haven't added any child yet.</p>
@@ -17,7 +17,7 @@
         </section>
     @endempty
 
-    @if(isset($children))
+    @if($children->isNotEmpty())
         <section class="w-100">
             @foreach($children as $child)
                 <div class="shade float-left align-items-stretch card cardinal mb-5 p-0 @if($loop->index % 3 == 0)alpha @elseif($loop->index % 3 == 2)omega @else midla @endif">
