@@ -22,7 +22,7 @@ class RequestsController extends Controller
     public function index()
     {
         $requests = BenefitRequest::with('user')
-                                    ->get(['request_id', 'staff_id', 'request_type', 'status', 'created_at'])
+                                    ->get(['request_id', 'member_id', 'request_type', 'status', 'created_at'])
                                     ->paginate(25);
 
         return view('executives.requests.index', ['requests' => $requests]);
