@@ -116,7 +116,7 @@ class RetirementController extends Controller
         ]);
 
         $benefitRequest = tap(BenefitRequest::findOrFail($request_id))->update([
-            'retirement_date' => $request->retiment_date
+            'retirement_date' => $request->retirement_date
         ]);
 
         $toast = [

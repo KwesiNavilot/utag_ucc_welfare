@@ -26,7 +26,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <medium class="card-sub">Date of Retirement</medium>
-                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->child_dob)->format('jS F, Y') }}</p>
+                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->retirement_date)->format('jS F, Y') }}</p>
                 </li>
 
                 <li class="list-group-item">
