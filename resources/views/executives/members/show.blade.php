@@ -11,12 +11,23 @@
         <ul class="shade w-100 list-group list-group-flush">
             <li class="list-group-item">
                 <medium class="card-sub">Full Name</medium>
-                <p class="mb-0 mt-1">{{ $member->firstname . " " . $member->lastname}}</p>
+                <p class="mb-0 mt-1">{{ $member->title . " " .$member->firstname . " " . $member->lastname}}</p>
             </li>
 
             <li class="list-group-item">
                 <medium class="card-sub">Department</medium>
                 <p class="mb-0 mt-1">{{ $member->departments->name }}</p>
+            </li>
+
+            <li class="list-group-item">
+                <medium class="card-sub">Department Position</medium>
+                <p class="mb-0 mt-1">
+                    @if(isset($member->dept_position))
+                        {{ $member->dept_position }}
+                    @else
+                        None Provided
+                    @endif
+                </p>
             </li>
 
             <li class="list-group-item">
@@ -27,6 +38,17 @@
             <li class="list-group-item">
                 <medium class="card-sub">Phone Number</medium>
                 <p class="mb-0 mt-1">{{ $member->phonenumber }}</p>
+            </li>
+
+            <li class="list-group-item">
+                <medium class="card-sub">Alternate Phone Number</medium>
+                <p class="mb-0 mt-1">
+                    @if(isset($member->alt_phonenumber))
+                        {{ $member->alt_phonenumber }}
+                    @else
+                        None Provided
+                    @endif
+                </p>
             </li>
 
             <li class="list-group-item">
@@ -43,13 +65,13 @@
         <h4 class="card-sub">{{__("Member's Requests")}}</h4>
 
         <div class="w-100 bg-white shade p-0">
-            @empty($requests->all())
+            @empty($member->benefits)
                 <div>
                     <p class="m-0 text-center">This member hasn't made any benefit requests yet.</p>
                 </div>
             @endempty
 
-            @if(!empty($requests->all()))
+            @if(!empty($member->benefits))
                 <table class="table table-hover table-responsive-sm table-responsive-md">
                     <thead>
                     <tr>
@@ -61,7 +83,7 @@
                     </thead>
 
                     <tbody>
-                    @foreach($requests as $key=>$request)
+                    @foreach($member->benefits as $key => $request)
                         <tr>
                             <th class="p-0" scope="row">
                                 <a href="{{ route('execs.requests.show', $request) }}" class="d-flex text-decoration-none">
