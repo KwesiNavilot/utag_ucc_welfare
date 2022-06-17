@@ -1,11 +1,11 @@
             <section class="sidebar" duty="sidebar">
-                <div class="left-header p-lg-1 text-center bg-info">
+                <div class="left-header p-lg-1 text-center bg-white">
                     @guest
                         <a class="navbar-brand text-white" href="{{ route('execs.home') }}">
                             <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                         </a>
                     @else
-                        <a class="navbar-brand p-0 text-white" href="{{ route('execs.dashboard') }}">
+                        <a class="navbar-brand text-white" href="{{ route('execs.dashboard') }}">
                             <img src="{{ asset('/images/utag-ucc-logo.png') }}" alt="UTAG-UCC Logo">
                         </a>
                     @endguest
