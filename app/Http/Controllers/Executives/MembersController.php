@@ -43,14 +43,6 @@ class MembersController extends Controller
     public function show(User $member)
     {
         $member = $member->load('departments')->load('benefits');
-        //$requests = BenefitRequest::where('member_id', $member->member_id)->get(['request_id', 'request_type', 'status', 'created_at']);
-//        dd($member);
-//        dd($requests);
-
-//        return view('executives.members.show', [
-//            'member' => $member,
-//            'requests' => $requests
-//        ]);
 
         return view('executives.members.show')->with('member', $member);
     }

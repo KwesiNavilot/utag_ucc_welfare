@@ -46,7 +46,7 @@
 @include('includes.members.inside-nav')
 @include('includes.members.sidebar', ['navs' => $navs])
 
-<section class="content">
+<section class="content marg">
     <div class="container marg p-lg-5">
         @include('includes.messages')
         @yield('content')
