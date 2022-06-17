@@ -27,7 +27,7 @@ class MembersController extends Controller
 
 //        dd($members);
 
-        return view('executives.members.index', ['members' => $members]);
+        return view('execs.members.index', ['members' => $members]);
     }
 
     /**
@@ -37,7 +37,9 @@ class MembersController extends Controller
      */
     public function create()
     {
-        return view('executives.members.create', ['departments' => Department::all()]);
+        //return view('executives.members.create', ['departments' => Department::all()]);
+
+        return redirect()->route('execs.members.index');
     }
 
     /**
@@ -54,13 +56,13 @@ class MembersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $staff_id
+     * @param  int  $member_id
      * @return \Illuminate\Http\Response
      */
-    public function show($staff_id)
+    public function show($member_id)
     {
-        $member = User::findOrFail($staff_id)->load('departments');
-        $requests = BenefitRequest::where('staff_id', $member->staff_id)
+        $member = User::findOrFail($member_id)->load('departments');
+        $requests = BenefitRequest::where('member_id', $member->member_id)
                                     ->get(['request_id', 'request_type', 'status', 'created_at']);
 //        dd($requests);
 
@@ -73,10 +75,10 @@ class MembersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $staff_id
+     * @param  int  $member_id
      * @return \Illuminate\Http\Response
      */
-    public function edit($staff_id)
+    public function edit($member_id)
     {
         //
     }
@@ -85,10 +87,10 @@ class MembersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $staff_id
+     * @param  int  $member_id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $staff_id)
+    public function update(Request $request, $member_id)
     {
         //
     }
@@ -96,10 +98,10 @@ class MembersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $staff_id
+     * @param  int  $member_id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($staff_id)
+    public function destroy($member_id)
     {
         //
     }

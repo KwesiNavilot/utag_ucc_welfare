@@ -6,9 +6,9 @@
     <h2 class="page-header font-weight-bold mb-lg-5">
         {{ __('Members') }}
 
-        @can('add-members')
-            <a href="{{ route('execs.members.create') }}" class="util-btn blu-util float-right">Add Member</a>
-        @endcan
+{{--        @can('add-members')--}}
+{{--            <a href="{{ route('execs.members.create') }}" class="util-btn blu-util float-right">Add Member</a>--}}
+{{--        @endcan--}}
     </h2>
 
     {{--    <section class="mb-2 d-flex col">--}}
