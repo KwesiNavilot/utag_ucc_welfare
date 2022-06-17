@@ -49,12 +49,17 @@ class RequestsController extends Controller
 //        dd($request->all());
 
         $this->validate($request, [
-            'staff_id' => ['required', 'string', 'size:8'],
+            'staff_id' => ['required', 'string', 'max:5', 'exists:users'],
             'funeral_date' => ['required', 'date'],
-            'poster' => ['sometimes', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
+            'poster' => ['required', 'file', 'mimes:jpg,gif,png,webp,pdf,jpeg', 'max:5000']
+        ], [
+            'staff_id.exists' => 'The entered Staff ID is invalid or not in our records'
         ]);
 
+        $member = User::where('staff_id', $request->staff_id)->get('member_id')->first();
+
         $benefitRequest = BenefitRequest::create([
+            'member_id' => $member->member_id,
             'request_id' => $this->generateRequestId(),
             'staff_id' => $request->staff_id,
             'request_type' => 'Death of Member',
