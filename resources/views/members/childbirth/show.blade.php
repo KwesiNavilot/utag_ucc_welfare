@@ -26,12 +26,12 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <medium class="card-sub">Name of Child</medium>
-                    <p class="mb-0 mt-1">{{$request->child->firstname . " " . $request->child->lastname}}</p>
+                    <p class="mb-0 mt-1">{{$child->firstname . " " . $child->lastname}}</p>
                 </li>
 
                 <li class="list-group-item">
                     <medium class="card-sub">Child Date of Birth</medium>
-                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($request->child->date_of_birth)->format('jS F, Y') }}</p>
+                    <p class="mb-0 mt-1">{{ \Carbon\Carbon::parse($child->date_of_birth)->format('jS F, Y') }}</p>
                 </li>
 
                 <li class="list-group-item">

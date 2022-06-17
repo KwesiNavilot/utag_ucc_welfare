@@ -96,9 +96,16 @@ class ChildBirthController extends Controller
      */
     public function show($request_id)
     {
-        $request = BenefitRequest::findOrFail($request_id)->load('child');
+        $request = BenefitRequest::findOrFail($request_id);
+        $child = Child::where('child_id', $request->child_id)
+            ->get(['firstname', 'lastname'])
+            ->first();
 
-        return view('members.childbirth.show')->with('request', $request);
+        return view('members.childbirth.show')
+            ->with([
+                'request' => $request,
+                'child' => $child
+            ]);
     }
 
     /**
@@ -110,7 +117,16 @@ class ChildBirthController extends Controller
     public function edit($request_id)
     {
         $request = BenefitRequest::findOrFail($request_id);
-        return view('members.childbirth.edit')->with('request', $request);
+        $child = Child::where('child_id', $request->child_id)
+            ->get(['firstname', 'lastname', 'child_id', 'date_of_birth'])
+            ->first();
+
+//        dd($request);
+        return view('members.childbirth.edit')
+            ->with([
+                'request' => $request,
+                'child' => $child
+            ]);
     }
 
     /**

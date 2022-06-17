@@ -17,8 +17,8 @@
                 <label for="child">Name Of Child</label>
 
                 <select class="form-control @error('child') is-invalid @enderror" name="child" required>
-                    <option value="{{ $request->child->child_id }}">
-                        {{ $request->child->firstname . " " . $request->child->lastname }}
+                    <option value="{{ $child->child_id }}">
+                        {{ $child->firstname . " " . $child->lastname }}
                     </option>
                 </select>
 
@@ -32,11 +32,11 @@
             <div class="form-group">
                 <label for="child_dob">Child's Date of Birth</label>
 
-                <input disabled type="date" class="form-control @error('child_dob') is-invalid @enderror"
-                       name="child_dob" value="{{ old('child_dob') ?? $request->child->date_of_birth }}"
+                <input disabled type="date" class="form-control @error('date_of_birth') is-invalid @enderror"
+                       name="date_of_birth" value="{{ old('date_of_birth') ?? $child->date_of_birth }}"
                        placeholder="Enter the your child's date of birth..." required>
 
-                @error('child_dob')
+                @error('date_of_birth')
                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

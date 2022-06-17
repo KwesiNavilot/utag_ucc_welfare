@@ -103,8 +103,6 @@ class DeathOfParentController extends Controller
                             ->get(['firstname', 'lastname', 'relation'])
                             ->first();
 
-//        dd($request);
-//        dd($parent);
         return view('members.deathofparent.show')
                 ->with([
                     'request' => $request,
