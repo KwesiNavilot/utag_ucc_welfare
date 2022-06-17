@@ -22,9 +22,9 @@
     @isset($spouse)
         <div class="w-100">
             <div class="shade card cardinal p-0">
-                <div class="img-hover-zoom">
-                    <img class="card-img-top" src="{{url('/img/system/shield.jpg')}}" alt="Service Image">
-                </div>
+{{--                <div class="img-hover-zoom">--}}
+{{--                    <img class="card-img-top" src="{{url('/img/system/shield.jpg')}}" alt="Service Image">--}}
+{{--                </div>--}}
 
                 <div class="card-body">
                     <h4 class="card-title m-0 text-truncate">{{ $spouse->firstname . " " . $spouse->lastname }}</h4>

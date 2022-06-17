@@ -21,9 +21,9 @@
         <section class="w-100">
             @foreach($parents as $parent)
                 <div class="shade float-left align-items-stretch card cardinal mb-5 p-0 @if($loop->index % 3 == 0)mr-lg-2 @elseif($loop->index % 3 == 2)ml-lg-2 @else mx-lg-2 @endif">
-                    <div class="img-hover-zoom">
-                        <img class="card-img-top" src="{{url('/img/system/shield.jpg')}}" alt="Service Image">
-                    </div>
+{{--                    <div class="img-hover-zoom">--}}
+{{--                        <img class="card-img-top" src="{{url('/img/system/shield.jpg')}}" alt="Service Image">--}}
+{{--                    </div>--}}
 
                     <div class="card-body">
                         <h4 class="card-title m-0 text-truncate">{{ $parent->firstname . " " . $parent->lastname }}</h4>
