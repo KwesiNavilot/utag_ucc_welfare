@@ -27,7 +27,7 @@
 
                     <div class="card-body">
                         <h4 class="card-title m-0 text-truncate">{{ $parent->firstname . " " . $parent->lastname }}</h4>
-                        <p class="card-sub m-0 text-truncate">{{ \Carbon\Carbon::parse($parent->date_of_birth)->format('jS F, Y') }}</p>
+                        <p class="card-sub m-0 text-truncate">{{ $parent->phonenumber ?? __("No Phone Number Provided") }}</p>
                         <a href="{{ route('members.parents.show', $parent) }}" class="stretched-link"></a>
                     </div>
                 </div>

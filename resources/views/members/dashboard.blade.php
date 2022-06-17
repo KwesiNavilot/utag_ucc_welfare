@@ -11,7 +11,7 @@
     </div>
 
     <div>
-        <h3 class="page-header mb-2">Guidelines For Applying For Benefits</h3>
+        <h4 class="page-header mb-2">Guidelines For Applying For Benefits</h4>
 
         <p>
             To complete an application for a benefit, you must submit some documentation that prove the occurence of the event.
@@ -19,7 +19,7 @@
             members as a way of notifying them of the incidence.
         </p>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered rounded">
             <thead>
                 <tr>
                     <th scope="col">Benefit</th>
