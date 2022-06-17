@@ -37,28 +37,28 @@
                 </thead>
 
                 <tbody>
-                @foreach($members as $key=>$member)
+                @foreach($members as $member)
                     <tr>
                         <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                            <a href="{{ route('execs.members.show', $member) }}"
                                class="d-flex text-decoration-none">
                                 {{ $member->firstname . " " . $member->lastname }}
                             </a>
                         </td>
                         <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                            <a href="{{ route('execs.members.show', $member) }}"
                                class="d-flex text-decoration-none">
                                 {{ $member->department }}
                             </a>
                         </td>
                         <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                            <a href="{{ route('execs.members.show', $member) }}"
                                class="d-flex text-decoration-none">
                                 {{ $member->phonenumber }}
                             </a>
                         </td>
                         <td class="p-0 align-middle">
-                            <a href="{{ route('execs.members.show', $member->staff_id) }}"
+                            <a href="{{ route('execs.members.show', $member) }}"
                                class="d-flex text-decoration-none">
                                 <i class="icofont-rounded-right"></i>
                             </a>

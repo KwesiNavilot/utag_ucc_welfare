@@ -7,7 +7,7 @@
         {{ __('Request Child Birth Benefit') }}
     </h2>
 
-    @empty($children)
+    @if($children->isEmpty())
         <div class="alert alert-warning p-4" role="alert">
             <p style="color: black;">
                 You can't apply for any childbirth benefits because <strong>you either haven't added any child or you
@@ -21,7 +21,7 @@
         </div>
     @endempty
 
-    @if(isset($children))
+    @if($children->isNotEmpty())
     <div class="shade col-lg-12">
         <form action="{{route('members.childbirth.store')}}" enctype="multipart/form-data" method="POST">
             @csrf

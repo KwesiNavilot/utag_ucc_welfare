@@ -6,10 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\BenefitRequest;
 use App\Models\Department;
 use App\Models\User;
-use App\Notifications\MemberAdmissionNotification;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class MembersController extends Controller
 {
@@ -25,9 +21,7 @@ class MembersController extends Controller
                             ->whereColumn('short', 'users.department')
                         ])->orderBy('created_at', 'DESC')->get()->paginate(25);
 
-//        dd($members);
-
-        return view('execs.members.index', ['members' => $members]);
+        return view('executives.members.index', ['members' => $members]);
     }
 
     /**
@@ -37,20 +31,7 @@ class MembersController extends Controller
      */
     public function create()
     {
-        //return view('executives.members.create', ['departments' => Department::all()]);
-
         return redirect()->route('execs.members.index');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
     }
 
     /**
@@ -59,11 +40,13 @@ class MembersController extends Controller
      * @param  int  $member_id
      * @return \Illuminate\Http\Response
      */
-    public function show($member_id)
+    public function show(User $member)
     {
-        $member = User::findOrFail($member_id)->load('departments');
+//        dd($member);
+        $member = $member->load('departments')->load('benefits');
         $requests = BenefitRequest::where('member_id', $member->member_id)
                                     ->get(['request_id', 'request_type', 'status', 'created_at']);
+        dd($member);
 //        dd($requests);
 
         return view('executives.members.show', [
@@ -72,37 +55,4 @@ class MembersController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $member_id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($member_id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $member_id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $member_id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $member_id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($member_id)
-    {
-        //
-    }
 }
