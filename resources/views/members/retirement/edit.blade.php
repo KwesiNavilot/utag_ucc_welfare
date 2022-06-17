@@ -17,7 +17,7 @@
 
                 <input type="date" class="form-control @error('retirement_date') is-invalid @enderror"
                        name="retirement_date" value="{{ old('retirement_date') ?? $request->retirement_date }}"
-                       placeholder="Enter the your child's date of birth..." required>
+                       placeholder="Enter the your retirement date" required>
 
                 @error('retirement_date')
                 <span class="invalid-feedback" role="alert">

@@ -7,8 +7,17 @@
         {{ __('Request Information') }}
 
         @if($request->status == "Pending")
-            <a href="{{ route('retirement.edit', $request->request_id) }}"
-               class="util-btn blu-util float-right">Edit Request</a>
+            <div class="float-right">
+                <a href="{{ route('members.retirement.edit', $request->request_id) }}"
+                   class="util-btn blu-util">Edit Request</a>
+
+                <form class="float-right pl-lg-3 pl-md-3 pl-sm-3 pl-xs-3"
+                      action="{{ route('members.retirement.destroy', $request->request_id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="util-btn red-util">Delete Request</button>
+                </form>
+            </div>
         @endif
     </h2>
 

@@ -22,7 +22,6 @@ class RetirementController extends Controller
      */
     public function index()
     {
-//        return redirect()->route('retirement.create');
         return view('members.retirement.create');
     }
 
@@ -53,7 +52,6 @@ class RetirementController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         $this->validate($request, [
             'retirement_date' => ['required', 'date'],
             'publish' => ['required', 'string']
@@ -87,7 +85,6 @@ class RetirementController extends Controller
      */
     public function show($request_id)
     {
-//        dd($request_id);
         $request = BenefitRequest::findOrFail($request_id);
         return view('members.retirement.show')->with('request', $request);
     }
@@ -101,7 +98,7 @@ class RetirementController extends Controller
     public function edit($request_id)
     {
         $request = BenefitRequest::findOrFail($request_id);
-        dd($request);
+
         return view('members.retirement.edit')->with('request', $request);
     }
 
@@ -114,7 +111,6 @@ class RetirementController extends Controller
      */
     public function update(Request $request, $request_id)
     {
-//        dd($request);
         $this->validate($request, [
             'retirement_date' => ['required', 'date']
         ]);
@@ -123,16 +119,12 @@ class RetirementController extends Controller
             'retirement_date' => $request->retiment_date
         ]);
 
-//        if ($request->hasFile('poster')) {
-//            $this->updateMedia($benefitRequest);
-//        }
-
         $toast = [
             'type' => 'success',
             'message' => 'You have successfully updated the benefit request'
         ];
 
-        return redirect()->route('retirement.show', $request_id)->with('toast', $toast);
+        return redirect()->route('members.retirement.show', $request_id)->with('toast', $toast);
     }
 
     /**
@@ -141,8 +133,17 @@ class RetirementController extends Controller
      * @param BenefitRequest $benefitRequest
      * @return Response
      */
-    public function destroy(BenefitRequest $benefitRequest)
+    public function destroy($request_id)
     {
-        //
+        $request = BenefitRequest::findOrFail($request_id);
+
+        $request->delete();
+
+        $toast = [
+            'type' => 'success',
+            'message' => "Benefit request deleted successfully"
+        ];
+
+        return redirect()->route('members.requests')->with('toast', $toast);
     }
 }

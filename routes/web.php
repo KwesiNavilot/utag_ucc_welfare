@@ -64,7 +64,6 @@ Route::name('members.')->middleware([RevalidateBackHistory::class, Authenticate:
     //Routes for singular pages
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/requests', [GenericController::class, 'requests'])->name('requests');
-//    Route::get('/family', [GenericController::class, 'family'])->name('family');
 
     //Routes for individual benefits
     Route::resource('childbirth', ChildBirthController::class);
