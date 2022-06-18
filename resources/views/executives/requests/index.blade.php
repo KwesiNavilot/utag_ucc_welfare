@@ -6,7 +6,27 @@
     <h2 class="page-header font-weight-bold">
         {{ __('Requests') }}
 
-        <a href="{{ route('execs.requests.create') }}" class="util-btn blu-util float-right">Mark Demise of Member</a>
+        <div class="float-right">
+            <a href="#" class="toolbar-btn util-btn blu-util dropdown-toggle" type="button"
+               id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" title="Filter products">
+                <i class="icofont-filter"></i>
+                Filter By
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <h6 class="dropdown-header">Request Status</h6>
+                <a class="dropdown-item" href="#">Approved</a>
+                <a class="dropdown-item" href="#">Pending</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Request Type</h6>
+                <a class="dropdown-item" href="#">Childbirth</a>
+                <a class="dropdown-item" href="#">Death of Spouse</a>
+                <a class="dropdown-item" href="#">Death of Parent</a>
+                <a class="dropdown-item" href="#">Death of Member</a>
+                <a class="dropdown-item" href="#">Retirement</a>
+            </div>
+
+            <a href="{{ route('execs.requests.create') }}" class="util-btn blu-util">Mark Demise of Member</a>
+        </div>
     </h2>
 
     <section class="bg-white shade w-100 p-0">
@@ -52,7 +72,7 @@
                             <a href="{{ route('execs.requests.show', $request) }}"
                                class="d-flex text-decoration-none">
                                 {{ $request->created_at->format('jS F, Y') }}
-{{--                                ({{ \Carbon\Carbon::parse($request->created_at)->diffForHumans() }})--}}
+                                {{--                                ({{ \Carbon\Carbon::parse($request->created_at)->diffForHumans() }})--}}
                             </a>
                         </td>
                         <td class="p-0 align-middle">
