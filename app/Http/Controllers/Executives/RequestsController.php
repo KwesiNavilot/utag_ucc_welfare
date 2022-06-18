@@ -21,11 +21,9 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        $requests = BenefitRequest::with('user')
-                                    ->get(['request_id', 'member_id', 'request_type', 'status', 'created_at'])
-                                    ->paginate(25);
+        $requests_count = BenefitRequest::all()->count();
 
-        return view('executives.requests.index', ['requests' => $requests]);
+        return view('executives.requests.index', ['requests_count' => $requests_count]);
     }
 
     /**

@@ -16,12 +16,9 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = User::addSelect([
-                            'department' => Department::select('name')
-                            ->whereColumn('short', 'users.department')
-                        ])->orderBy('created_at', 'DESC')->get()->paginate(25);
+        $members_count = User::all()->count();
 
-        return view('executives.members.index', ['members' => $members]);
+        return view('executives.members.index')->with('members_count', $members_count);
     }
 
     /**

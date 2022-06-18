@@ -28,6 +28,10 @@
         <link rel="stylesheet" href="{{asset('fotorama/fotorama.css')}}">
     @endif
 
+    @if($trigger ?? '' == 'livewire')
+        @livewireStyles
+    @endif
+
     <link rel="stylesheet" href="{{asset('css/inside.css')}}">
     <link rel="stylesheet" href="{{asset('css/shredder.css')}}">
 
@@ -51,6 +55,9 @@
     </div>
 </section>
 </body>
+@if($trigger ?? '' == 'livewire')
+    @livewireScripts
+@endif
 
 @if($trigger ?? '' == 'editor')
     <script src="{{asset('js/vendor/ckeditor.js')}}"></script>

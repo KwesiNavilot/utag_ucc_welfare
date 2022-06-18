@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -31,6 +32,11 @@ class AppServiceProvider extends ServiceProvider
     {
 //        Schema::defaultStringLength(191);
 
+        //Macro for searching through query results
+        Builder::macro('search', function ($field, $string) {
+            return $string ? $this->where($field, 'like', '%'.$string.'%') : $this;
+        });
+
         //Validator rule to accept alphabets with spaces, and maybe hyphen
         Validator::extend('alpha_spaces', function ($attribute, $value) {
             // To only accept alpha and spaces use: /^[\pL\s]+$/u
@@ -50,7 +56,6 @@ class AppServiceProvider extends ServiceProvider
         * @param string $pageName
         * @return array
         */
-
         Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
 

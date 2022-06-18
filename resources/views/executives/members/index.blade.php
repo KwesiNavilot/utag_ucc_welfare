@@ -5,72 +5,17 @@
 @section('content')
     <h2 class="page-header font-weight-bold">
         {{ __('Members') }}
-
-{{--        @can('add-members')--}}
-{{--            <a href="{{ route('execs.members.create') }}" class="util-btn blu-util float-right">Add Member</a>--}}
-{{--        @endcan--}}
     </h2>
 
-    {{--    <section class="mb-2 d-flex col">--}}
-    {{--        <div class="search-filter">--}}
-
-    {{--        </div>--}}
-
-    {{--        <a href="{{ route('execs.members.create') }}" class="util-btn float-right">Add Member</a>--}}
-    {{--    </section>--}}
-
-    <section class="bg-white shade w-100 p-0">
-        @empty($members->all())
+    @if(empty($members_count))
+        <section class="bg-white shade w-100 p-0">
             <div class="p-3">
-                <p class="m-0 text-center">You haven't added any members yet.</p>
+                <p class="m-0 text-center">There are no members yet</p>
             </div>
-        @endempty
+        </section>
+    @endif
 
-        @if(!empty($members->all()))
-            <table class="table table-hover table-responsive-sm table-responsive-lg table-responsive-md">
-                <thead>
-                <tr>
-                    <th class="px-lg-4 text-truncate" scope="col">Name</th>
-                    <th class="px-lg-4 text-truncate" scope="col">Department</th>
-                    <th class="px-lg-4 text-truncate" scope="col" colspan="2">Phone Number</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                @foreach($members as $member)
-                    <tr>
-                        <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                {{ $member->firstname . " " . $member->lastname }}
-                            </a>
-                        </td>
-                        <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                {{ $member->department }}
-                            </a>
-                        </td>
-                        <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                {{ $member->phonenumber }}
-                            </a>
-                        </td>
-                        <td class="p-0 align-middle">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                <i class="icofont-rounded-right"></i>
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        @endif
-    </section>
-
-    <div class="paginator float-lg-right mt-4">
-        {{ $members->links() }}
-    </div>
+    @if(!empty($members_count))
+        <livewire:members-table/>
+    @endif
 @endsection
