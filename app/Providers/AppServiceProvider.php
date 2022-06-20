@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
 
         //Macro for searching through query results
         Builder::macro('search', function ($field, $string) {
-            return $string ? $this->where($field, 'like', '%'.$string.'%') : $this;
+            return $string ? $this->where($field[0], 'like', '%'.$string.'%')->orWhere($field[1], 'like', '%'.$string.'%') : $this;
         });
 
         //Validator rule to accept alphabets with spaces, and maybe hyphen

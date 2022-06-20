@@ -20,7 +20,7 @@ class MembersTable extends Component
         return view('livewire.members-table', [
             'members' => User::addSelect(['department' => Department::select('name')
                             ->whereColumn('short', 'users.department')])
-                            ->search('firstname', $this->search)
+                            ->search(['firstname', 'lastname'], $this->search)
                             ->orderBy('lastname')
                             ->get()->paginate(25)
         ]);
