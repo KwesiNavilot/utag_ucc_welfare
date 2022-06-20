@@ -1,8 +1,8 @@
 <div class="w-100">
     <div class="w-100">
         <div class="form-group p-0 mb-4 col-lg-6 col-md-6 col-sm-12">
-            <input class="form-control" type="text" wire:model="search"
-                   placeholder="Search for Members based on either name"
+            <input style="height: 45px" class="form-control" type="text" wire:model="search"
+                   placeholder="Search for Members based on name"
                    title="Use this to search through your dataset">
         </div>
     </div>

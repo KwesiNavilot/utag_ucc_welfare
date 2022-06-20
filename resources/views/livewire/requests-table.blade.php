@@ -1,9 +1,9 @@
 <div class="w-100">
-    <div class="w-100 mb-4">
-        {{--<livewire:filter />--}}
+{{--    <div class="w-100 mb-4">--}}
+{{--        <livewire:filter />--}}
 
-        <livewire:search />
-    </div>
+{{--        <livewire:search />--}}
+{{--    </div>--}}
 
     <section class="bg-white shade w-100 p-0">
         @if(empty($requests->all()))
