@@ -40,7 +40,7 @@
                 <label for="publish-to-members">Funeral Poster/Invitation</label>
 
                 <input type="file" accept="image/*,.pdf" class="form-control @error('poster') is-invalid @enderror"
-                       name="poster">
+                       name="poster" required>
 
                 @error('poster')
                     <span class="invalid-feedback" role="alert">

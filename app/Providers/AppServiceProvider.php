@@ -33,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
 //        Schema::defaultStringLength(191);
 
         //Macro for searching through query results
-        Builder::macro('search', function ($field, $string) {
-            return $string ? $this->where($field[0], 'like', '%'.$string.'%')->orWhere($field[1], 'like', '%'.$string.'%') : $this;
+        Builder::macro('search', function ($string) {
+            return $string ? $this->where('firstname', 'like', '%'.$string.'%')->orWhere('lastname', 'like', '%'.$string.'%') : $this;
         });
 
         //Validator rule to accept alphabets with spaces, and maybe hyphen

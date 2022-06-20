@@ -10,15 +10,18 @@ class RequestsTable extends Component
 {
     use WithPagination;
 
-    public $search = '';
+    public $filterStatus = '';
 
     protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-//        dd(BenefitRequest::all()->paginate(25));
+        //dd(BenefitRequest::search(['request_type', 'status'], $this->search)->get());
         return view('livewire.requests-table', [
-            'requests' => BenefitRequest::all()->paginate(25)
+            'requests' => BenefitRequest::all()
+                            ->when($this->filterStatus, function($query) {
+                                return $query->where('status', $this->filterStatus);
+                            })->paginate(25)
         ]);
     }
 }
