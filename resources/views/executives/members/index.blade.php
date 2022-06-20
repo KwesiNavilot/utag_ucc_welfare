@@ -1,4 +1,4 @@
-@extends('layouts.execs')
+@extends('layouts.execs', ['trigger' => 'livewire'])
 
 @section('title', 'Association Members | UTAG-UCC Welfare')
 

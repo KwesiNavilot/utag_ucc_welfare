@@ -1,55 +1,59 @@
 <div class="w-100">
     <div class="w-100">
         <div class="form-group p-0 mb-4">
-            <input class="form-control" name="search" type="text" wire:model.debounce.500ms="search"
+            <input class="form-control" type="text" wire:model="search"
                    placeholder="Search for Members based on name and department"
                    title="Use this to search through your dataset">
         </div>
     </div>
 
     <section class="bg-white shade w-100 p-0">
-        @if(!empty($members->all()))
-            <table class="table table-hover table-responsive-sm table-responsive-lg table-responsive-md">
-                <thead>
-                <tr>
-                    <th class="px-lg-4 text-truncate" scope="col">Name</th>
-                    <th class="px-lg-4 text-truncate" scope="col">Department</th>
-                    <th class="px-lg-4 text-truncate" scope="col" colspan="2">Phone Number</th>
-                </tr>
-                </thead>
+        <table class="table table-hover table-responsive-sm table-responsive-lg table-responsive-md">
+            <thead>
+            <tr>
+                <th class="px-lg-4 text-truncate" scope="col">Name</th>
+                <th class="px-lg-4 text-truncate" scope="col">Department</th>
+                <th class="px-lg-4 text-truncate" scope="col" colspan="2">Phone Number</th>
+            </tr>
+            </thead>
 
-                <tbody>
-                @foreach($members as $member)
-                    <tr>
-                        <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                {{ $member->firstname . " " . $member->lastname }}
-                            </a>
-                        </td>
-                        <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                {{ $member->department }}
-                            </a>
-                        </td>
-                        <td class="p-0 text-truncate">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                {{ $member->phonenumber }}
-                            </a>
-                        </td>
-                        <td class="p-0 align-middle">
-                            <a href="{{ route('execs.members.show', $member) }}"
-                               class="d-flex text-decoration-none">
-                                <i class="icofont-rounded-right"></i>
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        @endif
+            <tbody>
+            @forelse($members as $member)
+                <tr wire:loading.class.delay="text-muted disabled">
+                    <td class="p-0 text-truncate">
+                        <a href="{{ route('execs.members.show', $member) }}"
+                           class="d-flex text-decoration-none">
+                            {{ $member->firstname . " " . $member->lastname }}
+                        </a>
+                    </td>
+                    <td class="p-0 text-truncate">
+                        <a href="{{ route('execs.members.show', $member) }}"
+                           class="d-flex text-decoration-none">
+                            {{ $member->department }}
+                        </a>
+                    </td>
+                    <td class="p-0 text-truncate">
+                        <a href="{{ route('execs.members.show', $member) }}"
+                           class="d-flex text-decoration-none">
+                            {{ $member->phonenumber }}
+                        </a>
+                    </td>
+                    <td class="p-0 align-middle">
+                        <a href="{{ route('execs.members.show', $member) }}"
+                           class="d-flex text-decoration-none">
+                            <i class="icofont-rounded-right"></i>
+                        </a>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="3" class="text-center font-weight-bold text-muted">
+                        {{ __("No results found") }}
+                    </td>
+                </tr>
+            @endforelse
+            </tbody>
+        </table>
     </section>
 
     <div class="paginator float-lg-right mt-4">
