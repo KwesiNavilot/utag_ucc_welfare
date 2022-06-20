@@ -12,6 +12,8 @@ class RequestsTable extends Component
 
     public $filterStatus = '';
 
+    public $filterType = '';
+
     protected $paginationTheme = 'bootstrap';
 
     public function render()
@@ -21,6 +23,8 @@ class RequestsTable extends Component
             'requests' => BenefitRequest::all()
                             ->when($this->filterStatus, function($query) {
                                 return $query->where('status', $this->filterStatus);
+                            })->when($this->filterType, function($query) {
+                                return $query->where('request_type', $this->filterType);
                             })->paginate(25)
         ]);
     }

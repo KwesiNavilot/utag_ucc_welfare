@@ -1,25 +1,25 @@
 <div class="w-100">
-    <div class="w-100 mb-4">
-        <div class="d-flex form-group p-0 col-lg-5 col-md-12 col-sm-12">
+    <div class="w-100 mb-4 d-lg-flex d-md-block">
+        <div class="d-flex form-group p-0 col-lg-5 col-md-9 col-sm-12 mr-lg-4">
             <label class="col-3 p-0">Filter Status</label>
             <select style="height: 45px" class="form-control" title="Filter requests" wire:model="filterStatus">
                 <option value="" selected>None</option>
                 <option value="Approved">Approved</option>
                 <option value="Pending">Pending</option>
-                <option disabled style="font-weight: bolder">Request Type</option>
-                <option value="child">Childbirth</option>
-                <option value="spouse">Death of Spouse</option>
-                <option value="parent">Death of Parent</option>
-                <option value="member">Death of Member</option>
-                <option value="retirement">Retirement</option>
             </select>
         </div>
 
-{{--        <div class="form-group p-0 col-lg-6 col-md-12 col-sm-12">--}}
-{{--            <input style="height: 45px" class="form-control" type="text" wire:model="search"--}}
-{{--                   placeholder="Search for Requests based on Member's name"--}}
-{{--                   title="Use this to search through your dataset">--}}
-{{--        </div>--}}
+        <div class="d-flex form-group p-0 col-lg-5 col-md-9 col-sm-12">
+            <label class="col-3 p-0">Filter Type</label>
+            <select style="height: 45px" class="form-control" title="Filter requests" wire:model="filterType">
+                <option value="" selected>None</option>
+                <option value="Child Birth">Childbirth</option>
+                <option value="Death of Spouse">Death of Spouse</option>
+                <option value="Death of Parent">Death of Parent</option>
+                <option value="Death of Member">Death of Member</option>
+                <option value="Retirement">Retirement</option>
+            </select>
+        </div>
     </div>
 
     <section class="bg-white shade w-100 p-0">
