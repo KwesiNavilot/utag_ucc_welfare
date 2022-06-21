@@ -108,27 +108,27 @@
                             </div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="col-md-12 form-group px-0">
-                                <label for="dept_position">Position In Department</label>
-                                <input class="form-control @error('dept_position') is-invalid @enderror"
-                                       placeholder="{{ __('E.g: Registrar') }}" name="dept_position"
-                                       type="text" value="{{ old('dept_position') }}">
+{{--                        <div class="form-row">--}}
+{{--                            <div class="col-md-12 form-group px-0">--}}
+{{--                                <label for="dept_position">Position In Department</label>--}}
+{{--                                <input class="form-control @error('dept_position') is-invalid @enderror"--}}
+{{--                                       placeholder="{{ __('E.g: Registrar') }}" name="dept_position"--}}
+{{--                                       type="text" value="{{ old('dept_position') }}">--}}
 
-                                @error('dept_position')
-                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                @enderror
-                            </div>
-                        </div>
+{{--                                @error('dept_position')--}}
+{{--                                <span class="invalid-feedback" role="alert">--}}
+{{--                                            <strong>{{ $message }}</strong>--}}
+{{--                                        </span>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-row">
                             <div class="col-md-6 form-group pl-0">
                                 <label for="phonenumber">Phone Number<span style="color: red">*</span></label>
                                 <input class="form-control @error('phonenumber') is-invalid @enderror"
                                        placeholder="{{ __('E.g: 0212345678') }}" required
-                                       id="phonenumber" name="phonenumber" type="text">
+                                       id="phonenumber" name="phonenumber" value="{{ old('phonenumber') }}" type="text">
 
                                 @error('phonenumber')
                                 <span class="invalid-feedback" role="alert">

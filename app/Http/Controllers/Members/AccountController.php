@@ -87,7 +87,7 @@ class AccountController extends Controller
 //        dd(Str::length($request->phonenumber));
 
         $this->validate($request, [
-            'staff_id' => ['required', 'numeric', 'max:5'],
+            'staff_id' => ['required', 'numeric'],
             'title' => ['required', 'string', 'max:5'],
             'date_of_birth' => ['required', 'date'],
             'date_joined' => ['required', 'date'],
@@ -104,7 +104,7 @@ class AccountController extends Controller
         $member->date_of_birth = $request->date_of_birth;
         $member->date_joined = $request->date_joined;
         $member->department = $request->department;
-        $member->dept_position = $request->dept_position;
+//        $member->dept_position = $request->dept_position;
         $member->phonenumber = $request->phonenumber;
         $member->alt_phonenumber = $request->alt_phonenumber;
         $member->ignited_profile = 'yes';
