@@ -19,16 +19,16 @@
                 <p class="mb-0 mt-1">{{ $member->departments->name }}</p>
             </li>
 
-            <li class="list-group-item">
-                <medium class="card-sub">Department Position</medium>
-                <p class="mb-0 mt-1">
-                    @if(isset($member->dept_position))
-                        {{ $member->dept_position }}
-                    @else
-                        None Provided
-                    @endif
-                </p>
-            </li>
+{{--            <li class="list-group-item">--}}
+{{--                <medium class="card-sub">Department Position</medium>--}}
+{{--                <p class="mb-0 mt-1">--}}
+{{--                    @if(isset($member->dept_position))--}}
+{{--                        {{ $member->dept_position }}--}}
+{{--                    @else--}}
+{{--                        None Provided--}}
+{{--                    @endif--}}
+{{--                </p>--}}
+{{--            </li>--}}
 
             <li class="list-group-item">
                 <medium class="card-sub">Email</medium>
