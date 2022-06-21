@@ -34,8 +34,6 @@ class AccountController extends Controller
     //update member's details
     public function update(Request $request, User $user)
     {
-//        dd($request->all());
-
         $rules = [
             'staff_id' => ['required', 'numeric', 'max:5', Rule::unique(User::class)->ignore(Auth::id(), 'member_id')],
             'title' => ['required', 'string', 'max:5'],
@@ -47,7 +45,7 @@ class AccountController extends Controller
             'phonenumber' => ['required', 'numeric', 'digits:10'],
             'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
             'department' => ['required', 'string', 'min:2'],
-            'dept_position' => ['nullable', 'string', 'min:2', 'max:30']
+//            'dept_position' => ['nullable', 'string', 'min:2', 'max:30']
         ];
 
         $attribute = [
@@ -84,15 +82,13 @@ class AccountController extends Controller
     //Ignite the person's profile
     public function igniteProfile(Request $request)
     {
-//        dd(Str::length($request->phonenumber));
-
         $this->validate($request, [
             'staff_id' => ['required', 'numeric'],
             'title' => ['required', 'string', 'max:5'],
             'date_of_birth' => ['required', 'date'],
             'date_joined' => ['required', 'date'],
             'department' => ['required', 'string', 'min:2'],
-            'dept_position' => ['nullable', 'string', 'min:2', 'max:30'],
+//            'dept_position' => ['nullable', 'string', 'min:2', 'max:30'],
             'phonenumber' => ['required', 'numeric', 'digits:10'],
             'alt_phonenumber' => ['nullable', 'numeric', 'digits:10'],
         ]);
@@ -109,8 +105,6 @@ class AccountController extends Controller
         $member->alt_phonenumber = $request->alt_phonenumber;
         $member->ignited_profile = 'yes';
         $member->save();
-
-        //dd($member);
 
         //notify them of account ignition
         $member->notify((new AccountIgnitedNotification($member))->delay(10));

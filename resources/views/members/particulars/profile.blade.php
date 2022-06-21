@@ -83,16 +83,16 @@
                     <p class="mb-0 mt-1">{{$department[0]['name']}}</p>
                 </li>
 
-                <li class="list-group-item">
-                    <medium class="card-sub">Position</medium>
-                    <p class="mb-0 mt-1">
-                        @if(isset($member->dept_position))
-                            {{ $member->dept_position }}
-                        @else
-                            None Provided
-                        @endif
-                    </p>
-                </li>
+{{--                <li class="list-group-item">--}}
+{{--                    <medium class="card-sub">Position</medium>--}}
+{{--                    <p class="mb-0 mt-1">--}}
+{{--                        @if(isset($member->dept_position))--}}
+{{--                            {{ $member->dept_position }}--}}
+{{--                        @else--}}
+{{--                            None Provided--}}
+{{--                        @endif--}}
+{{--                    </p>--}}
+{{--                </li>--}}
             </ul>
         </div>
     </section>

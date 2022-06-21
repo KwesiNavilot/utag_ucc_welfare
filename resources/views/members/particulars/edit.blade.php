@@ -5,9 +5,6 @@
 @section('content')
     <h2 class="page-header font-weight-bold">
         {{ __('Update Information') }}
-
-        {{--        <a href="{{ route('members.profile.edit', Auth::user()) }}"--}}
-        {{--           class="util-btn float-right">Edit Profile</a>--}}
     </h2>
 
     <div data-purpose="account_details">
@@ -160,20 +157,20 @@
                     @enderror
                 </div>
 
-                <div class="form-row">
-                    <div class="col-md-12 form-group px-0">
-                        <label for="dept_position">Position In Department</label>
-                        <input class="form-control @error('dept_position') is-invalid @enderror"
-                               placeholder="{{ __('E.g: Registrar') }}" name="dept_position"
-                               type="text" value="{{ old('dept_position') ?? $member->dept_position }}">
+{{--                <div class="form-row">--}}
+{{--                    <div class="col-md-12 form-group px-0">--}}
+{{--                        <label for="dept_position">Position In Department</label>--}}
+{{--                        <input class="form-control @error('dept_position') is-invalid @enderror"--}}
+{{--                               placeholder="{{ __('E.g: Registrar') }}" name="dept_position"--}}
+{{--                               type="text" value="{{ old('dept_position') ?? $member->dept_position }}">--}}
 
-                        @error('dept_position')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                </div>
+{{--                        @error('dept_position')--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                            <strong>{{ $message }}</strong>--}}
+{{--                        </span>--}}
+{{--                        @enderror--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <div class="text-center">
                     <button type="submit">Update Details</button>

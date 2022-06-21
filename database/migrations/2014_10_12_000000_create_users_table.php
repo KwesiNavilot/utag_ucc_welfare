@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('alt_phonenumber', 10)->nullable();
             $table->string('department')->nullable();
             $table->date('date_of_birth')->nullable();
-            $table->string('dept_position')->nullable();
+//            $table->string('dept_position')->nullable();
             $table->date('date_joined')->nullable();
             $table->set('ignited_profile', ['yes', 'no'])->default('no');
             $table->set('ignited_children', ['yes', 'no'])->default('no');
